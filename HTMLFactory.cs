@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace StatiCsharp
-{
+{   
     /// <summary>
-    /// A representation of the website's main index page
+    /// Creates the html and folder structure based on the given `Website`
     /// </summary>
-    public class Index
+    public static class HTMLFactory
     {
+
     }
 }
