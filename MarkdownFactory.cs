@@ -8,6 +8,9 @@ using static System.Console;
 
 namespace StatiCsharp
 {
+    /// <summary>
+    /// Privides usefull methods to work with markdown files and data.
+    /// </summary>
     internal static class MarkdownFactory
     {
         /// <summary>
@@ -35,7 +38,12 @@ namespace StatiCsharp
             return metaData;
         }
 
-        public static string SliceMetaData(string path)
+        /// <summary>
+        /// Parses the content of the markdownfile, while slicing the meta data.
+        /// </summary>
+        /// <param name="path">Path to the markdown file.</param>
+        /// <returns>A string with the parsed content.</returns>
+        public static string ParseContent(string path)
         {
             string[] lines = File.ReadAllLines(path);
             List<int> yamlMarker = YamlMarkers(lines);
