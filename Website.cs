@@ -98,10 +98,12 @@ namespace StatiCsharp
             // Read meta data of md-file
             Dictionary<string, string> metaData = MarkdownFactory.ParseMetaData(pathToMd);
 
-            // Read md file and slice meta data and convert to html
-            string content = Markdown.ToHtml(MarkdownFactory.SliceMetaData(pathToMd));
+            // Read content of md file
+            string content = Markdown.ToHtml(MarkdownFactory.ParseContent(pathToMd));
 
-            File.WriteAllText(Path.Combine(output, "index.html"), content);
+            string index = HtmlFactory.MakeIndexHtml();
+
+            File.WriteAllText(Path.Combine(output, "index.html"), index);
         }
     }
 }
