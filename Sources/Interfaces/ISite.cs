@@ -17,5 +17,10 @@ namespace StatiCsharp.Interfaces
         string Path { get; set; }
         List<string> Tags { get; set; }
         string Content { get; set; }
+
+        /// <summary>
+        ///  Filename of the file from where the site is generated
+        /// </summary>
+        string MarkdownFileName { get; set; }
     }
 }

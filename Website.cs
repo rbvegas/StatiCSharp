@@ -116,9 +116,11 @@ namespace StatiCsharp
             string content = website.Content;
 
             // For the index: Collecting meta data and content from markdown files.
-            Dictionary<string, string> mdMetaData    = MarkdownFactory.ParseMetaData(Path.Combine(content, "index.md"));
-            string mdContent                         = MarkdownFactory.ParseContent(Path.Combine(content, "index.md"));
-            website.Index.Content                    = Markdown.ToHtml(MarkdownFactory.ParseContent(Path.Combine(content, "index.md")));
+            Dictionary<string, string> mdMetaData   = MarkdownFactory.ParseMetaData(Path.Combine(content, "index.md"));
+            string mdContent                        = MarkdownFactory.ParseContent(Path.Combine(content, "index.md"));
+            website.Index.Content                   = Markdown.ToHtml(MarkdownFactory.ParseContent(Path.Combine(content, "index.md")));
+            string MarkdownFilePath                 = Path.GetFileName(Path.Combine(content, "index.md")).Replace(" ", "-").Trim();
+            website.Index.MarkdownFileName          = MarkdownFilePath.Substring(0, MarkdownFilePath.LastIndexOf(".md"));
             MapMetaData(mdMetaData, website.Index);
 
             // Collecting pages and sections data
@@ -137,10 +139,12 @@ namespace StatiCsharp
                     if (filenames.Length > 0)
                     {
                         foreach (string filename in filenames)
-                        {
+                        { 
                             IPage currentPage = new Page();
                             Dictionary<string, string> currentMetaData = MarkdownFactory.ParseMetaData(Path.Combine(content, directory, filename));
                             currentPage.Content = Markdown.ToHtml(MarkdownFactory.ParseContent(Path.Combine(content, directory, filename)));
+                            string mdFilePath = Path.GetFileName(Path.Combine(content, directory, filename)).Replace(" ", "-").Trim();
+                            currentPage.MarkdownFileName =mdFilePath.Substring(0, mdFilePath.LastIndexOf(".md"));
                             MapMetaData(currentMetaData, currentPage);
                             currentPage.Hierarchy = nameOfCurrentDirectory;
                             website.Pages.Add(currentPage);
@@ -214,7 +218,9 @@ namespace StatiCsharp
                 string body = HtmlFactory.MakePageHtml(site);
                 string page = AddLeadingHtmlCode(this, site, body);
                 // Create directory, if it does not excist.
-                string path = Directory.CreateDirectory(Path.Combine(output, site.Hierarchy)).ToString();
+                string pathInHierachy = (site.Path == string.Empty) ? site.MarkdownFileName : site.Path;
+                if (pathInHierachy == "index") { pathInHierachy = string.Empty; }
+                string path = Directory.CreateDirectory(Path.Combine(output, site.Hierarchy, pathInHierachy)).ToString();
                 File.WriteAllText(Path.Combine(path, "index.html"), page);
             }
         }

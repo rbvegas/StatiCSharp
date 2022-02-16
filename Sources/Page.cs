@@ -54,6 +54,13 @@ namespace StatiCsharp
             set { this.hierarchy = value; }
         }
 
+        private string markdownFileName = string.Empty;
+        public string MarkdownFileName
+        {
+            get { return this.markdownFileName; }
+            set { this.markdownFileName = value; }
+        }
+
         private List<string> tags = new List<string>();
         public List<string> Tags
         {
