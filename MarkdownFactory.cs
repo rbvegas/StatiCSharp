@@ -24,17 +24,24 @@ namespace StatiCsharp
             string[] lines = File.ReadAllLines(path);
             List<int> yamlMarker = YamlMarkers(lines);
 
-            // Add entries between yaml markers in dict
-            for (int i = yamlMarker[0] + 1; i < yamlMarker[1]; i++)
+            // Add meta data from md-file between yaml markers in dict, if there are any.
+            if (yamlMarker.Count > 0)
             {
-                int indexOfColon = lines[i].IndexOf(':');
-                string key = lines[i].Substring(0, indexOfColon).ToLower().Trim();
-                string value = lines[i].Substring(indexOfColon + 1).ToLower().Trim();
-                metaData.Add(key, value);
+                try
+                {
+                    for (int i = yamlMarker[0] + 1; i < yamlMarker[1]; i++)
+                    {
+                        int indexOfColon = lines[i].IndexOf(':');
+                        string key = lines[i].Substring(0, indexOfColon).ToLower().Trim();
+                        string value = lines[i].Substring(indexOfColon + 1).Trim();
+                        metaData.Add(key, value);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
-
-
-
             return metaData;
         }
 
@@ -47,7 +54,11 @@ namespace StatiCsharp
         {
             string[] lines = File.ReadAllLines(path);
             List<int> yamlMarker = YamlMarkers(lines);
-            string[] linesWithoutMetaData = new ArraySegment<string>(lines, yamlMarker[1] + 1, lines.Length - yamlMarker[1]-1).ToArray();
+            if (yamlMarker.Count == 0) // No meta data available
+            {
+                return String.Join("\n", lines);
+            }
+            string[] linesWithoutMetaData = new ArraySegment<string>(lines, yamlMarker[1] + 1, lines.Length - yamlMarker[1] - 1).ToArray();
             string content = String.Join("\n", linesWithoutMetaData);
             return content;
         }
@@ -56,11 +67,21 @@ namespace StatiCsharp
         {
             List<int> marker = new List<int>();
 
+            if (lines[0] != "---")
+            {
+                return marker;
+            }
+
             for (int i = 0; i < lines.Length; i++)
             {
                 if (lines[i] == "---")
                 {
                     marker.Add(i);
+                }
+
+                if (marker.Count == 2)
+                {
+                    break;
                 }
             }
             return marker;
