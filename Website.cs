@@ -122,7 +122,8 @@ namespace StatiCsharp
             MakeItems(HtmlFactory);
 
             WriteLine("Copying resources");
-            CopyResources(this.Resources, output);
+            CopyAll(this.Resources, output);
+            File.Copy(HtmlFactory.cssPath, Path.Combine(output, "styles.css"), true);
 
         }
 
@@ -319,7 +320,7 @@ namespace StatiCsharp
             }
         }
 
-        private void CopyResources(string sourceDir, string destinationDir)
+        private void CopyAll(string sourceDir, string destinationDir)
         {
             // https://docs.microsoft.com/en-us/dotnet/standard/io/how-to-copy-directories
 
@@ -350,7 +351,7 @@ namespace StatiCsharp
                 foreach (DirectoryInfo subDir in dirs)
                 {
                     string newDestinationDir = Path.Combine(destinationDir, subDir.Name);
-                    CopyResources(subDir.FullName, newDestinationDir);
+                    CopyAll(subDir.FullName, newDestinationDir);
                 }
             }
         }

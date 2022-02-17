@@ -9,6 +9,11 @@ namespace StatiCsharp.Interfaces
     public interface IHtmlFactory
     {
         /// <summary>
+        /// Path to the corresponding css file.
+        /// </summary>
+        public string cssPath { get; }
+
+        /// <summary>
         /// Method that returns the html-code for the index.
         /// </summary>
         /// /// <param name="website">The websites index to render.</param>

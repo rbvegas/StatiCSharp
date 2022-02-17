@@ -14,6 +14,11 @@ namespace StatiCsharp
     /// </summary>
     public class FoundationHtmlFactory: IHtmlFactory
     {
+        public string cssPath
+        {
+            get { return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "StatiCsharpEnv", "styles.css"); }
+        }
+
         public string MakeIndexHtml(IWebsite website)
         {
             return new HTML().Add(
