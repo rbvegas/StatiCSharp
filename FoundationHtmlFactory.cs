@@ -35,7 +35,7 @@ namespace StatiCsharp
 
         public string MakeSectionHtml(ISection section)
         {
-            return new HTML().Add(new Text().Add("This is a SECTION")).Render();
+            return new HTML().Add(new Text().Add("This is a SECTION <h2>CSS???</h2>")).Render();
         }
 
         public string MakeItemHtml(IItem item)

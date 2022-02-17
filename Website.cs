@@ -245,6 +245,7 @@ namespace StatiCsharp
             siteBuilder.Append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
             siteBuilder.Append($"<title>{context.Title}</title>");
             siteBuilder.Append($"<meta name=\"description\" content=\"{website.Description}\">");
+            siteBuilder.Append($"<link rel=\"stylesheet\" href=\"/styles.css\"");
             siteBuilder.Append("</head>");
             siteBuilder.Append("<body>");
             siteBuilder.Append(body);
