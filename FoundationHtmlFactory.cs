@@ -27,5 +27,15 @@ namespace StatiCsharp
         {
             return new HTML().Add(new Text().Add("This is a page")).Render();
         }
+
+        public string MakeSectionHtml(ISection section)
+        {
+            return new HTML().Add(new Text().Add("This is a SECTION")).Render();
+        }
+
+        public string MakeItemHtml(IItem item)
+        {
+            return new HTML().Add(new Text().Add("This is an ITEM")).Render();
+        }
     }
 }

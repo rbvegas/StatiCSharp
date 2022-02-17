@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace StatiCsharp.Interfaces
+{
+    public  interface ISection: ISite
+    {
+        /// <summary>
+        /// Name if the section. In the url the equivalent to `hierachy` of a page. (i.e. "dev" for rolandbraun.com/dev)
+        /// </summary>
+        string SectionName { get; set; }
+
+        /// <summary>
+        /// A list of the items corresponding to this section.
+        /// </summary>
+        List<IItem> Items { get; }
+
+        /// <summary>
+        /// Adds an item to the section and sorts them by date.
+        /// </summary>
+        /// <param name="item">The item to add.</param>
+        void AddItem(IItem item);
+    }
+}

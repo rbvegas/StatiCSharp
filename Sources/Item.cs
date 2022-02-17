@@ -7,51 +7,55 @@ using StatiCsharp.Interfaces;
 
 namespace StatiCsharp
 {
-    /// <summary>
-    /// Represenation of the index page.
-    /// </summary>
-    internal class Index : ISite
+    internal class Item : IItem
     {
         private string title = string.Empty;
         public string Title
         {
-            get { return title; }
-            set { title = value; }
+            get { return this.title; }
+            set { this.title = value; }
         }
 
         private string description = string.Empty;
         public string Description
         {
-            get { return description; }
-            set { description = value; }
+            get { return this.description; }
+            set { this.description = value; }
         }
 
-        private string author = string.Empty;
+        private string author = "";
         public string Author
         {
-            get { return author; }
-            set { author = value; }
+            get { return this.author; }
+            set { this.author = value; }
         }
 
         private DateOnly date = DateOnly.FromDateTime(DateTime.Now);
         public DateOnly Date
         {
-            get { return date; }
-            set { date = value; }
+            get { return this.date; }
+            set { this.date = value; }
         }
 
         private DateOnly dateLastModified = DateOnly.FromDateTime(DateTime.Now);
         public DateOnly DateLastModified
         {
             get { return this.dateLastModified; }
-            set { this.dateLastModified = value; }
+            set {  this.dateLastModified = value; }
         }
 
         private string path = string.Empty;
         public string Path
         {
-            get { return path; }
-            set { path = value; }
+            get { return this.path; }
+            set { this.path = value; }
+        }
+
+        private string hierarchy = string.Empty;
+        public string Hierarchy
+        {
+            get { return this.hierarchy; }
+            set { this.hierarchy = value; }
         }
 
         private string markdownFileName = string.Empty;
@@ -64,15 +68,15 @@ namespace StatiCsharp
         private List<string> tags = new List<string>();
         public List<string> Tags
         {
-            get { return tags; }
-            set { tags = value; }
+            get { return this.tags; }
+            set { this.tags = value; }
         }
 
         private string content = string.Empty;
         public string Content
         {
-            get { return content; }
-            set { content = value; }
+            get { return this.content; }
+            set { this.content = value; }
         }
     }
 }

@@ -11,7 +11,16 @@ namespace StatiCsharp.Interfaces
         string Title { get; set; }
         string Description { get; set; }
         string Author { get; set; }
+
+        /// <summary>
+        /// The date when this site is published or should be.
+        /// </summary>
         DateOnly Date { get; set; }
+
+        /// <summary>
+        /// The date when the markdown-file was last modified.
+        /// </summary>
+        DateOnly DateLastModified { get; set; }
         
         // The path of the site within its corresponding hierarchy
         string Path { get; set; }

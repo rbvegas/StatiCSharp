@@ -5,14 +5,25 @@ using System.Text;
 using System.Threading.Tasks;
 using StatiCsharp.Interfaces;
 
+
 namespace StatiCsharp
 {
-    /// <summary>
-    /// Represenation of a page.
-    /// </summary>
-    internal class Page : IPage
+    internal class Section : ISection
     {
-        private string title =string.Empty;
+        private string sectionName = string.Empty;
+        public string SectionName
+        {
+            get { return sectionName; }
+            set { sectionName = value; }
+        }
+
+        private List<IItem> items = new List<IItem>();
+        public List<IItem> Items
+        {
+            get { return items; }
+        }
+
+        private string title = string.Empty;
         public string Title
         {
             get { return this.title; }
@@ -27,7 +38,7 @@ namespace StatiCsharp
         }
 
         private string author = "";
-        public string Author 
+        public string Author
         {
             get { return this.author; }
             set { this.author = value; }
@@ -50,7 +61,7 @@ namespace StatiCsharp
         private string path = string.Empty;
         public string Path
         {
-            get { return this.path;}
+            get { return this.path; }
             set { this.path = value; }
         }
 
@@ -71,7 +82,7 @@ namespace StatiCsharp
         private List<string> tags = new List<string>();
         public List<string> Tags
         {
-            get { return this.tags;}
+            get { return this.tags; }
             set { this.tags = value; }
         }
 
@@ -80,6 +91,17 @@ namespace StatiCsharp
         {
             get { return this.content; }
             set { this.content = value; }
+        }
+
+        private void SortItems()
+        {
+            System.Console.WriteLine("Whould sort");
+        }
+
+        public void AddItem(IItem item)
+        {
+            this.items.Add(item);
+            this.items.OrderByDescending(x => x.Date);
         }
     }
 }
