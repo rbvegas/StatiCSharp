@@ -67,7 +67,11 @@ namespace StatiCsharp
         private string content;
         public string Content { get { return this.content; } }
 
-        
+        private string resources = string.Empty;
+        public string Resources { 
+            get { return this.resources;} 
+            set { this.resources = value; }
+        }
 
         // Init
         public Website()
@@ -77,6 +81,7 @@ namespace StatiCsharp
             description = "descripton of site";
             language = new CultureInfo("en-US");
             content = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "StatiCsharpEnv", "Content");
+            resources = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "StatiCsharpEnv", "Resources");
             output = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "StatiCsharpEnv", "Output");
             makeSectionsFor = new List<string>() {"physics", "dev"};
         }
@@ -88,6 +93,7 @@ namespace StatiCsharp
             this.description = description;
             this.language = new CultureInfo(language);
             content = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "StatiCsharpEnv", "Content");
+            resources = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "StatiCsharpEnv", "Resources");
             output = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "StatiCsharpEnv", "Output");
         }
 
@@ -114,6 +120,9 @@ namespace StatiCsharp
 
             WriteLine("Generating items...");
             MakeItems(HtmlFactory);
+
+            WriteLine("Copying resources");
+            CopyResources(this.Resources, output);
 
         }
 
@@ -306,6 +315,42 @@ namespace StatiCsharp
                     string itemPath = (site.Path != string.Empty) ? site.Path : site.MarkdownFileName;
                     string path = Directory.CreateDirectory(Path.Combine(output, currentSection.SectionName, itemPath)).ToString();
                     File.WriteAllText(Path.Combine(path, "index.html"), page);
+                }
+            }
+        }
+
+        private void CopyResources(string sourceDir, string destinationDir)
+        {
+            // https://docs.microsoft.com/en-us/dotnet/standard/io/how-to-copy-directories
+
+      
+            // Get information about the source directory
+            var dir = new DirectoryInfo(sourceDir);
+
+            // Check if the source directory exists
+            if (!dir.Exists)
+                throw new DirectoryNotFoundException($"Source directory not found: {dir.FullName}");
+
+            // Cache directories before we start copying
+            DirectoryInfo[] dirs = dir.GetDirectories();
+
+            // Create the destination directory
+            Directory.CreateDirectory(destinationDir);
+
+            // Get the files in the source directory and copy to the destination directory
+            foreach (FileInfo file in dir.GetFiles())
+            {
+                string targetFilePath = Path.Combine(destinationDir, file.Name);
+                file.CopyTo(targetFilePath);
+            }
+
+            // If recursive and copying subdirectories, recursively call this method
+            if (true)
+            {
+                foreach (DirectoryInfo subDir in dirs)
+                {
+                    string newDestinationDir = Path.Combine(destinationDir, subDir.Name);
+                    CopyResources(subDir.FullName, newDestinationDir);
                 }
             }
         }

@@ -21,8 +21,13 @@ namespace StatiCsharp.Interfaces
         /// The website's primary language
         CultureInfo Language { get; }
 
-        /// The path to the content (markdown files) of the website
+        /// The path to the content (markdown files) of the website.
         string Content { get; }
+
+        /// <summary>
+        ///  The path to the resources (static files) of the website.
+        /// </summary>
+        string Resources { get; }
 
         /// The website's favicon, if any.
         //TODO
