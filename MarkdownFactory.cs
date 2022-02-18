@@ -39,7 +39,7 @@ namespace StatiCsharp
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    // No meta data found
                 }
             }
             return metaData;
