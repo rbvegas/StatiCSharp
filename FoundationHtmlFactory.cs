@@ -39,12 +39,12 @@ namespace StatiCsharp
 
         public string MakePageHtml(IPage page)
         {
-            return new HTML().Add(new Text().Add("This is a page")).Render();
+            return new HTML().Add(new Navigation(website.MakeSectionsFor)).Render();
         }
 
         public string MakeSectionHtml(ISection section)
         {
-            return new HTML().Add(new Text().Add("This is a SECTION <h2>CSS???</h2>")).Render();
+            return new HTML().Add(new Navigation(website.MakeSectionsFor)).Render();
         }
 
         public string MakeItemHtml(IItem item)
