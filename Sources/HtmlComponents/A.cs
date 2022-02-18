@@ -7,56 +7,63 @@ using System.Threading.Tasks;
 namespace StatiCsharp.HtmlComponents
 {
     /// <summary>
-    /// A representation of a div element.
+    /// A representation of an anker element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
-    internal class Div : IHtmlComponent
+    internal class A: IHtmlComponent
     {
         /// <summary>
-        /// Contains the components inside the div-container.
+        /// Contains the components inside the anker tag.
         /// </summary>
         private List<IHtmlComponent> content;
 
+        /// <summary>
+        /// The content of the href tag.
+        /// </summary>
+        private string? href;
+
+        /// <summary>
         /// CSS classes
+        /// </summary>
         private string? cssClass;
 
+        /// <summary>
         /// Styles
+        /// </summary>
         private string? cssStyle;
 
         /// <summary>
-        /// Initiate a new empty div element.
+        /// Initiate a new and empty anker-element.
         /// </summary>
-        public Div()
+        public A()
         {
             this.content = new List<IHtmlComponent>();
         }
 
         /// <summary>
-        /// Initiate a new div element.
+        /// Initiate a new link with a text-body.
         /// </summary>
-        /// <param name="component">The component for the content of the div.</param>
-        public Div(IHtmlComponent component)
+        /// <param name="text">The text for the link.</param>
+        public A(string text)
         {
-            this.content = new List<IHtmlComponent>() { component };
-        }
-
-        /// <summary>
-        /// Initiate a new div element.
-        /// </summary>
-        /// <param name="text">The text inside the body of the div.</param>
-        public Div(string text)
-        {
-            this.content = new List<IHtmlComponent>() { new Text(text) };
+            this.content = new List<IHtmlComponent>();
+            this.content.Add(new Text(text));
         }
 
         /// <summary>
         /// Add a new element to the body of this element.
         /// </summary>
-        /// <param name="component">The element you want to add. Must implement IHtmlComponent</param>
-        /// <returns>this - The div object itself</returns>
-        public Div Add(IHtmlComponent component)
+        /// <param name="element">The element you want to add. Must implement IHtmlComponent</param>
+        /// <returns>this - The anker object itself</returns>
+        public A Add(IHtmlComponent element)
         {
-            this.content.Add(component);
+            this.content.Add(element);
+            return this;
+        }
+
+        public A Href(string href)
+        {
+            this.href = href;
             return this;
         }
 
@@ -64,8 +71,8 @@ namespace StatiCsharp.HtmlComponents
         /// Add a class attribute
         /// </summary>
         /// <param name="cssClass">The name of the css class you want to assign.</param>
-        /// <returns>this - The div object itself</returns>
-        public Div Class(string cssClass)
+        /// <returns>this - The anker object itself</returns>
+        public A Class(string cssClass)
         {
             this.cssClass = cssClass;
             return this;
@@ -75,29 +82,30 @@ namespace StatiCsharp.HtmlComponents
         /// Add a style attribute
         /// </summary>
         /// <param name="style">The content of the style attribute.</param>
-        /// <returns>this - The div object itself></returns>
-        public Div Style(string style)
+        /// <returns>this - The anker object itself></returns>
+        public A Style(string style)
         {
             this.cssStyle = style;
             return this;
         }
 
-        /// <summary>
-        /// Renders the div to html code.
-        /// </summary>
-        /// <returns>A string containing the html code of this div.</returns>
+
         public string Render()
         {
             StringBuilder componentBuilder = new();
 
             // Build leading tag
-            componentBuilder.Append("<div");
-            
+            componentBuilder.Append("<a");
+
+            // Add href
+            componentBuilder.Append($" href=\"{this.href}\"");
+
             // Add classes
-            if (cssClass is not null) {
+            if (cssClass is not null)
+            {
                 componentBuilder.Append($" class=\"{this.cssClass}\"");
             }
-            
+
             // Add styles
             if (cssStyle is not null)
             {
@@ -106,15 +114,14 @@ namespace StatiCsharp.HtmlComponents
             // Close leading tag
             componentBuilder.Append(">");
 
-
-            // Build body of div element
+            // Build body of anker element
             foreach (IHtmlComponent element in this.content)
             {
                 componentBuilder.Append(element.Render());
             }
 
             // Build trailing tag
-            componentBuilder.Append("</div>");
+            componentBuilder.Append("</a>");
 
             return componentBuilder.ToString();
         }

@@ -19,13 +19,22 @@ namespace StatiCsharp
             get { return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "StatiCsharpEnv", "styles.css"); }
         }
 
+        private IWebsite? website;
+        public IWebsite? Website
+        {
+            get { return this.Website; }
+        }
+
+        public void WithWebsite(IWebsite website)
+        {
+            this.website = website;
+        }
+
         public string MakeIndexHtml(IWebsite website)
         {
-            return new HTML().Add(
-                    new Text().Add("<h1>" + website.Index.Title + "</h1>")
-                   )
-                   .Add(new Div().Add(new Text().Add(website.Index.Content)))
-                   .Render();
+            return  new HTML().Add(
+                        new Navigation(website.MakeSectionsFor)
+                    ).Render();
         }
 
         public string MakePageHtml(IPage page)
@@ -41,6 +50,36 @@ namespace StatiCsharp
         public string MakeItemHtml(IItem item)
         {
             return new HTML().Add(new Text().Add("This is an ITEM")).Render();
+        }
+    }
+
+    internal class Navigation: IHtmlComponent
+    {
+        List<string> sections;
+        public Navigation(List<string> sections)
+        {
+            this.sections = sections;
+        }
+        public string Render()
+        {
+            Ul NavLinks = new();
+            foreach (var section in sections)
+            {
+                if (section.ToString() is not null)
+                {
+                    NavLinks.Add(new Li(new A(section).Href($"/{section}")));
+                }
+            }
+            return  new Header(
+                            new Div(
+                                new A("Roland Braun").Href("/").Class("site-name")
+                            ).Add(
+                                new Nav().Add(
+                                    new Ul().Add(NavLinks)
+                                )
+                            ).Class("wrapper")
+                    )
+                    .Render();
         }
     }
 }

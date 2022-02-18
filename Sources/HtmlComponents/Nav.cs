@@ -7,14 +7,12 @@ using System.Threading.Tasks;
 namespace StatiCsharp.HtmlComponents
 {
     /// <summary>
-    /// A representation of a div element.
+    /// A representation of a nav element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
-    internal class Div : IHtmlComponent
+    internal class Nav : IHtmlComponent
     {
-        /// <summary>
-        /// Contains the components inside the div-container.
-        /// </summary>
+        /// Contains the components inside the nav-container.
         private List<IHtmlComponent> content;
 
         /// CSS classes
@@ -24,39 +22,39 @@ namespace StatiCsharp.HtmlComponents
         private string? cssStyle;
 
         /// <summary>
-        /// Initiate a new empty div element.
+        /// Initiate a new and empty nav-element.
         /// </summary>
-        public Div()
+        public Nav()
         {
             this.content = new List<IHtmlComponent>();
         }
 
         /// <summary>
-        /// Initiate a new div element.
+        /// Initiate a new nav element.
         /// </summary>
-        /// <param name="component">The component for the content of the div.</param>
-        public Div(IHtmlComponent component)
+        /// <param name="component">The component inside the body of the nav tag.</param>
+        public Nav(IHtmlComponent component)
         {
-            this.content = new List<IHtmlComponent>() { component };
+            this.content = new List<IHtmlComponent> { component };
         }
 
         /// <summary>
-        /// Initiate a new div element.
+        /// Initiate a new nav element.
         /// </summary>
-        /// <param name="text">The text inside the body of the div.</param>
-        public Div(string text)
+        /// <param name="text">The text inside the body of the nav tag.</param>
+        public Nav(string text)
         {
-            this.content = new List<IHtmlComponent>() { new Text(text) };
+            this.content = new List<IHtmlComponent> { new Text(text) };
         }
 
         /// <summary>
         /// Add a new element to the body of this element.
         /// </summary>
-        /// <param name="component">The element you want to add. Must implement IHtmlComponent</param>
-        /// <returns>this - The div object itself</returns>
-        public Div Add(IHtmlComponent component)
+        /// <param name="element">The element you want to add. Must implement IHtmlComponent</param>
+        /// <returns>this - The nav object itself</returns>
+        public Nav Add(IHtmlComponent element)
         {
-            this.content.Add(component);
+            this.content.Add(element);
             return this;
         }
 
@@ -64,8 +62,8 @@ namespace StatiCsharp.HtmlComponents
         /// Add a class attribute
         /// </summary>
         /// <param name="cssClass">The name of the css class you want to assign.</param>
-        /// <returns>this - The div object itself</returns>
-        public Div Class(string cssClass)
+        /// <returns>this - The nav object itself</returns>
+        public Nav Class(string cssClass)
         {
             this.cssClass = cssClass;
             return this;
@@ -75,29 +73,30 @@ namespace StatiCsharp.HtmlComponents
         /// Add a style attribute
         /// </summary>
         /// <param name="style">The content of the style attribute.</param>
-        /// <returns>this - The div object itself></returns>
-        public Div Style(string style)
+        /// <returns>this - The nav object itself></returns>
+        public Nav Style(string style)
         {
             this.cssStyle = style;
             return this;
         }
 
         /// <summary>
-        /// Renders the div to html code.
+        /// Renders the nav to html code.
         /// </summary>
-        /// <returns>A string containing the html code of this div.</returns>
+        /// <returns>A string containing the html code of this nav.</returns>
         public string Render()
         {
             StringBuilder componentBuilder = new();
 
             // Build leading tag
-            componentBuilder.Append("<div");
-            
+            componentBuilder.Append("<nav");
+
             // Add classes
-            if (cssClass is not null) {
+            if (cssClass is not null)
+            {
                 componentBuilder.Append($" class=\"{this.cssClass}\"");
             }
-            
+
             // Add styles
             if (cssStyle is not null)
             {
@@ -114,7 +113,7 @@ namespace StatiCsharp.HtmlComponents
             }
 
             // Build trailing tag
-            componentBuilder.Append("</div>");
+            componentBuilder.Append("</nav>");
 
             return componentBuilder.ToString();
         }

@@ -39,7 +39,7 @@ namespace StatiCsharp.Interfaces
         List<ISite> Pages { get; }
 
         /// The website's sections (not pages)
-        List<ISite> Sections { get; }
+        List<ISection> Sections { get; }
 
         /// The names of the sections the website will have. Need to be the exact name of the folders in the Content directory.
         /// Sections are also visible in the navigation.

@@ -7,14 +7,12 @@ using System.Threading.Tasks;
 namespace StatiCsharp.HtmlComponents
 {
     /// <summary>
-    /// A representation of a div element.
+    /// A representation of a <header></header> element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
-    internal class Div : IHtmlComponent
+    internal class Header: IHtmlComponent
     {
-        /// <summary>
-        /// Contains the components inside the div-container.
-        /// </summary>
+        /// Contains the components inside the header-container.
         private List<IHtmlComponent> content;
 
         /// CSS classes
@@ -24,39 +22,41 @@ namespace StatiCsharp.HtmlComponents
         private string? cssStyle;
 
         /// <summary>
-        /// Initiate a new empty div element.
+        /// Initiate a new header element.
         /// </summary>
-        public Div()
+        public Header()
         {
             this.content = new List<IHtmlComponent>();
         }
 
         /// <summary>
-        /// Initiate a new div element.
+        /// Initiate a new header element.
         /// </summary>
-        /// <param name="component">The component for the content of the div.</param>
-        public Div(IHtmlComponent component)
+        /// <param name="element">The element for the content of the header.</param>
+        public Header(IHtmlComponent element)
         {
-            this.content = new List<IHtmlComponent>() { component };
+            this.content = new List<IHtmlComponent>();
+            this.content.Add(element);
         }
 
         /// <summary>
-        /// Initiate a new div element.
+        /// Initiate a new header with a text-body.
         /// </summary>
-        /// <param name="text">The text inside the body of the div.</param>
-        public Div(string text)
+        /// <param name="text">The text inside the header.</param>
+        public Header(string text)
         {
-            this.content = new List<IHtmlComponent>() { new Text(text) };
+            this.content= new List<IHtmlComponent>();
+            this.content.Add(new Text(text));
         }
 
         /// <summary>
-        /// Add a new element to the body of this element.
+        /// Add new element to the body of this element.
         /// </summary>
-        /// <param name="component">The element you want to add. Must implement IHtmlComponent</param>
-        /// <returns>this - The div object itself</returns>
-        public Div Add(IHtmlComponent component)
+        /// <param name="element">The element you want to add. Must implement IHtmlComponent</param>
+        /// <returns>this - The header object itself</returns>
+        public Header Add(IHtmlComponent element)
         {
-            this.content.Add(component);
+            this.content.Add(element);
             return this;
         }
 
@@ -64,8 +64,8 @@ namespace StatiCsharp.HtmlComponents
         /// Add a class attribute
         /// </summary>
         /// <param name="cssClass">The name of the css class you want to assign.</param>
-        /// <returns>this - The div object itself</returns>
-        public Div Class(string cssClass)
+        /// <returns>this - The header object itself</returns>
+        public Header Class(string cssClass)
         {
             this.cssClass = cssClass;
             return this;
@@ -75,29 +75,26 @@ namespace StatiCsharp.HtmlComponents
         /// Add a style attribute
         /// </summary>
         /// <param name="style">The content of the style attribute.</param>
-        /// <returns>this - The div object itself></returns>
-        public Div Style(string style)
+        /// <returns>this - The header object itself></returns>
+        public Header Style(string style)
         {
             this.cssStyle = style;
             return this;
         }
 
-        /// <summary>
-        /// Renders the div to html code.
-        /// </summary>
-        /// <returns>A string containing the html code of this div.</returns>
         public string Render()
         {
-            StringBuilder componentBuilder = new();
+            StringBuilder componentBuilder = new StringBuilder();
 
             // Build leading tag
-            componentBuilder.Append("<div");
-            
+            componentBuilder.Append("<header");
+
             // Add classes
-            if (cssClass is not null) {
+            if (cssClass is not null)
+            {
                 componentBuilder.Append($" class=\"{this.cssClass}\"");
             }
-            
+
             // Add styles
             if (cssStyle is not null)
             {
@@ -106,15 +103,14 @@ namespace StatiCsharp.HtmlComponents
             // Close leading tag
             componentBuilder.Append(">");
 
-
-            // Build body of div element
+            // Build body of header element
             foreach (IHtmlComponent element in this.content)
             {
                 componentBuilder.Append(element.Render());
             }
 
             // Build trailing tag
-            componentBuilder.Append("</div>");
+            componentBuilder.Append("</header>");
 
             return componentBuilder.ToString();
         }

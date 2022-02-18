@@ -15,9 +15,21 @@ namespace StatiCsharp.HtmlComponents
         // Contains the text as a string
         private string text;
 
+        /// <summary>
+        /// Initiate an empty Text.
+        /// </summary>
         public Text()
         {
             this.text = string.Empty;
+        }
+
+        /// <summary>
+        /// Initiate a new text.
+        /// </summary>
+        /// <param name="text">Your text.</param>
+        public Text(string text)
+        {
+            this.text = text;
         }
 
         public Text Add(string text)

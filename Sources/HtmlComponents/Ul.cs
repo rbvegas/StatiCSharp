@@ -7,56 +7,60 @@ using System.Threading.Tasks;
 namespace StatiCsharp.HtmlComponents
 {
     /// <summary>
-    /// A representation of a div element.
+    /// A representation of a <ul></ul> element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
-    internal class Div : IHtmlComponent
+    internal class Ul:IHtmlComponent
     {
         /// <summary>
-        /// Contains the components inside the div-container.
+        /// Contains the components inside the ul-container.
         /// </summary>
         private List<IHtmlComponent> content;
 
+        /// <summary>
         /// CSS classes
+        /// </summary>
         private string? cssClass;
 
+        /// <summary>
         /// Styles
+        /// </summary>
         private string? cssStyle;
 
         /// <summary>
-        /// Initiate a new empty div element.
+        /// Initiate a new empty ul element.
         /// </summary>
-        public Div()
+        public Ul()
         {
             this.content = new List<IHtmlComponent>();
         }
 
         /// <summary>
-        /// Initiate a new div element.
+        /// Initiate a new ul element.
         /// </summary>
-        /// <param name="component">The component for the content of the div.</param>
-        public Div(IHtmlComponent component)
+        /// <param name="component">The component for the content of the ul.</param>
+        public Ul(IHtmlComponent component)
         {
-            this.content = new List<IHtmlComponent>() { component };
+            this.content = new List<IHtmlComponent> { component };
         }
 
         /// <summary>
-        /// Initiate a new div element.
+        /// Initiate a new ul element.
         /// </summary>
-        /// <param name="text">The text inside the body of the div.</param>
-        public Div(string text)
+        /// <param name="text">The text inside the body of the ul.</param>
+        public Ul(string text)
         {
-            this.content = new List<IHtmlComponent>() { new Text(text) };
+            this.content = new List<IHtmlComponent> { new Text(text) };
         }
 
         /// <summary>
-        /// Add a new element to the body of this element.
+        /// Add a new component to the body of this element.
         /// </summary>
-        /// <param name="component">The element you want to add. Must implement IHtmlComponent</param>
-        /// <returns>this - The div object itself</returns>
-        public Div Add(IHtmlComponent component)
+        /// <param name="component">The component you want to add.</param>
+        /// <returns>this - the ul object itself</returns>
+        public Ul Add(IHtmlComponent component)
         {
-            this.content.Add(component);
+            content.Add(component);
             return this;
         }
 
@@ -64,8 +68,8 @@ namespace StatiCsharp.HtmlComponents
         /// Add a class attribute
         /// </summary>
         /// <param name="cssClass">The name of the css class you want to assign.</param>
-        /// <returns>this - The div object itself</returns>
-        public Div Class(string cssClass)
+        /// <returns>this - The ul object itself</returns>
+        public Ul Class(string cssClass)
         {
             this.cssClass = cssClass;
             return this;
@@ -75,29 +79,30 @@ namespace StatiCsharp.HtmlComponents
         /// Add a style attribute
         /// </summary>
         /// <param name="style">The content of the style attribute.</param>
-        /// <returns>this - The div object itself></returns>
-        public Div Style(string style)
+        /// <returns>this - The ul object itself></returns>
+        public Ul Style(string style)
         {
             this.cssStyle = style;
             return this;
         }
 
         /// <summary>
-        /// Renders the div to html code.
+        /// Renders the ul to html code.
         /// </summary>
-        /// <returns>A string containing the html code of this div.</returns>
+        /// <returns>A string containing the html code of this ul.</returns>
         public string Render()
         {
             StringBuilder componentBuilder = new();
 
             // Build leading tag
-            componentBuilder.Append("<div");
-            
+            componentBuilder.Append("<ul");
+
             // Add classes
-            if (cssClass is not null) {
+            if (cssClass is not null)
+            {
                 componentBuilder.Append($" class=\"{this.cssClass}\"");
             }
-            
+
             // Add styles
             if (cssStyle is not null)
             {
@@ -114,7 +119,7 @@ namespace StatiCsharp.HtmlComponents
             }
 
             // Build trailing tag
-            componentBuilder.Append("</div>");
+            componentBuilder.Append("</ul>");
 
             return componentBuilder.ToString();
         }

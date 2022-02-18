@@ -50,8 +50,8 @@ namespace StatiCsharp
             set { this.pages = value; }
         }
 
-        private List<ISite> sections = new List<ISite>();
-        public List<ISite> Sections
+        private List<ISection> sections = new List<ISection>();
+        public List<ISection> Sections
         {
             get { return this.sections; }
             set { this.sections = value; }
@@ -83,7 +83,7 @@ namespace StatiCsharp
             content = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "StatiCsharpEnv", "Content");
             resources = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "StatiCsharpEnv", "Resources");
             output = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "StatiCsharpEnv", "Output");
-            makeSectionsFor = new List<string>() {"physics", "dev"};
+            makeSectionsFor = new List<string>();
         }
 
         public Website(string url, string name, string description, string language)
@@ -99,11 +99,14 @@ namespace StatiCsharp
 
         public void Make()
         {
-            this.Make(new StatiCsharp.FoundationHtmlFactory());
+            IHtmlFactory factory = new FoundationHtmlFactory();
+            factory.WithWebsite(this);
+            this.Make(factory);
         }
 
         public void Make(IHtmlFactory HtmlFactory)
         {
+            HtmlFactory.WithWebsite(this);
             WriteLine("Making your website...");
 
             WriteLine("Collecting markdown data...");

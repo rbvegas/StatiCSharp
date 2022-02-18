@@ -14,6 +14,17 @@ namespace StatiCsharp.Interfaces
         public string cssPath { get; }
 
         /// <summary>
+        /// The website the theme is used for.
+        /// </summary>
+        public IWebsite? Website { get; }
+
+        /// <summary>
+        /// Method to add a website to the theme.
+        /// </summary>
+        /// <param name="website"></param>
+        public void WithWebsite(IWebsite website);
+
+        /// <summary>
         /// Method that returns the html-code for the index.
         /// </summary>
         /// /// <param name="website">The websites index to render.</param>
