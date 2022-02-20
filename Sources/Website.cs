@@ -73,6 +73,13 @@ namespace StatiCsharp
             set { this.resources = value; }
         }
 
+        private string sourceDir;
+        public string SourceDir
+        {
+            get { return this.sourceDir;}
+            set { this.sourceDir = value; }
+        }
+
         // Init
         public Website(string url, string name, string description, string language, List<string> sections, string source)
         {
@@ -80,6 +87,7 @@ namespace StatiCsharp
             this.name = name;
             this.description = description;
             this.language = new CultureInfo(language);
+            this.sourceDir = Path.Combine(source);
             this.content = Path.Combine(source, "Content");
             this.resources = Path.Combine(source, "Resources");
             this.output = Path.Combine(source, "Output");
