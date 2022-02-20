@@ -10,6 +10,10 @@ namespace StatiCsharp
 {
     public partial class Website: IWebsite
     {
+        /// <summary>
+        /// Deletes all directories and files within the given path, without deleting the the path folder itself.
+        /// </summary>
+        /// <param name="path">Path of the directory.</param>
         private void DeleteAll(string path)
         {
             DirectoryInfo directory = new DirectoryInfo(path);
