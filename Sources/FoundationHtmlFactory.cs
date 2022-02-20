@@ -138,10 +138,32 @@ namespace StatiCsharp
                                                                     new A(item.Title).Href($"/{item.Tags.ToString()}")
                                                                 )
                                                         )
+                                                        .Add(new Div()
+                                                                .Add(new TagList(item.Tags))
+                                                                .Add(new Text(item.Date.ToShortDateString()))
+                                                                .Class("item-meta-data"))
                                                         .Add(new Text($"<p>{item.Description}</p>"))
                                                     )
                                                 )
                                         );
+                return result.Render();
+            }
+        }
+
+        public class TagList: IHtmlComponent
+        {
+            private List<string> tags;
+            public TagList(List<string> tags)
+            {
+                this.tags = tags;
+            }
+            public string Render()
+            {
+                var result = new Ul().Class("tags");
+                tags.ForEach((tag) => result.Add(
+                                                new Li().Class("variant-default")
+                                                        .Add(new A(tag).Href($"/tags/{tag}")))
+                            );
                 return result.Render();
             }
         }
