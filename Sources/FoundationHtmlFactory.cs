@@ -33,18 +33,18 @@ namespace StatiCsharp
         public string MakeIndexHtml(IWebsite website)
         {
             return  new HTML().Add(
-                        new Navigation(website)
+                        new SiteHeader(website)
                     ).Render();
         }
 
         public string MakePageHtml(IPage page)
         {
-            return new HTML().Add(new Navigation(website)).Render();
+            return new HTML().Add(new SiteHeader(website)).Render();
         }
 
         public string MakeSectionHtml(ISection section)
         {
-            return new HTML().Add(new Navigation(website)).Render();
+            return new HTML().Add(new SiteHeader(website)).Render();
         }
 
         public string MakeItemHtml(IItem item)
@@ -58,11 +58,11 @@ namespace StatiCsharp
         /// Components
         ////////////
         
-        private class Navigation : IHtmlComponent
+        private class SiteHeader : IHtmlComponent
         {
             List<string> sections;
             IWebsite website;
-            public Navigation(IWebsite website)
+            public SiteHeader(IWebsite website)
             {
                 this.website=website;
                 this.sections = website.MakeSectionsFor;
