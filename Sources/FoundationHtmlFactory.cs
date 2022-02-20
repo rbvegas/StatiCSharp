@@ -32,13 +32,25 @@ namespace StatiCsharp
 
         public string MakeIndexHtml(IWebsite website)
         {
-            return  new HTML().Add(new SiteHeader(website))
-                              .Add(new Div()
+            // Collect all items to show. 10 items max.
+            List<IItem> items = new List<IItem>();
+            foreach (ISection section in website.Sections)
+                {
+                    section.Items.ForEach((item) => items.Add(item));
+                }
+            int showArticles = (items.Count > 10) ? 10 : items.Count;
+            // http://procbits.com/2010/09/09/three-ways-to-sort-a-list-of-objects-with-datetime-in-c
+            items.Sort( (i1, i2) => DateTime.Compare(i1.Date.ToDateTime(TimeOnly.Parse("6pm")), i2.Date.ToDateTime(TimeOnly.Parse("6pm"))));
+            items = items.GetRange(0, showArticles);
+
+            return  new HTML()  .Add(new SiteHeader(website))
+                                .Add(new Div()
                                     .Add(new Div(website.Index.Content)
                                             .Class("welcomeWrapper"))
                                     .Add(new Text("<h2>Latest Content</h2>"))
-                                    .Add(new ItemList(website))
+                                    .Add(new ItemList(items))
                                     .Class("wrapper"))
+                                .Add(new Footer())
                                
                     .Render();
         }
@@ -111,33 +123,42 @@ namespace StatiCsharp
 
         private class ItemList: IHtmlComponent
         {
-            private IWebsite website;
-            private List<IItem> items;
-            private List<IHtmlComponent> components = new List<IHtmlComponent>();
-            public ItemList(IWebsite website)
+            private List<IItem> items;            
+            public ItemList(List<IItem> items)
             {
-                this.website = website;
-                this.items = new List<IItem>();
-                foreach (ISection section in website.Sections)
-                {
-                    section.Items.ForEach((item) => this.items.Add(item));
-                }
-                int showArticles = (items.Count > 10) ? 10 : items.Count;
-                this.items = this.items.GetRange(0, showArticles);
+                this.items = items;
             }
-                      
             public string Render()
             {
                 var result = new Ul().Class("item-list");
                 items.ForEach((item) => result.Add(
                                                 new Li()
                                                     .Add(new Article()
-                                                        .Add(new Text($"<h1>{item.Title}</h1>"))
+                                                        .Add(new H1().Add(
+                                                                    new A(item.Title).Href($"/{item.Tags.ToString()}")
+                                                                )
+                                                        )
                                                         .Add(new Text($"<p>{item.Description}</p>"))
                                                     )
                                                 )
                                         );
                 return result.Render();
+            }
+        }
+
+        private class Footer: IHtmlComponent
+        {
+            public string Render()
+            {
+                return new HtmlComponents.Footer()
+                .Add(new Paragraph()
+                        .Add(new Text("Generated with ❤️ using "))
+                        .Add(new A("StatiC#").Href("#")))
+                .Add(new Paragraph()
+                        .Add(new A("Datenschutz").Href("/legal/datenschutz").Style("padding-right: 20px;"))
+                        .Add(new A("Impressum").Href("/legal/impressum")))
+
+                .Render();
             }
         }
     }
