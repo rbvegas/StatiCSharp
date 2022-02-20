@@ -32,9 +32,9 @@ namespace StatiCsharp
 
         public string MakeIndexHtml(IWebsite website)
         {
-            return  new HTML().Add(
-                        new SiteHeader(website)
-                    ).Render();
+            return  new HTML().Add(new SiteHeader(website))
+                              .Add(new Div("Welcome to the body").Class("wrapper"))
+                    .Render();
         }
 
         public string MakePageHtml(IPage page)
