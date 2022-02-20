@@ -11,7 +11,7 @@ namespace StatiCsharp.Interfaces
         /// <summary>
         /// Path to the corresponding css file.
         /// </summary>
-        public string cssPath { get; }
+        public string ResourcePaths { get; }
 
         /// <summary>
         /// The website the theme is used for.

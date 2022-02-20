@@ -126,7 +126,7 @@ namespace StatiCsharp
 
             WriteLine("Copying resources");
             CopyAll(this.Resources, output);
-            File.Copy(HtmlFactory.cssPath, Path.Combine(output, "styles.css"), true);
+            File.Copy(HtmlFactory.ResourcePaths, Path.Combine(output, "styles.css"), true);
         }
     }
 }
