@@ -74,18 +74,6 @@ namespace StatiCsharp
         }
 
         // Init
-        public Website()
-        {
-            url = "URL/of/my/awesome/website";
-            name = "name of my site";
-            description = "descripton of site";
-            language = new CultureInfo("en-US");
-            content = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "StatiCsharpEnv", "Content");
-            resources = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "StatiCsharpEnv", "Resources");
-            output = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "StatiCsharpEnv", "Output");
-            makeSectionsFor = new List<string>();
-        }
-
         public Website(string url, string name, string description, string language, List<string> sections, string source)
         {
             this.url = url;
