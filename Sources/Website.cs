@@ -113,6 +113,9 @@ namespace StatiCsharp
             WriteLine("Collecting markdown data...");
             GenerateSitesFromMarkdown(this);
 
+            WriteLine("Deleting old output files...");
+            DeleteAll(this.output);
+
             WriteLine("Generating index page...");
             MakeIndex(HtmlFactory);
 
@@ -128,7 +131,6 @@ namespace StatiCsharp
             WriteLine("Copying resources");
             CopyAll(this.Resources, output);
             File.Copy(HtmlFactory.cssPath, Path.Combine(output, "styles.css"), true);
-
         }
     }
 }
