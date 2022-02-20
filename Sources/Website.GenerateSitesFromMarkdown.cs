@@ -34,7 +34,7 @@ namespace StatiCsharp
                 if (!website.MakeSectionsFor.Contains(nameOfCurrentDirectory))
                 {
                     // Add a page
-                    string[] filenames = Directory.GetFiles(directory);
+                    string[] filenames = Directory.GetFiles(directory, "*.md");
                     for (int i = 0; i < filenames.Length; i++)
                     {
                         filenames[i] = Path.GetFileName(filenames[i]);
@@ -64,7 +64,7 @@ namespace StatiCsharp
                     ISection currentSection = new Section();
                     currentSection.SectionName = nameOfCurrentDirectory;
 
-                    string[] filenames = Directory.GetFiles(directory);
+                    string[] filenames = Directory.GetFiles(directory, "*.md");
                     for (int i = 0; i < filenames.Length; i++)
                     {
                         filenames[i] = Path.GetFileName(filenames[i]);
