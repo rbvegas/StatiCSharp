@@ -7,7 +7,7 @@ using StatiCsharp.Interfaces;
 
 namespace StatiCsharp
 {
-    public partial class Website
+    public partial class Website: IWebsite
     {
         /// <summary>
         /// Adds the given meta data to a site (index, page, section or item). If there is no field for a given entry, it's sciped.
