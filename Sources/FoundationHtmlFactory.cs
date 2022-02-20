@@ -122,6 +122,8 @@ namespace StatiCsharp
                 {
                     section.Items.ForEach((item) => this.items.Add(item));
                 }
+                int showArticles = (items.Count > 10) ? 10 : items.Count;
+                this.items = this.items.GetRange(0, showArticles);
             }
                       
             public string Render()
