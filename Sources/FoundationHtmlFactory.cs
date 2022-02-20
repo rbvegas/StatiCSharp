@@ -16,7 +16,7 @@ namespace StatiCsharp
     {
         public string cssPath
         {
-            get { return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "StatiCsharpEnv", "styles.css"); }
+            get { return Path.Combine(website.SourceDir, "styles.css"); }
         }
 
         private IWebsite? website;
@@ -33,53 +33,61 @@ namespace StatiCsharp
         public string MakeIndexHtml(IWebsite website)
         {
             return  new HTML().Add(
-                        new Navigation(website.MakeSectionsFor)
+                        new Navigation(website)
                     ).Render();
         }
 
         public string MakePageHtml(IPage page)
         {
-            return new HTML().Add(new Navigation(website.MakeSectionsFor)).Render();
+            return new HTML().Add(new Navigation(website)).Render();
         }
 
         public string MakeSectionHtml(ISection section)
         {
-            return new HTML().Add(new Navigation(website.MakeSectionsFor)).Render();
+            return new HTML().Add(new Navigation(website)).Render();
         }
 
         public string MakeItemHtml(IItem item)
         {
             return new HTML().Add(new Text().Add("This is an ITEM")).Render();
         }
-    }
 
-    internal class Navigation: IHtmlComponent
-    {
-        List<string> sections;
-        public Navigation(List<string> sections)
+
+
+        ////////////
+        /// Components
+        ////////////
+        
+        private class Navigation : IHtmlComponent
         {
-            this.sections = sections;
-        }
-        public string Render()
-        {
-            Ul NavLinks = new();
-            foreach (var section in sections)
+            List<string> sections;
+            IWebsite website;
+            public Navigation(IWebsite website)
             {
-                if (section.ToString() is not null)
-                {
-                    NavLinks.Add(new Li(new A(section).Href($"/{section}")));
-                }
+                this.website=website;
+                this.sections = website.MakeSectionsFor;
             }
-            return  new Header(
-                            new Div(
-                                new A("Roland Braun").Href("/").Class("site-name")
-                            ).Add(
-                                new Nav().Add(
-                                    new Ul().Add(NavLinks)
-                                )
-                            ).Class("wrapper")
-                    )
-                    .Render();
+            public string Render()
+            {
+                Ul NavLinks = new();
+                foreach (var section in sections)
+                {
+                    if (section.ToString() is not null)
+                    {
+                        NavLinks.Add(new Li(new A(section).Href($"/{section}")));
+                    }
+                }
+                return new Header(
+                                new Div(
+                                    new A(this.website.Name).Href("/").Class("site-name")
+                                ).Add(
+                                    new Nav().Add(
+                                        new Ul().Add(NavLinks)
+                                    )
+                                ).Class("wrapper")
+                        )
+                        .Render();
+            }
         }
     }
 }
