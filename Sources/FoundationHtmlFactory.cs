@@ -33,7 +33,13 @@ namespace StatiCsharp
         public string MakeIndexHtml(IWebsite website)
         {
             return  new HTML().Add(new SiteHeader(website))
-                              .Add(new Div("Welcome to the body").Class("wrapper"))
+                              .Add(new Div()
+                                    .Add(new Div(website.Index.Content)
+                                            .Class("welcomeWrapper"))
+                                    .Add(new Text("<h2>Latest Content</h2>"))
+                                    .Add(new ItemList(website))
+                                    .Class("wrapper"))
+                               
                     .Render();
         }
 
@@ -86,7 +92,50 @@ namespace StatiCsharp
                                     )
                                 ).Class("wrapper")
                         )
+                        .Add( new SocialIcons())
                         .Render();
+            }
+        }
+
+        private class SocialIcons: IHtmlComponent
+        {
+            public string Render(){
+                return new Div()
+                .Add(new A("<img src=\"/socialIcons/mail.svg\">").Href("mailto:hi@rolandbraun.com"))
+                .Add(new A("<img src=\"/socialIcons/linkedin.svg\">").Href("https://linkedin.com/in/rolandbraun-dev"))
+                .Add(new A("<img src=\"/socialIcons/github.svg\">").Href("https://github.com/rolandbraun-dev"))
+                .Class("social-icons")
+                .Render();
+            }
+        }
+
+        private class ItemList: IHtmlComponent
+        {
+            private IWebsite website;
+            private List<IItem> items;
+            private List<IHtmlComponent> components = new List<IHtmlComponent>();
+            public ItemList(IWebsite website)
+            {
+                this.website = website;
+                this.items = new List<IItem>();
+                foreach (ISection section in website.Sections)
+                {
+                    section.Items.ForEach((item) => this.items.Add(item));
+                }
+            }
+                      
+            public string Render()
+            {
+                var result = new Ul().Class("item-list");
+                items.ForEach((item) => result.Add(
+                                                new Li()
+                                                    .Add(new Article()
+                                                        .Add(new Text($"<h1>{item.Title}</h1>"))
+                                                        .Add(new Text($"<p>{item.Description}</p>"))
+                                                    )
+                                                )
+                                        );
+                return result.Render();
             }
         }
     }
