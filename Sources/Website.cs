@@ -131,21 +131,6 @@ namespace StatiCsharp
         }
 
         /// <summary>
-        /// Adds the given meta data to a site (index, page, section or item). If there is no field for a given entry, it's sciped.
-        /// </summary>
-        /// <param name="metaData">The meta data.</param>
-        /// <param name="site">The site where to add the meta data.</param>
-        private void MapMetaData(Dictionary<string,string> metaData, ISite site)
-        {
-            try { if (metaData["title"] is not null) { site.Title = metaData["title"]; } } catch { }
-            try { if (metaData["description"] is not null) { site.Description = metaData["description"]; } } catch { }
-            try { if (metaData["author"] is not null) { site.Author = metaData["author"]; } } catch { }
-            try { if (metaData["date"] is not null) { site.Date = DateOnly.Parse(metaData["date"]); } } catch { }
-            try { if (metaData["path"] is not null) { site.Path = metaData["path"]; } } catch { }
-            try { if (metaData["tags"] is not null) { site.Tags = metaData["tags"].Replace(" ", string.Empty).Split(',').ToList(); } } catch { }
-        }
-
-        /// <summary>
         /// Creates and writes the index/homepage of the website with the given HtmlFactory.
         /// </summary>
         /// <param name="HtmlFactory"></param>
