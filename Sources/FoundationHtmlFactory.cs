@@ -140,7 +140,7 @@ namespace StatiCsharp
                                                         )
                                                         .Add(new Div()
                                                                 .Add(new TagList(item.Tags))
-                                                                .Add(new Text(item.Date.ToShortDateString()))
+                                                                .Add(new Text(item.Date.ToString("MMMM dd, yyyy")))
                                                                 .Class("item-meta-data"))
                                                         .Add(new Text($"<p>{item.Description}</p>"))
                                                     )
