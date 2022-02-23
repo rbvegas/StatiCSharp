@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using StatiCsharp.Interfaces;
+using Markdig;
 
 namespace StatiCsharp
 {
@@ -16,8 +17,8 @@ namespace StatiCsharp
         /// <param name="site">The site where to add the meta data.</param>
         private void MapMetaData(Dictionary<string, string> metaData, ISite site)
         {
-            try { if (metaData["title"] is not null) { site.Title = metaData["title"]; } } catch { }
-            try { if (metaData["description"] is not null) { site.Description = metaData["description"]; } } catch { }
+            try { if (metaData["title"] is not null) { site.Title = Markdown.ToHtml(metaData["title"]); } } catch { }
+            try { if (metaData["description"] is not null) { site.Description = Markdown.ToHtml(metaData["description"]); } } catch { }
             try { if (metaData["author"] is not null) { site.Author = metaData["author"]; } } catch { }
             try { if (metaData["date"] is not null) { site.Date = DateOnly.Parse(metaData["date"]); } } catch { }
             try { if (metaData["path"] is not null) { site.Path = metaData["path"]; } } catch { }
