@@ -29,7 +29,7 @@ Website myAwesomeWebsite = new Website(
     name: "My Awesome Website",
     description: @"Description of your website",
     language: "en-US",
-    sections: new List<string>() { "posts", "about" },
+    sections: "posts, about",
     source: @"/path/to/your/content"
     );
 
