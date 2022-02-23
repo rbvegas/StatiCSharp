@@ -24,7 +24,7 @@ If you want to quickstart with your new website, you can start with the default 
 ```C#
 using StatiCsharp;
 
-Website myAwesomeWebsite = new Website(
+var myAwesomeWebsite = new Website(
     url: "https://yourdomain.com",
     name: "My Awesome Website",
     description: @"Description of your website",
