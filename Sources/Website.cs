@@ -81,7 +81,7 @@ namespace StatiCsharp
         }
 
         // Init
-        public Website(string url, string name, string description, string language, List<string> sections, string source)
+        public Website(string url, string name, string description, string language, string sections, string source)
         {
             this.url = url;
             this.name = name;
@@ -91,7 +91,7 @@ namespace StatiCsharp
             this.content = Path.Combine(source, "Content");
             this.resources = Path.Combine(source, "Resources");
             this.output = Path.Combine(source, "Output");
-            this.makeSectionsFor = sections;
+            this.makeSectionsFor = sections.Replace(" ", string.Empty).Split(',').ToList();
         }
 
         public void Make()
