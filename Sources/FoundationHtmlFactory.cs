@@ -57,7 +57,15 @@ namespace StatiCsharp
 
         public string MakePageHtml(IPage page)
         {
-            return new HTML().Add(new SiteHeader(website)).Render();
+            return new HTML()   .Add(new SiteHeader(website))
+                                .Add(new Div()
+                                    .Add(new Article()
+                                        .Add(new Div(page.Content)
+                                            .Class("content")))
+                                    .Class("wrapper"))
+                                .Add(new Footer())
+                    
+                    .Render();
         }
 
         public string MakeSectionHtml(ISection section)
