@@ -42,7 +42,7 @@ namespace StatiCsharp
             // http://procbits.com/2010/09/09/three-ways-to-sort-a-list-of-objects-with-datetime-in-c
             items.Sort( (i1, i2) => DateTime.Compare(i1.Date.ToDateTime(TimeOnly.Parse("6pm")), i2.Date.ToDateTime(TimeOnly.Parse("6pm"))));
             items = items.GetRange(0, showArticles);
-
+            items.Reverse();
             return  new HTML()  .Add(new SiteHeader(website))
                                 .Add(new Div()
                                     .Add(new Div(website.Index.Content)
@@ -70,7 +70,18 @@ namespace StatiCsharp
 
         public string MakeSectionHtml(ISection section)
         {
-            return new HTML().Add(new SiteHeader(website)).Render();
+            List<IItem> items = section.Items;
+            items.Sort( (i1, i2) => DateTime.Compare(i1.Date.ToDateTime(TimeOnly.Parse("6pm")), i2.Date.ToDateTime(TimeOnly.Parse("6pm"))));
+            items.Reverse();
+            return new HTML()   .Add(new SiteHeader(website))
+                                .Add(new Div(section.Content)
+                                    .Class("wrapper"))
+                                .Add(new Div()
+                                    //.Add(new H1(section.SectionName))
+                                    .Add(new ItemList(items))
+                                    .Class("wrapper"))
+                                .Add(new Footer())
+                    .Render();
         }
 
         public string MakeItemHtml(IItem item)
