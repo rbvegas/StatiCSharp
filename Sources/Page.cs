@@ -61,11 +61,35 @@ namespace StatiCsharp
             set { this.hierarchy = value; }
         }
 
+        public string Url
+        {
+            get
+            {
+                string x = string.Empty;
+                if (this.path == string.Empty)
+                {
+                    x = this.markdownFileName.Substring(0, markdownFileName.LastIndexOf(".md")).Replace(" ", "-").Trim();
+                }
+                else
+                {
+                    x = this.path;
+                }
+                return $"/{hierarchy}/{x}";
+            }
+        }
+
         private string markdownFileName = string.Empty;
         public string MarkdownFileName
         {
             get { return this.markdownFileName; }
             set { this.markdownFileName = value; }
+        }
+
+        private string markdownFilePath = string.Empty;
+        public string MarkdownFilePath
+        {
+            get { return markdownFilePath; }
+            set { this.markdownFilePath = value; }
         }
 
         private List<string> tags = new List<string>();

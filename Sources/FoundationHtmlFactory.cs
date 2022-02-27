@@ -154,7 +154,7 @@ namespace StatiCsharp
                                                 new Li()
                                                     .Add(new Article()
                                                         .Add(new H1().Add(
-                                                                    new A(item.Title).Href($"/{item.Tags.ToString()}")
+                                                                    new A(item.Title).Href(item.Url)
                                                                 )
                                                         )
                                                         .Add(new Div()

@@ -21,9 +21,17 @@ namespace StatiCsharp.Interfaces
         /// The date when the markdown-file was last modified.
         /// </summary>
         DateOnly DateLastModified { get; set; }
-        
-        // The path of the site within its corresponding hierarchy
+
+        /// <summary>
+        /// The path of the site within its hierachy, given by the users meta data.
+        /// </summary>
         string Path { get; set; }
+
+        /// <summary>
+        /// The relative url of the item.
+        /// </summary>
+        public string Url { get; }
+
         List<string> Tags { get; set; }
         string Content { get; set; }
 
@@ -31,5 +39,10 @@ namespace StatiCsharp.Interfaces
         ///  Filename of the file from where the site is generated
         /// </summary>
         string MarkdownFileName { get; set; }
+
+        /// <summary>
+        /// Path of the markdown-file from where the site in generated
+        /// </summary>
+        string MarkdownFilePath { get; set; }
     }
 }

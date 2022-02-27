@@ -23,7 +23,8 @@ namespace StatiCsharp
             string mdContent = MarkdownFactory.ParseContent(Path.Combine(pathToContent, "index.md"));
             website.Index.Content = Markdown.ToHtml(MarkdownFactory.ParseContent(Path.Combine(pathToContent, "index.md")));
             string MarkdownFilePath = Path.GetFileName(Path.Combine(pathToContent, "index.md"));
-            website.Index.MarkdownFileName = MarkdownFilePath.Substring(0, MarkdownFilePath.LastIndexOf(".md")).Replace(" ", "-").Replace("_", "-").Trim();
+            website.Index.MarkdownFileName = MarkdownFilePath.Substring(0, MarkdownFilePath.LastIndexOf(".md"));
+            website.Index.MarkdownFilePath = Path.Combine(pathToContent, "index.md").ToString();
             MapMetaData(mdMetaData, website.Index);
 
             // Collecting pages and sections data
@@ -45,15 +46,12 @@ namespace StatiCsharp
                         foreach (string filename in filenames)
                         {
                             IPage currentPage = new Page();
-                            Dictionary<string, string> currentMetaData = MarkdownFactory.ParseMetaData(Path.Combine(pathToContent, directory, filename));
+                            MapMetaData(MarkdownFactory.ParseMetaData(Path.Combine(pathToContent, directory, filename)), currentPage);
                             currentPage.Content = Markdown.ToHtml(MarkdownFactory.ParseContent(Path.Combine(pathToContent, directory, filename)));
 
-                            string mdFilePath = Path.GetFileName(Path.Combine(pathToContent, directory, filename)).Replace(" ", "-").Trim();
-                            currentPage.MarkdownFileName = mdFilePath.Substring(0, mdFilePath.LastIndexOf(".md")).Replace(" ", "-").Replace("_", "-").Trim();
-
-                            MapMetaData(currentMetaData, currentPage);
+                            currentPage.MarkdownFileName = filename;
+                            currentPage.MarkdownFilePath = Path.Combine(directory, filename).ToString();
                             currentPage.Hierarchy = nameOfCurrentDirectory;
-
                             website.Pages.Add(currentPage);
                         }
                     }
@@ -78,19 +76,18 @@ namespace StatiCsharp
                             if (filename == "index.md")
                             {
                                 // Add content to the section itself
-                                Dictionary<string, string> currentMetaData = MarkdownFactory.ParseMetaData(Path.Combine(pathToContent, directory, filename));
+                                MapMetaData(MarkdownFactory.ParseMetaData(Path.Combine(pathToContent, directory, filename)), currentSection);
                                 currentSection.Content = Markdown.ToHtml(MarkdownFactory.ParseContent(Path.Combine(pathToContent, directory, filename)));
 
-                                string mdFilePath = Path.GetFileName(Path.Combine(pathToContent, directory, filename));
-                                currentSection.MarkdownFileName = mdFilePath.Substring(0, mdFilePath.LastIndexOf(".md")).Replace(" ", "-").Replace("_", "-").Trim();
-
-                                MapMetaData(currentMetaData, currentSection);
+                                currentSection.MarkdownFileName = filename;
+                                currentSection.MarkdownFilePath = Path.Combine(directory,filename).ToString();  
                             }
                             else
                             {
                                 // Add item
                                 Item currentItem = new Item();
                                 Dictionary<string, string> currentMetaData = MarkdownFactory.ParseMetaData(Path.Combine(pathToContent, directory, filename));
+                                MapMetaData(MarkdownFactory.ParseMetaData(Path.Combine(pathToContent, directory, filename)), currentItem);
                                 currentItem.Content = Markdown.ToHtml(MarkdownFactory.ParseContent(Path.Combine(pathToContent, directory, filename)));
 
                                 currentItem.DateLastModified = DateOnly.FromDateTime(Directory.GetLastWriteTime(Path.Combine(pathToContent, directory, filename)));
@@ -99,11 +96,9 @@ namespace StatiCsharp
                                     currentMetaData["date"] = currentItem.DateLastModified.ToString();
                                 }
 
-                                string mdFilePath = Path.GetFileName(Path.Combine(pathToContent, directory, filename));
-                                currentItem.MarkdownFileName = mdFilePath.Substring(0, mdFilePath.LastIndexOf(".md")).Replace(" ", "-").Replace("_", "-").Trim();
-
-                                MapMetaData(currentMetaData, currentItem);
-
+                                currentItem.MarkdownFileName = filename;
+                                currentItem.MarkdownFilePath = Path.Combine(directory, filename).ToString();
+                                currentItem.Section = nameOfCurrentDirectory;
                                 currentSection.AddItem(currentItem);
                             }
 

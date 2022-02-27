@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using StatiCsharp.Interfaces;
+using StatiCsharp.Tools;
 
 namespace StatiCsharp
 {
@@ -19,8 +20,10 @@ namespace StatiCsharp
             {
                 string body = HtmlFactory.MakePageHtml(site);
                 string page = AddLeadingHtmlCode(this, site, body);
+                string defaultPath = FilenameToPath.From(site.MarkdownFileName);
+
                 // Create directory, if it does not excist.
-                string pathInHierachy = (site.Path == string.Empty) ? site.MarkdownFileName : site.Path;
+                string pathInHierachy = (site.Path == string.Empty) ? defaultPath : site.Path;
                 if (pathInHierachy == "index") { pathInHierachy = string.Empty; }
                 string path = Directory.CreateDirectory(Path.Combine(output, site.Hierarchy, pathInHierachy)).ToString();
                 File.WriteAllText(Path.Combine(path, "index.html"), page);

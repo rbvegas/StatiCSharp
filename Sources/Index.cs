@@ -54,11 +54,23 @@ namespace StatiCsharp
             set { path = value; }
         }
 
+        public string Url
+        {
+            get { return "/"; }
+        }
+
         private string markdownFileName = string.Empty;
         public string MarkdownFileName
         {
             get { return this.markdownFileName; }
             set { this.markdownFileName = value; }
+        }
+
+        private string markdownFilePath = string.Empty;
+        public string MarkdownFilePath
+        {
+            get { return markdownFilePath; }
+            set { this.markdownFilePath = value; }
         }
 
         private List<string> tags = new List<string>();
