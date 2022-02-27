@@ -232,7 +232,7 @@ namespace StatiCsharp
                 return new HtmlComponents.Footer()
                 .Add(new Paragraph()
                         .Add(new Text("Generated with ❤️ using "))
-                        .Add(new A("StatiC#").Href("#")))
+                        .Add(new A("StatiC#").Href("https://github.com/rolandbraun-dev/StatiCsharp")))
                 .Add(new Paragraph()
                         .Add(new A("Datenschutz").Href("/legal/datenschutz").Style("padding-right: 20px;"))
                         .Add(new A("Impressum").Href("/legal/impressum")))
