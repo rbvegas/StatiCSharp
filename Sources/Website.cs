@@ -124,6 +124,9 @@ namespace StatiCsharp
             WriteLine("Generating items...");
             MakeItems(HtmlFactory);
 
+            WriteLine("Generating tag lists...");
+            MakeTagLists(HtmlFactory);
+
             WriteLine("Copying resources");
             CopyAll(this.Resources, output);
             File.Copy(HtmlFactory.ResourcePaths, Path.Combine(output, "styles.css"), true);
