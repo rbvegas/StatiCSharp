@@ -40,7 +40,7 @@ namespace StatiCsharp.Interfaces
         //TODO
 
         /// The website's meta data and content for the index page
-        ISite? Index { get; }
+        ISite Index { get; }
 
         /// The website's pages
         List<ISite> Pages { get; }
