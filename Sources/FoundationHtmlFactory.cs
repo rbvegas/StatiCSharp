@@ -98,6 +98,21 @@ namespace StatiCsharp
                     .Render();
         }
 
+        public string MakeTagListHtml(List<IItem> items, string tag)
+        {
+            items.Sort( (i1, i2) => DateTime.Compare(i1.Date.ToDateTime(TimeOnly.Parse("6pm")), i2.Date.ToDateTime(TimeOnly.Parse("6pm"))));
+            items.Reverse();
+            return new HTML()   .Add(new SiteHeader(website))
+                                .Add(new Div()
+                                    .Add(new H1()
+                                        .Add(new Text("Tagged with "))
+                                        .Add(new bigTag(tag)))
+                                    .Add(new ItemList(items))
+                                    .Class("wrapper"))
+                                .Add(new Footer())
+                    .Render();
+        }
+
 
 
         ////////////
@@ -190,8 +205,22 @@ namespace StatiCsharp
                 var result = new Ul().Class("tags");
                 tags.ForEach((tag) => result.Add(
                                                 new Li().Class("variant-default")
-                                                        .Add(new A(tag).Href($"/tags/{tag}")))
+                                                        .Add(new A(tag).Href($"/tag/{tag}")))
                             );
+                return result.Render();
+            }
+        }
+
+        private class bigTag: IHtmlComponent
+        {
+            private string tag;
+            public bigTag(string tag)
+            {
+                this.tag = tag;
+            }
+            public string Render()
+            {
+                var result = new Span(tag).Class("tag");
                 return result.Render();
             }
         }
