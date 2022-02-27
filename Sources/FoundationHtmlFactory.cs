@@ -86,7 +86,16 @@ namespace StatiCsharp
 
         public string MakeItemHtml(IItem item)
         {
-            return new HTML().Add(new Text().Add("This is an ITEM")).Render();
+            return new HTML()   .Add(new SiteHeader(website))
+                                .Add(new Div()
+                                    .Add(new TagList(item.Tags))
+                                    .Add(new Text(item.Date.ToString("MMMM dd, yyyy")))
+                                    .Class("wrapper"))
+                                .Add(new Div(item.Content)
+                                    .Class("wrapper"))
+                                .Add(new Footer())
+                    
+                    .Render();
         }
 
 
