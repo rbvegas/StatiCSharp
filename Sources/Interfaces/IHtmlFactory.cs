@@ -51,5 +51,12 @@ namespace StatiCsharp.Interfaces
         /// <param name="item">The item to render.</param>
         /// <returns>A string containing the html-code.</returns>
         public string MakeItemHtml(IItem item);
+
+        /// <summary>
+        /// Method that returns the html-code for the taglist site.
+        /// </summary>
+        /// <param name="website"></param>
+        /// <returns></returns>
+        public string MakeTagListHtml(List<IItem> items, string tag);
     }
 }
