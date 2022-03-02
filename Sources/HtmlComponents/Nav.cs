@@ -10,7 +10,7 @@ namespace StatiCsharp.HtmlComponents
     /// A representation of a nav element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
-    internal class Nav : IHtmlComponent
+    public class Nav : IHtmlComponent
     {
         /// Contains the components inside the nav-container.
         private List<IHtmlComponent> content;

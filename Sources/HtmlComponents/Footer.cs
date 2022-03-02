@@ -10,7 +10,7 @@ namespace StatiCsharp.HtmlComponents
     /// A representation of a <footer></footer> element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
-    internal class Footer : IHtmlComponent
+    public class Footer : IHtmlComponent
     {
         /// <summary>
         /// Contains the components inside the <footer> element.

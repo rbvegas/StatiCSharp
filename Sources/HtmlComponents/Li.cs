@@ -10,7 +10,7 @@ namespace StatiCsharp.HtmlComponents
     /// A representation of a <li></li> element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
-    internal class Li: IHtmlComponent
+    public class Li: IHtmlComponent
     {
         /// <summary>
         /// Contains the components inside the li-container.

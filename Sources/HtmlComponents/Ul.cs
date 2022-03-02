@@ -10,7 +10,7 @@ namespace StatiCsharp.HtmlComponents
     /// A representation of a <ul></ul> element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
-    internal class Ul:IHtmlComponent
+    public class Ul:IHtmlComponent
     {
         /// <summary>
         /// Contains the components inside the ul-container.

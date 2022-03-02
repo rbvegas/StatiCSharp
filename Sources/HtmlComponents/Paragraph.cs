@@ -10,7 +10,7 @@ namespace StatiCsharp.HtmlComponents
     /// A representation of a <paragraph></paragraph> element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
-    internal class Paragraph : IHtmlComponent
+    public class Paragraph : IHtmlComponent
     {
         /// <summary>
         /// Contains the components inside the <paragraph> element.

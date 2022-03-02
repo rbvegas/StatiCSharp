@@ -11,7 +11,7 @@ namespace StatiCsharp
     /// A representation of a HTML document.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
-    internal class HTML : IHtmlComponent
+    public class HTML : IHtmlComponent
     {
         // Contains the components inside the html-component
         private List<IHtmlComponent> content;

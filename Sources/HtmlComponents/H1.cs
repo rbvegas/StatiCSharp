@@ -10,7 +10,7 @@ namespace StatiCsharp.HtmlComponents
     /// A representation of a <h1></h1> element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
-    internal class H1 : IHtmlComponent
+    public class H1 : IHtmlComponent
     {
         /// <summary>
         /// Contains the components inside the <h1> element.

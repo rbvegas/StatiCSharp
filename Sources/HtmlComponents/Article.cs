@@ -10,7 +10,7 @@ namespace StatiCsharp.HtmlComponents
     /// A representation of a <article></article> element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
-    internal class Article : IHtmlComponent
+    public class Article : IHtmlComponent
     {
         /// <summary>
         /// Contains the components inside the article-container.

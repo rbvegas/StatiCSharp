@@ -10,7 +10,7 @@ namespace StatiCsharp.HtmlComponents
     /// A representation of simple text.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
-    internal class Text: IHtmlComponent
+    public class Text: IHtmlComponent
     {
         // Contains the text as a string
         private string text;

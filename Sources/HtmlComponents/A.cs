@@ -10,7 +10,7 @@ namespace StatiCsharp.HtmlComponents
     /// A representation of an anker element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
-    internal class A: IHtmlComponent
+    public class A: IHtmlComponent
     {
         /// <summary>
         /// Contains the components inside the anker tag.

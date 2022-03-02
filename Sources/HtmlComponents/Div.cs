@@ -10,7 +10,7 @@ namespace StatiCsharp.HtmlComponents
     /// A representation of a div element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
-    internal class Div : IHtmlComponent
+    public class Div : IHtmlComponent
     {
         /// <summary>
         /// Contains the components inside the div-container.

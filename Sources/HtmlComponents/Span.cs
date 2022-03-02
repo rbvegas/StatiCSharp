@@ -10,7 +10,7 @@ namespace StatiCsharp.HtmlComponents
     /// A representation of a span element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
-    internal class Span : IHtmlComponent
+    public class Span : IHtmlComponent
     {
         /// <summary>
         /// Contains the components inside the span-container.
