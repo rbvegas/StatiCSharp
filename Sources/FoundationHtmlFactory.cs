@@ -19,8 +19,8 @@ namespace StatiCsharp
             get { return Path.Combine(website.SourceDir, "styles.css"); }
         }
 
-        private IWebsite? website;
-        public IWebsite? Website
+        private IWebsite website;
+        public IWebsite Website
         {
             get { return this.Website; }
         }
@@ -77,7 +77,6 @@ namespace StatiCsharp
                                 .Add(new Div(section.Content)
                                     .Class("wrapper"))
                                 .Add(new Div()
-                                    //.Add(new H1(section.SectionName))
                                     .Add(new ItemList(items))
                                     .Class("wrapper"))
                                 .Add(new Footer())
@@ -87,11 +86,11 @@ namespace StatiCsharp
         public string MakeItemHtml(IItem item)
         {
             return new HTML()   .Add(new SiteHeader(website))
-                                .Add(new Div()
-                                    .Add(new TagList(item.Tags))
-                                    .Add(new Text(item.Date.ToString("MMMM dd, yyyy")))
-                                    .Class("wrapper"))
                                 .Add(new Div(item.Content)
+                                    .Add(new Div()
+                                        .Add(new TagList(item.Tags))
+                                        .Add(new Text(item.Date.ToString("MMMM dd, yyyy")))
+                                        .Class("item-meta-data"))
                                     .Class("wrapper"))
                                 .Add(new Footer())
                     
