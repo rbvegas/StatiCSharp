@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using StatiCsharp.HtmlComponents;
 
-namespace StatiCsharp
+namespace StatiCsharp.HtmlComponents
 {
     /// <summary>
     /// A representation of a HTML document.
