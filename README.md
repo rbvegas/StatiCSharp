@@ -149,3 +149,15 @@ myAwesomeWebsite.Make();
 ```
 
 Run the project and your new awesome website will be generated in the `output` directory.
+
+## Contributions and support
+
+StatiC# is developed completely open, and your contributions are more than welcome.
+
+Before you start using StatiC# in any of your projects, please have in mind that it’s a hobby project and there is no guarantee for technical correctness or future releases.  
+
+Since this is a very young project, it’s likely to have many limitations and missing features, which is something that can really only be discovered and addressed as you use it. While StatiC# is used in production on my personal website, it’s recommended that you first try it out for your specific use case, to make sure it supports the features that you need.  
+
+If you wish to make a change, [open a Pull Request](https://github.com/rolandbraun-dev/StatiCsharp/pull/new) — even if it just contains a draft of the changes you’re planning, or a test that reproduces an issue — and we can discuss it further from there.
+
+I hope you’ll enjoy using StatiC#!
