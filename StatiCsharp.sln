@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatiCsharp", "StatiCsharp.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatiCsharp-playground", "..\StatiCsharp-playground\StatiCsharp-playground.csproj", "{D6FF9380-B325-40F6-AAD9-F18388490AA2}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "website", "..\website\website.csproj", "{62F62139-E112-4A6F-B372-6AFA7F18CC11}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D6FF9380-B325-40F6-AAD9-F18388490AA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6FF9380-B325-40F6-AAD9-F18388490AA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6FF9380-B325-40F6-AAD9-F18388490AA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62F62139-E112-4A6F-B372-6AFA7F18CC11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62F62139-E112-4A6F-B372-6AFA7F18CC11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62F62139-E112-4A6F-B372-6AFA7F18CC11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62F62139-E112-4A6F-B372-6AFA7F18CC11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
