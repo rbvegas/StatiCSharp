@@ -129,4 +129,23 @@ Add some content to your website by adding your markdown files to the `content` 
 │   ├── Program.cs
 ```
 
-Store your content in folders and StatiC# cares about the rest. All folders are treated as pages unless their name is used to build a section.
+Store your content in folders and StatiC# cares about the rest. All folders are treated as pages unless their name is used to build a section.  
+
+Finally set up the parameters in `Program.cs` in your *myWebsite* project:
+
+```C#
+using StatiCsharp;
+
+var myAwesomeWebsite = new Website(
+    url: "https://yourdomain.com",
+    name: "My Awesome Website",
+    description: @"Description of your website",
+    language: "en-US",
+    sections: "posts, about",         //select which folders should be treated as sections
+    source: @"/path/to/myWebsite"     // path to the folder of your website
+    );
+
+myAwesomeWebsite.Make();
+```
+
+Run the project and your new awesome website will be generated in the `output` directory.
