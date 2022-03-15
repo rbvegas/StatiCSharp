@@ -41,8 +41,9 @@ namespace StatiCsharp
             int showArticles = (items.Count > 10) ? 10 : items.Count;
             // http://procbits.com/2010/09/09/three-ways-to-sort-a-list-of-objects-with-datetime-in-c
             items.Sort( (i1, i2) => DateTime.Compare(i1.Date.ToDateTime(TimeOnly.Parse("6pm")), i2.Date.ToDateTime(TimeOnly.Parse("6pm"))));
-            items = items.GetRange(0, showArticles);
             items.Reverse();
+            items = items.GetRange(0, showArticles);
+
             return  new HTML()  .Add(new SiteHeader(website))
                                 .Add(new Div()
                                     .Add(new Div(website.Index.Content)
