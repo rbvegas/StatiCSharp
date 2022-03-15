@@ -102,3 +102,31 @@ I recomment to put those folders within your project folder of *myWebsite*. Your
 │   ├── Program.cs
 
 ```
+StatiC# renders four different types of sites:  
+
+`index`: The homepage of your website
+`pages`: Normal sites e.g. your about page.
+`sections`: Sites that contain items e.g. articles in a specifig field.
+`items`: The sites that are part of a section.
+  
+Add some content to your website by adding your markdown files to the `content` folder:
+
+```bash
+├── myWebsite
+│   ├── content
+│   │   ├── index.md                    # this is your homepage 
+│   │   ├── posts                       # contains all items for the posts section
+│   │   │   ├── index.md                # content of the section site
+│   │   │   ├── your_first_post.md      # item within the posts section
+│   │   │   ├── your_second_post.md     # another item within the posts section
+│   │   ├── about                       # contains a page
+│   │   │   ├── index.md                # content of the about page
+│   │   │   ├── another-page.md         # content of another page
+│   ├── obj
+│   ├── outout
+│   ├── resources
+│   ├── myWebsite.csproj
+│   ├── Program.cs
+```
+
+Store your content in folders and StatiC# cares about the rest. All folders are treated as pages unless their name is used to build a section.
