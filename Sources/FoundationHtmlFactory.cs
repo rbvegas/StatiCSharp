@@ -86,14 +86,16 @@ namespace StatiCsharp
         public string MakeItemHtml(IItem item)
         {
             return new HTML()   .Add(new SiteHeader(website))
-                                .Add(new Div(item.Content)
-                                    .Add(new Div()
-                                        .Add(new TagList(item.Tags))
-                                        .Add(new Text(item.Date.ToString("MMMM dd, yyyy")))
-                                        .Class("item-meta-data"))
+                                .Add(new Div()
+                                    .Add(new TagList(item.Tags))
+                                    .Add(new Text(item.Date.ToString("MMMM dd, yyyy")))
+                                    .Class("item-meta-data-header"))
+                                .Add(new Div()
+                                    .Add(new Article()
+                                        .Add(new Div(item.Content)
+                                            .Class("content")))
                                     .Class("wrapper"))
                                 .Add(new Footer())
-                    
                     .Render();
         }
 
