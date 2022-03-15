@@ -90,3 +90,15 @@ StatiC# expects three folders to work with at the path given during the initiali
 `resources`: Put all your static files in here. All files will be copied, without any manipulation, to the output. Folders are migrated.  
   
 I recomment to put those folders within your project folder of *myWebsite*. Your folder should look something like this:
+
+
+```bash
+├── myWebsite
+│   ├── content
+│   ├── obj
+│   ├── outout
+│   ├── resources
+│   ├── myWebsite.csproj
+│   ├── Program.cs
+
+```
