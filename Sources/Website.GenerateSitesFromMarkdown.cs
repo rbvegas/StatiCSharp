@@ -91,9 +91,17 @@ namespace StatiCsharp
                                 currentItem.Content = Markdown.ToHtml(MarkdownFactory.ParseContent(Path.Combine(pathToContent, directory, filename)));
 
                                 currentItem.DateLastModified = DateOnly.FromDateTime(Directory.GetLastWriteTime(Path.Combine(pathToContent, directory, filename)));
-                                if (currentMetaData["date"] == string.Empty)
+
+                                if (currentMetaData.ContainsKey("date"))
                                 {
-                                    currentMetaData["date"] = currentItem.DateLastModified.ToString();
+                                    if (currentMetaData["date"] == string.Empty)
+                                    {
+                                        currentMetaData["date"] = currentItem.DateLastModified.ToString();
+                                    }
+                                }
+                                else
+                                {
+                                    currentMetaData.Add("date", currentItem.DateLastModified.ToString());
                                 }
 
                                 currentItem.MarkdownFileName = filename;
