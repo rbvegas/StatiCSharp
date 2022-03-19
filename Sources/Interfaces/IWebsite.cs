@@ -9,16 +9,24 @@ namespace StatiCsharp.Interfaces
 {
     public interface IWebsite
     {
+        /// <summary>
         /// The absolute url that the website will be hosted at.
+        /// </summary>
         string Url { get; }
 
+        /// <summary>
         /// The name of the website.
+        /// </summary>
         string Name { get; }
 
+        /// <summary>
         /// A description of the website.
+        /// </summary>
         string Description { get; }
 
-        /// The website's primary language
+        /// <summary>
+        /// The website's primary language.
+        /// </summary>
         CultureInfo Language { get; }
 
         /// <summary>
@@ -39,17 +47,25 @@ namespace StatiCsharp.Interfaces
         /// The website's favicon, if any.
         //TODO
 
-        /// The website's meta data and content for the index page
+        /// <summary>
+        /// The website's meta data and content for the index page.
+        /// </summary>
         ISite Index { get; }
 
-        /// The website's pages
+        /// <summary>
+        /// The website's pages.
+        /// </summary>
         List<ISite> Pages { get; }
 
-        /// The website's sections (not pages)
+        /// <summary>
+        /// The website's sections (not pages).
+        /// </summary>
         List<ISection> Sections { get; }
 
+        /// <summary>
         /// The names of the sections the website will have. Need to be the exact name of the folders in the Content directory.
         /// Sections are also visible in the navigation.
+        /// </summary>
         List<string> MakeSectionsFor { get; }
     }
 }
