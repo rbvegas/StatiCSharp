@@ -118,6 +118,17 @@ namespace StatiCsharp
             set { this.sourceDir = value; }
         }
 
+        private bool gitMode = false;
+        /// <summary>
+        /// If true, the site generator only writes files if there are any changes.
+        /// If false, all output files are rewritten.
+        /// </summary>
+        public bool GitMode
+        {
+            get { return this.gitMode; }
+            set { this.gitMode = value; }
+        }
+
         /// <summary>
         /// Initialize a website.
         /// </summary>
