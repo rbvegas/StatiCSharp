@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StatiCsharp
+namespace StatiCsharp.Interfaces
 {   
     /// <summary>
     /// Interface that all html-components must implement to ensure the output/render as a string containing html-code.
