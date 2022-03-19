@@ -110,7 +110,7 @@ namespace StatiCsharp
 
         private string sourceDir;
         /// <summary>
-        /// The absolute path to the directory that contains the folders `content`, `output` and `resources.
+        /// The absolute path to the directory that contains the folders `content`, `output` and `resources`.
         /// </summary>
         public string SourceDir
         {
@@ -118,7 +118,15 @@ namespace StatiCsharp
             set { this.sourceDir = value; }
         }
 
-        // Init
+        /// <summary>
+        /// Initialize a website.
+        /// </summary>
+        /// <param name="url">The complete domain of the website.</param>
+        /// <param name="name">The name of the website.</param>
+        /// <param name="description">A short description of the website. Is used for metadata in the html sites.</param>
+        /// <param name="language">The language the websites main content is written in.</param>
+        /// <param name="sections">Collection of the websites section-names. Folders in the content directory with names matching one item of this list a treated as sections.</param>
+        /// <param name="source">The absolute path to the directory that contains the folders `content`, `output` and `resources`.</param>
         public Website(string url, string name, string description, string language, string sections, string source)
         {
             this.url = url;
@@ -132,6 +140,9 @@ namespace StatiCsharp
             this.makeSectionsFor = sections.Replace(" ", string.Empty).Split(',').ToList();
         }
 
+        /// <summary>
+        /// Starts the generation of the website with the default theme.
+        /// </summary>
         public void Make()
         {
             IHtmlFactory factory = new DefaultHtmlFactory();
@@ -139,6 +150,10 @@ namespace StatiCsharp
             this.Make(factory);
         }
 
+        /// <summary>
+        /// Starts the generation of the website with the given theme.
+        /// </summary>
+        /// <param name="HtmlFactory"></param>
         public void Make(IHtmlFactory HtmlFactory)
         {
             HtmlFactory.WithWebsite(this);
