@@ -172,9 +172,12 @@ namespace StatiCsharp
 
             WriteLine("Collecting markdown data...");
             GenerateSitesFromMarkdown(this);
-
-            WriteLine("Deleting old output files...");
-            DeleteAll(this.output);
+            
+            if (!this.gitMode)
+            {
+                WriteLine("Deleting old output files...");
+                DeleteAll(this.output);
+            }
 
             WriteLine("Generating index page...");
             MakeIndex(HtmlFactory);
