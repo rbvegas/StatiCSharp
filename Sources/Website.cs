@@ -96,7 +96,7 @@ namespace StatiCsharp
 
         public void Make()
         {
-            IHtmlFactory factory = new FoundationHtmlFactory();
+            IHtmlFactory factory = new DefaultHtmlFactory();
             factory.WithWebsite(this);
             this.Make(factory);
         }

@@ -12,7 +12,7 @@ namespace StatiCsharp
     /// <summary>
     /// 
     /// </summary>
-    public class FoundationHtmlFactory: IHtmlFactory
+    public class DefaultHtmlFactory: IHtmlFactory
     {
         public string ResourcePaths
         {
@@ -48,7 +48,7 @@ namespace StatiCsharp
                                 .Add(new Div()
                                     .Add(new Div(website.Index.Content)
                                             .Class("welcomeWrapper"))
-                                    .Add(new Text("<h2>Latest Content</h2>"))
+                                    .Add(new Text("<h2>Latest Content from Default!!!</h2>"))
                                     .Add(new ItemList(items))
                                     .Class("wrapper"))
                                 .Add(new Footer())
