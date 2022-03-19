@@ -48,7 +48,8 @@ namespace StatiCsharp
 
                 // Create directory, if it does not excist
                 string path = Directory.CreateDirectory(Path.Combine(output, "tag", tag)).ToString();
-                File.WriteAllText(Path.Combine(path, "index.html"), page);
+                
+                WriteFile(path: path, filename: "index.html", content: page, gitMode: this.gitMode);
             }
         }
     }

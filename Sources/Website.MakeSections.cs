@@ -20,7 +20,8 @@ namespace StatiCsharp
                 string body = HtmlFactory.MakeSectionHtml(site);
                 string page = AddLeadingHtmlCode(this, site, body);
                 string path = Directory.CreateDirectory(Path.Combine(output, site.SectionName)).ToString();
-                File.WriteAllText(Path.Combine(path, "index.html"), page);
+                
+                WriteFile(path: path, filename: "index.html", content: page, gitMode: this.gitMode);
             }
         }
     }

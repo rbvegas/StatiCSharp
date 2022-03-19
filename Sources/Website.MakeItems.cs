@@ -26,7 +26,8 @@ namespace StatiCsharp
 
                     string itemPath = (site.Path != string.Empty) ? site.Path : defaultPath;
                     string path = Directory.CreateDirectory(Path.Combine(output, currentSection.SectionName, itemPath)).ToString();
-                    File.WriteAllText(Path.Combine(path, "index.html"), page);
+                    
+                    WriteFile(path: path, filename: "index.html", content: page, gitMode: this.gitMode);
                 }
             }
         }

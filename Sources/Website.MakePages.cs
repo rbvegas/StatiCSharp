@@ -26,7 +26,8 @@ namespace StatiCsharp
                 string pathInHierachy = (site.Path == string.Empty) ? defaultPath : site.Path;
                 if (pathInHierachy == "index") { pathInHierachy = string.Empty; }
                 string path = Directory.CreateDirectory(Path.Combine(output, site.Hierarchy, pathInHierachy)).ToString();
-                File.WriteAllText(Path.Combine(path, "index.html"), page);
+
+                WriteFile(path: path, filename: "index.html", content: page, gitMode: this.gitMode);
             }
         }
     }
