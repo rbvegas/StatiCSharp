@@ -10,7 +10,7 @@ using StatiCsharp.Interfaces;
 namespace StatiCsharp
 {   
     /// <summary>
-    /// 
+    /// Implementation of the default theme thats shipping with StatiC#.
     /// </summary>
     public class DefaultHtmlFactory: IHtmlFactory
     {
@@ -149,20 +149,7 @@ namespace StatiCsharp
                                     )
                                 ).Class("wrapper")
                         )
-                        .Add( new SocialIcons())
                         .Render();
-            }
-        }
-
-        private class SocialIcons: IHtmlComponent
-        {
-            public string Render(){
-                return new Div()
-                .Add(new A("<img src=\"/socialIcons/mail.svg\">").Href("mailto:hi@rolandbraun.com"))
-                .Add(new A("<img src=\"/socialIcons/linkedin.svg\">").Href("https://linkedin.com/in/rolandbraun-dev"))
-                .Add(new A("<img src=\"/socialIcons/github.svg\">").Href("https://github.com/rolandbraun-dev"))
-                .Class("social-icons")
-                .Render();
             }
         }
 
