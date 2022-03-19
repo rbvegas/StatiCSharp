@@ -11,39 +11,60 @@ namespace StatiCsharp
     public partial class Website : IWebsite
     {
         private string url;
+        /// <summary>
+        /// The domain of the website.E.g. "https://mydomain.com".
+        /// </summary>
         public string Url
         {
             get { return url; }
         }
 
         private string name;
+        /// <summary>
+        /// The name of the website.
+        /// </summary>
         public string Name
         {
             get { return name; }
         }
 
         private string description;
+        /// <summary>
+        /// A short description of the website. Is used for metadata in the html sites.
+        /// </summary>
         public string Description
         {
             get { return description; }
         }
 
         private CultureInfo language;
+        /// <summary>
+        /// The language the websites main content is written in.
+        /// </summary>
         public CultureInfo Language
         {
             get { return language; }
         }
 
         private string output;
+        /// <summary>
+        /// The absolute path to the output directory.
+        /// </summary>
         public string? Output
         {
             get { return output; }
         }
 
         private ISite? index = new Index();
+        /// <summary>
+        /// The index/homepage of the website.
+        /// </summary>
         public ISite? Index { get { return this.index; } }
 
         private List<ISite> pages = new List<ISite>();
+        /// <summary>
+        /// The collection of pages the website contains.
+        /// </summary>
         public List<ISite> Pages
         {
             get { return this.pages; }
@@ -51,6 +72,9 @@ namespace StatiCsharp
         }
 
         private List<ISection> sections = new List<ISection>();
+        /// <summary>
+        /// The collection of sections the website contains.
+        /// </summary>
         public List<ISection> Sections
         {
             get { return this.sections; }
@@ -58,6 +82,9 @@ namespace StatiCsharp
         }
 
         private List<string> makeSectionsFor = new List<string>();
+        /// <summary>
+        /// Collection of the websites section-names. Folders in the content directory with names matching one item of this list a treated as sections.
+        /// </summary>
         public List<string> MakeSectionsFor
         {
             get { return this.makeSectionsFor; }
@@ -65,15 +92,26 @@ namespace StatiCsharp
         }
 
         private string content;
-        public string Content { get { return this.content; } }
+        /// <summary>
+        /// The abolute path to the content (markdown-files) for the website.
+        /// </summary>
+        public string Content {
+            get { return this.content; }
+        }
 
         private string resources = string.Empty;
+        /// <summary>
+        /// The absolute path to the resources directory for the website.
+        /// </summary>
         public string Resources { 
             get { return this.resources;} 
             set { this.resources = value; }
         }
 
         private string sourceDir;
+        /// <summary>
+        /// The absolute path to the directory that contains the folders `content`, `output` and `resources.
+        /// </summary>
         public string SourceDir
         {
             get { return this.sourceDir;}
