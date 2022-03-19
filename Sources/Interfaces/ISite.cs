@@ -8,8 +8,19 @@ namespace StatiCsharp.Interfaces
 {
     public interface ISite
     {
+        /// <summary>
+        /// The title of the site. E.g used for the <title>-tag in the browser.
+        /// </summary>
         string Title { get; set; }
+
+        /// <summary>
+        /// A short description of the site. Used e.g. as teaser of the content when listing items.
+        /// </summary>
         string Description { get; set; }
+
+        /// <summary>
+        /// The name of the author of the page.
+        /// </summary>
         string Author { get; set; }
 
         /// <summary>
@@ -32,7 +43,14 @@ namespace StatiCsharp.Interfaces
         /// </summary>
         public string Url { get; }
 
+        /// <summary>
+        /// The tags that are associated with the site.
+        /// </summary>
         List<string> Tags { get; set; }
+
+        /// <summary>
+        /// The content of the site, given by the associated markdown file.
+        /// </summary>
         string Content { get; set; }
 
         /// <summary>
