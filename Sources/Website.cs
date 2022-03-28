@@ -120,7 +120,7 @@ namespace StatiCsharp
             set { this.sourceDir = value; }
         }
 
-        private List<string> pathDirectory;
+        private List<string> pathDirectory = new List<string>();
         /// <summary>
         /// List of all used paths while creating the sites.
         /// </summary>
