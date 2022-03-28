@@ -95,7 +95,8 @@ namespace StatiCsharp
         /// <summary>
         /// The abolute path to the content (markdown-files) for the website.
         /// </summary>
-        public string Content {
+        public string Content
+        {
             get { return this.content; }
         }
 
@@ -103,7 +104,8 @@ namespace StatiCsharp
         /// <summary>
         /// The absolute path to the resources directory for the website.
         /// </summary>
-        public string Resources { 
+        public string Resources
+        { 
             get { return this.resources;} 
             set { this.resources = value; }
         }
@@ -116,6 +118,16 @@ namespace StatiCsharp
         {
             get { return this.sourceDir;}
             set { this.sourceDir = value; }
+        }
+
+        public List<string> pathDirectory;
+        /// <summary>
+        /// List of all used paths while creating the sites.
+        /// </summary>
+        public List<string> PathDirectory
+        {
+            get { return this.pathDirectory; }
+            set { this.pathDirectory = value; }
         }
 
         private bool gitMode = false;

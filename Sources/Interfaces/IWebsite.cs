@@ -67,5 +67,11 @@ namespace StatiCsharp.Interfaces
         /// Sections are also visible in the navigation.
         /// </summary>
         List<string> MakeSectionsFor { get; }
+
+        /// <summary>
+        /// List of all used paths while creating the sites.
+        /// Used to find identical paths from meta data and to find files that have no markdown equivalent (got deleted) in markdown mode.
+        /// </summary>
+        List<string> PathDirectory { get; }
     }
 }
