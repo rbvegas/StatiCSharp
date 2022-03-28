@@ -55,11 +55,11 @@ namespace StatiCsharp
             get { return output; }
         }
 
-        private ISite? index = new Index();
+        private ISite index = new Index();
         /// <summary>
         /// The index/homepage of the website.
         /// </summary>
-        public ISite? Index { get { return this.index; } }
+        public ISite Index { get { return this.index; } }
 
         private List<ISite> pages = new List<ISite>();
         /// <summary>
