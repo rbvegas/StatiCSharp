@@ -50,6 +50,8 @@ namespace StatiCsharp
                 string path = Directory.CreateDirectory(Path.Combine(output, "tag", tag)).ToString();
                 
                 WriteFile(path: path, filename: "index.html", content: page, gitMode: this.gitMode);
+
+                this.PathDirectory.Add(path);
             }
         }
     }
