@@ -20,7 +20,12 @@ namespace StatiCsharp
                 string body = HtmlFactory.MakeSectionHtml(site);
                 string page = AddLeadingHtmlCode(this, site, body);
                 string path = Directory.CreateDirectory(Path.Combine(output, site.SectionName)).ToString();
-                
+
+                if (this.PathDirectory.Contains(path))
+                {
+                    Console.WriteLine($"WARNING: The path {path} is allready in use. Change the path in meta data to avoid duplicates.");
+                }
+
                 WriteFile(path: path, filename: "index.html", content: page, gitMode: this.gitMode);
 
                 this.PathDirectory.Add(path);

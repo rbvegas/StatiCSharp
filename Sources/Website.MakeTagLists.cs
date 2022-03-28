@@ -48,7 +48,12 @@ namespace StatiCsharp
 
                 // Create directory, if it does not excist
                 string path = Directory.CreateDirectory(Path.Combine(output, "tag", tag)).ToString();
-                
+
+                if (this.PathDirectory.Contains(path))
+                {
+                    Console.WriteLine($"WARNING: The path {path} is allready in use. Change the path in meta data to avoid duplicates.");
+                }
+
                 WriteFile(path: path, filename: "index.html", content: page, gitMode: this.gitMode);
 
                 this.PathDirectory.Add(path);

@@ -27,6 +27,11 @@ namespace StatiCsharp
                 if (pathInHierachy == "index") { pathInHierachy = string.Empty; }
                 string path = Directory.CreateDirectory(Path.Combine(output, site.Hierarchy, pathInHierachy)).ToString();
 
+                if (this.PathDirectory.Contains(path))
+                {
+                    Console.WriteLine($"WARNING: The path {path} is allready in use. Change the path in meta data to avoid duplicates.");
+                }
+
                 WriteFile(path: path, filename: "index.html", content: page, gitMode: this.gitMode);
 
                 this.PathDirectory.Add(path);
