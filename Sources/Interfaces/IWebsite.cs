@@ -40,6 +40,11 @@ namespace StatiCsharp.Interfaces
         string Resources { get; }
 
         /// <summary>
+        /// The path to the output directory.
+        /// </summary>
+        string Output { get; }
+
+        /// <summary>
         /// The source directory, containing Content, Ouput styles etc.
         /// </summary>
         string SourceDir { get; }
