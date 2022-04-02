@@ -50,7 +50,7 @@ namespace StatiCsharp
         /// <summary>
         /// The absolute path to the output directory.
         /// </summary>
-        public string? Output
+        public string Output
         {
             get { return output; }
         }
@@ -120,14 +120,14 @@ namespace StatiCsharp
             set { this.sourceDir = value; }
         }
 
-        private List<string> pathDirectory = new List<string>();
+        private List<string> _pathDirectory = new List<string>();
         /// <summary>
         /// List of all used paths while creating the sites.
         /// </summary>
         public List<string> PathDirectory
         {
-            get { return this.pathDirectory; }
-            set { this.pathDirectory = value; }
+            get { return this._pathDirectory; }
+            set { this._pathDirectory = value; }
         }
 
         private bool gitMode = false;
@@ -206,9 +206,12 @@ namespace StatiCsharp
             WriteLine("Generating tag lists...");
             MakeTagLists(HtmlFactory);
 
-            WriteLine("Copying resources");
+            WriteLine("Copying resources...");
             CopyAll(this.Resources, output);
             File.Copy(HtmlFactory.ResourcePaths, Path.Combine(output, "styles.css"), true);
+
+            WriteLine("Cleaning up...");
+            CleanUp();
         }
     }
 }
