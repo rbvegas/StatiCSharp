@@ -5,6 +5,7 @@ This collection contains documentation focused on helping you understand how to 
 
 ## "How to"'s
 
+- [Content template file](HowTo/content-template.md)
 - [Using GitMode](HowTo/using_gitmode.md)
 - [Controlling source directories](HowTo/controlling_source_directories.md)
 - [Making a custom theme](HowTo/making_a_custom_theme.md)
