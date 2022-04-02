@@ -147,7 +147,10 @@ var myAwesomeWebsite = new Website(
 myAwesomeWebsite.Make();
 ```
 
-Run the project and your new awesome website will be generated in the `output` directory.
+Run the project and your new awesome website will be generated in the `output` directory:
+```
+$ dotnet run
+```
 
 ## Contributions and support
 
