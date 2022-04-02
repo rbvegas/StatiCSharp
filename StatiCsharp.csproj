@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AssemblyVersion>0.1.0</AssemblyVersion>
-    <Version>0.1.0-alpha1</Version>
+    <Version>0.1.0-alpha2</Version>
     <Authors>Roland Braun</Authors>
   </PropertyGroup>
 
