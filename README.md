@@ -88,9 +88,8 @@ StatiC# expects three folders to work with at the path given during the initiali
 `content`: This folder contains the markdown files that our website depents on.  
 `output`: Here the final website with all the necessary files will be saved.  
 `resources`: Put all your static files in here. All files will be copied, without any manipulation, to the output. Folders are migrated.  
-  
-I recomment to put those folders within your project folder of *myWebsite*.  Also copy `styles.css` from the StatiC# project-folder to this folder (if you want to use the default theme, what I also recomment to get started). Your folder should look something like this:
 
+I recomment to put those folders within your project folder of *myWebsite*.  Also copy `styles.css` from the StatiC# project-folder to this folder (if you want to use the default theme, what I also recomment to get started). Your folder should look something like this:
 
 ```bash
 ├── myWebsite
@@ -101,7 +100,6 @@ I recomment to put those folders within your project folder of *myWebsite*.  Als
 │   ├── myWebsite.csproj
 │   ├── Program.cs
 │   ├── styles.css
-
 ```
 StatiC# renders four different types of sites:  
 
