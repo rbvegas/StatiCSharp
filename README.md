@@ -88,9 +88,8 @@ StatiC# expects three folders to work with at the path given during the initiali
 `content`: This folder contains the markdown files that our website depents on.  
 `output`: Here the final website with all the necessary files will be saved.  
 `resources`: Put all your static files in here. All files will be copied, without any manipulation, to the output. Folders are migrated.  
-  
-I recomment to put those folders within your project folder of *myWebsite*. Your folder should look something like this:
 
+I recomment to put those folders within your project folder of *myWebsite*.  Also copy `styles.css` from the StatiC# project-folder to this folder (if you want to use the default theme, what I also recomment to get started). Your folder should look something like this:
 
 ```bash
 ├── myWebsite
@@ -100,7 +99,7 @@ I recomment to put those folders within your project folder of *myWebsite*. Your
 │   ├── resources
 │   ├── myWebsite.csproj
 │   ├── Program.cs
-
+│   ├── styles.css
 ```
 StatiC# renders four different types of sites:  
 
@@ -129,4 +128,35 @@ Add some content to your website by adding your markdown files to the `content` 
 │   ├── Program.cs
 ```
 
-Store your content in folders and StatiC# cares about the rest. All folders are treated as pages unless their name is used to build a section.
+Store your content in folders and StatiC# cares about the rest. All folders are treated as pages unless their name is used to build a section.  
+
+Finally set up the parameters in `Program.cs` in your *myWebsite* project:
+
+```C#
+using StatiCsharp;
+
+var myAwesomeWebsite = new Website(
+    url: "https://yourdomain.com",
+    name: "My Awesome Website",
+    description: @"Description of your website",
+    language: "en-US",
+    sections: "posts, about",         //select which folders should be treated as sections
+    source: @"/path/to/myWebsite"     // path to the folder of your website
+    );
+
+myAwesomeWebsite.Make();
+```
+
+Run the project and your new awesome website will be generated in the `output` directory.
+
+## Contributions and support
+
+StatiC# is developed completely open, and your contributions are more than welcome.
+
+Before you start using StatiC# in any of your projects, please have in mind that it’s a hobby project and there is no guarantee for technical correctness or future releases.  
+
+Since this is a very young project, it’s likely to have many limitations and missing features, which is something that can really only be discovered and addressed as you use it. While StatiC# is used in production on my personal website, it’s recommended that you first try it out for your specific use case, to make sure it supports the features that you need.  
+
+If you wish to make a change, [open a Pull Request](https://github.com/rolandbraun-dev/StatiCsharp/pull/new) — even if it just contains a draft of the changes you’re planning, or a test that reproduces an issue — and we can discuss it further from there.
+
+I hope you’ll enjoy using StatiC#!
