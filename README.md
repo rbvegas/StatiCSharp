@@ -108,7 +108,7 @@ StatiC# renders four different types of sites:
 *sections*: Sites that contain items e.g. articles in a specifig field.  
 *items*: The sites that are part of a section.  
   
-Add some content to your website by adding your markdown files to the `content` folder:
+Add some content to your website by adding your markdown files to the `content` folder. Check out the [documentation](/Documentation) for a [template file](/Documenation/HowTo/content-template.md)template file:
 
 ```bash
 ├── myWebsite
@@ -116,8 +116,8 @@ Add some content to your website by adding your markdown files to the `content` 
 │   │   ├── index.md                    # this is your homepage 
 │   │   ├── posts                       # contains all items for the posts section
 │   │   │   ├── index.md                # content of the section site
-│   │   │   ├── your_first_post.md      # item within the posts section
-│   │   │   ├── your_second_post.md     # another item within the posts section
+│   │   │   ├── your-first-post.md      # item within the posts section
+│   │   │   ├── your-second-post.md     # another item within the posts section
 │   │   ├── about                       # contains a page
 │   │   │   ├── index.md                # content of the about page
 │   │   │   ├── another-page.md         # content of another page
