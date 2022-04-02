@@ -37,9 +37,9 @@ namespace StatiCsharp
                         metaData.Add(key, value);
                     }
                 }
-                catch (Exception ex)
+                catch
                 {
-                    // No meta data found
+                    WriteLine($"No meta data found in {path}\nCheck out https://github.com/rolandbraun-dev/StatiCsharp/blob/develop/Documentation/HowTo/content-template.md for a site template.");
                 }
             }
             return metaData;
