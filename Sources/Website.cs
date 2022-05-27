@@ -1,10 +1,6 @@
-﻿using System.Globalization; // CultureInfo
-using System.IO; // GetCurrentDirectory, GetDirectories, CreateDirectory
+﻿using StatiCsharp.Interfaces;
+using System.Globalization; // CultureInfo
 using static System.Console;
-using Markdig; // Markdown parser
-using System.Reflection;
-using StatiCsharp.Interfaces;
-using System.Text; // StringBuilder
 
 namespace StatiCsharp
 {

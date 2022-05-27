@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using StatiCsharp.HtmlComponents;
+﻿using StatiCsharp.HtmlComponents;
 using StatiCsharp.Interfaces;
 
 namespace StatiCsharp
-{   
+{
     /// <summary>
     /// Implementation of the default theme thats shipping with StatiC#.
     /// </summary>
