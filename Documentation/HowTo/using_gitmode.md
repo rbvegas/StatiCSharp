@@ -6,6 +6,6 @@ Your can use StatiC# in _GitMode_ to ensure that the files in the output directo
 
 Activate GitMode with the property of the Website class before using Make():  
 
-```
+```C#
 website.GitMode = true;
 ```
