@@ -168,3 +168,4 @@ I hope you’ll enjoy using StatiC#!
 ## Future Features
 
 ⬜ Syntax highlighting
+⬜ Math
