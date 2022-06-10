@@ -57,7 +57,7 @@ After .NET has created the project files we can add StatiC# as a project referen
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="StatiCsharp" Version="0.1.0-alpha2" />
+    <PackageReference Include="StatiCsharp" Version="0.1.0-alpha3" />
   </ItemGroup>
 
 </Project>
