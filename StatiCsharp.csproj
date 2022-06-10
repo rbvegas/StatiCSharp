@@ -5,12 +5,25 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AssemblyVersion>0.1.0</AssemblyVersion>
-    <Version>0.1.0-alpha1</Version>
+    <Version>0.1.0-alpha2</Version>
     <Authors>Roland Braun</Authors>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Description>A static webside generator written in C#. It enables entire websites to be built using C#. Custom template support.</Description>
+    <Copyright>MIT</Copyright>
+    <PackageProjectUrl>https://github.com/rolandbraun-dev/StatiCsharp</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/rolandbraun-dev/StatiCsharp</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Markdig" Version="0.27.0" />
+	  <PackageReference Include="Markdig" Version="0.30.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

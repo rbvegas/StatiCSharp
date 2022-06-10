@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using StatiCsharp.HtmlComponents;
+﻿using StatiCsharp.HtmlComponents;
 using StatiCsharp.Interfaces;
 
 namespace StatiCsharp
-{   
+{
     /// <summary>
     /// Implementation of the default theme thats shipping with StatiC#.
     /// </summary>
@@ -42,7 +36,7 @@ namespace StatiCsharp
                                 .Add(new Div()
                                     .Add(new Div(website.Index.Content)
                                             .Class("welcomeWrapper"))
-                                    .Add(new Text("<h2>Latest Content from Default!!!</h2>"))
+                                    .Add(new Text("<h2>Latest Content</h2>"))
                                     .Add(new ItemList(items))
                                     .Class("wrapper"))
                                 .Add(new Footer())

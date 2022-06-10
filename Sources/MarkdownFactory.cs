@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using static System.Console;
+﻿using static System.Console;
 
 namespace StatiCsharp
 {
@@ -37,9 +31,9 @@ namespace StatiCsharp
                         metaData.Add(key, value);
                     }
                 }
-                catch (Exception ex)
+                catch
                 {
-                    // No meta data found
+                    WriteLine($"No meta data found in {path}\nCheck out https://github.com/rolandbraun-dev/StatiCsharp/blob/develop/Documentation/HowTo/content-template.md for a site template.");
                 }
             }
             return metaData;

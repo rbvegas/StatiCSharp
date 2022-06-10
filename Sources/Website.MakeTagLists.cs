@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using StatiCsharp.Interfaces;
 
 namespace StatiCsharp
@@ -47,14 +42,14 @@ namespace StatiCsharp
                 string page = AddLeadingHtmlCode(this, tagPage, body);
 
                 // Create directory, if it does not excist
-                string path = Directory.CreateDirectory(Path.Combine(output, "tag", tag)).ToString();
+                string path = Directory.CreateDirectory(Path.Combine(_output, "tag", tag)).ToString();
 
                 if (this.PathDirectory.Contains(path))
                 {
                     Console.WriteLine($"WARNING: The path {path} is allready in use. Change the path in meta data to avoid duplicates.");
                 }
 
-                WriteFile(path: path, filename: "index.html", content: page, gitMode: this.gitMode);
+                WriteFile(path: path, filename: "index.html", content: page, gitMode: this._gitMode);
 
                 this.PathDirectory.Add(path);
             }

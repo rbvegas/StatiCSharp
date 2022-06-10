@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Globalization; // CultureInfo
+﻿using System.Globalization; // CultureInfo
 
 namespace StatiCsharp.Interfaces
 {
@@ -38,6 +33,11 @@ namespace StatiCsharp.Interfaces
         ///  The path to the resources (static files) of the website.
         /// </summary>
         string Resources { get; }
+
+        /// <summary>
+        /// The path to the output directory.
+        /// </summary>
+        string Output { get; }
 
         /// <summary>
         /// The source directory, containing Content, Ouput styles etc.
