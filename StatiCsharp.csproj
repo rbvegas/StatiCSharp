@@ -9,10 +9,11 @@
     <Authors>Roland Braun</Authors>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Description>A static webside generator written in C#. It enables entire websites to be built using C#. Custom template support.</Description>
-    <Copyright>MIT</Copyright>
+    <Copyright></Copyright>
     <PackageProjectUrl>https://github.com/rolandbraun-dev/StatiCsharp</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/rolandbraun-dev/StatiCsharp</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
