@@ -140,7 +140,7 @@ var myAwesomeWebsite = new Website(
     name: "My Awesome Website",
     description: @"Description of your website",
     language: "en-US",
-    sections: "posts, about",         //select which folders should be treated as sections
+    sections: "posts, about",         // select which folders should be treated as sections
     source: @"/path/to/myWebsite"     // path to the folder of your website
     );
 
@@ -151,6 +151,13 @@ Run the project and your new awesome website will be generated in the `output` d
 ```
 $ dotnet run
 ```
+
+## Dependencies
+
+- [Microsoft .NET](https://dotnet.microsoft.com/)
+- [Markdig](https://github.com/xoofx/markdig)
+
+
 
 ## Contributions and support
 
