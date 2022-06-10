@@ -36,27 +36,15 @@ var myAwesomeWebsite = new Website(
 myAwesomeWebsite.Make();
 ```
 
-## Installation
 
-### Download StatiC#
-
-In the current version StatiC# is only available from the project files. Download the project files to your local machine via git is recommended. To do so create a new folder at a place of your choice and open a terminal window at this location. Clone StatiC# to your machine by entering:
-
-```
-$ git init
-$ git clone https://github.com/rolandbraun-dev/StatiCsharp.git
-```
-
-That's all. For the rest we can leave this folder untouched.
-
-### Add StatiC# to your project
+## Add StatiC# to your project
 
 To get started, create a new console application at a path of your choice. Let's say that your new website is called *myWebsite*:
 
 ```
 $ dotnet new console -n myWebsite
 ```
-After .NET has created the project files we can add StatiC# as a project reference. Open `myWebsite.csproj` and add the path of the previous download of StatiC#. The file should then look something like this:
+After .NET has created the project files we can add StatiC# as a project reference. Open `myWebsite.csproj` and add StatiC# as a package reference. The file should then look something like this:
 
 ```
 <Project Sdk="Microsoft.NET.Sdk">
@@ -69,7 +57,7 @@ After .NET has created the project files we can add StatiC# as a project referen
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\path\to\StatiCsharp\StatiCsharp.csproj" />
+    <PackageReference Include="StatiCsharp" Version="0.1.0-alpha2" />
   </ItemGroup>
 
 </Project>
