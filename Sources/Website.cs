@@ -204,7 +204,7 @@ namespace StatiCsharp
 
             WriteLine("Copying resources...");
             CopyAll(this.Resources, _output);
-            File.Copy(HtmlFactory.CssPath, Path.Combine(_output, "styles.css"), true);
+            CopyAll(HtmlFactory.ResourcesPath, _output);
 
             WriteLine("Cleaning up...");
             CleanUp();
