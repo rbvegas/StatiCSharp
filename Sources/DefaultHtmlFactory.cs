@@ -8,9 +8,12 @@ namespace StatiCsharp
     /// </summary>
     public class DefaultHtmlFactory: IHtmlFactory
     {
-        public string CssPath
+        public string ResourcesPath
         {
-            get { return Path.Combine(website.SourceDir, "styles.css"); }
+            get {
+                string path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                return Path.Combine(path, "Resources");
+            }
         }
 
         private IWebsite website;
