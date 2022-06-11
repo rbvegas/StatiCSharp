@@ -5,7 +5,7 @@
         /// <summary>
         /// Path to the corresponding css file.
         /// </summary>
-        public string CssPath { get; }
+        public string ResourcesPath { get; }
 
         /// <summary>
         /// The website the theme is used for.
