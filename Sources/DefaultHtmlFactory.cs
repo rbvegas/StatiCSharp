@@ -8,7 +8,7 @@ namespace StatiCsharp
     /// </summary>
     public class DefaultHtmlFactory: IHtmlFactory
     {
-        public string ResourcePaths
+        public string CssPath
         {
             get { return Path.Combine(website.SourceDir, "styles.css"); }
         }
