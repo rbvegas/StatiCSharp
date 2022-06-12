@@ -175,6 +175,11 @@ namespace StatiCsharp
         /// <param name="HtmlFactory"></param>
         public void Make(IHtmlFactory HtmlFactory)
         {
+            if (!CheckEnvironment())
+            {
+                return;
+            }
+
             HtmlFactory.WithWebsite(this);
             WriteLine("Making your website...");
 
