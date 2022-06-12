@@ -1,9 +1,9 @@
 ﻿# Documentation
 
 Welcome to *StatiC#*'s documentation.  
-This collection contains documentation focused on helping you understand how to use StatiC#'s various features and capabilities.
+This collection contains documentation focused on helping you understand how to use StatiC#'s various features and capabilities. If you need a [project template](/ProjectTemplate) to get started, feel free to use [this](/ProjectTemplate).
 
-## "How to"'s
+## How to's
 
 - [Content template file](HowTo/content-template.md)
 - [Using GitMode](HowTo/using_gitmode.md)
