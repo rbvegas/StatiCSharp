@@ -14,7 +14,8 @@ namespace StatiCsharp
             foreach (IPage site in this.Pages)
             {
                 string body = HtmlFactory.MakePageHtml(site);
-                string page = AddLeadingHtmlCode(this, site, body);
+                string head = HtmlFactory.MakeHeadHtml();
+                string page = AddLeadingHtmlCode(this, site, head, body);
                 string defaultPath = FilenameToPath.From(site.MarkdownFileName);
 
                 // Create directory, if it does not excist.

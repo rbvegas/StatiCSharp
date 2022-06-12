@@ -13,7 +13,8 @@ namespace StatiCsharp
             foreach (ISection site in this.Sections)
             {
                 string body = HtmlFactory.MakeSectionHtml(site);
-                string page = AddLeadingHtmlCode(this, site, body);
+                string head = HtmlFactory.MakeHeadHtml();
+                string page = AddLeadingHtmlCode(this, site, head, body);
                 string path = Directory.CreateDirectory(Path.Combine(_output, site.SectionName)).ToString();
 
                 if (this.PathDirectory.Contains(path))

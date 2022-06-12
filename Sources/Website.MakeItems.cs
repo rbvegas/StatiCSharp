@@ -16,7 +16,8 @@ namespace StatiCsharp
                 foreach (IItem site in currentSection.Items)
                 {
                     string body = HtmlFactory.MakeItemHtml(site);
-                    string page = AddLeadingHtmlCode(this, site, body);
+                    string head = HtmlFactory.MakeHeadHtml();
+                    string page = AddLeadingHtmlCode(this, site, head, body);
                     string defaultPath = FilenameToPath.From(site.MarkdownFileName);
 
                     string itemPath = (site.Path != string.Empty) ? site.Path : defaultPath;

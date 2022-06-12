@@ -39,7 +39,8 @@ namespace StatiCsharp
                 IItem tagPage = new Item();
                 tagPage.Title = $"{tag} | {this.Name}";
                 string body = htmlFactory.MakeTagListHtml(itemsWithCurrentTag, tag);
-                string page = AddLeadingHtmlCode(this, tagPage, body);
+                string head = htmlFactory.MakeHeadHtml();
+                string page = AddLeadingHtmlCode(this, tagPage, head, body);
 
                 // Create directory, if it does not excist
                 string path = Directory.CreateDirectory(Path.Combine(_output, "tag", tag)).ToString();

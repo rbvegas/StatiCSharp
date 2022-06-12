@@ -11,7 +11,8 @@ namespace StatiCsharp
         private void MakeIndex(IHtmlFactory HtmlFactory)
         {
             string body = HtmlFactory.MakeIndexHtml(this);
-            string index = AddLeadingHtmlCode(this, this.Index, body);
+            string head = HtmlFactory.MakeHeadHtml();
+            string index = AddLeadingHtmlCode(this, this.Index, head, body);
             WriteFile(_output, "index.html", index, gitMode: this._gitMode);
             this.PathDirectory.Add(_output);
         }
