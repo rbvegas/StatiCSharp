@@ -30,7 +30,7 @@ var myAwesomeWebsite = new Website(
     description: @"Description of your website",
     language: "en-US",
     sections: "posts, about",
-    source: @"/path/to/your/content"
+    source: @"/path/to/your/project"
     );
 
 myAwesomeWebsite.Make();
@@ -129,7 +129,7 @@ var myAwesomeWebsite = new Website(
     description: @"Description of your website",
     language: "en-US",
     sections: "posts, about",         // select which folders should be treated as sections
-    source: @"/path/to/myWebsite"     // path to the folder of your website
+    source: @"/path/to/myWebsite"     // path to the folder of your website project
     );
 
 myAwesomeWebsite.Make();
