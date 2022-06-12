@@ -27,6 +27,11 @@ namespace StatiCsharp
             this.website = website;
         }
 
+        public string MakeHeadHtml()
+        {
+            return "<link rel=\"stylesheet\" href=\"/styles.css\"";
+        }
+
         public string MakeIndexHtml(IWebsite website)
         {
             // Collect all items to show. 10 items max.
