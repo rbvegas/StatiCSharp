@@ -29,7 +29,7 @@ namespace StatiCsharp
 
         public string MakeHeadHtml()
         {
-            return "<link rel=\"stylesheet\" href=\"/styles.css\"";
+            return "<link rel=\"stylesheet\" href=\"/styles.css\">";
         }
 
         public string MakeIndexHtml(IWebsite website)
