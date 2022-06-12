@@ -7,11 +7,11 @@ namespace StatiCsharp
         /// <summary>
         /// Creates and writes the index/homepage of the website with the given HtmlFactory.
         /// </summary>
-        /// <param name="HtmlFactory"></param>
-        private void MakeIndex(IHtmlFactory HtmlFactory)
+        /// <param name="htmlFactory"></param>
+        private void MakeIndex(IHtmlFactory htmlFactory)
         {
-            string body = HtmlFactory.MakeIndexHtml(this);
-            string head = HtmlFactory.MakeHeadHtml();
+            string body = htmlFactory.MakeIndexHtml(this);
+            string head = htmlFactory.MakeHeadHtml();
             string index = AddLeadingHtmlCode(this, this.Index, head, body);
             WriteFile(_output, "index.html", index, gitMode: this._gitMode);
             this.PathDirectory.Add(_output);

@@ -7,13 +7,13 @@ namespace StatiCsharp
         /// <summary>
         /// Creates and writes the sections (not pages or items) of the website with the given HtmlFactory.
         /// </summary>
-        /// <param name="HtmlFactory"></param>
-        private void MakeSections(IHtmlFactory HtmlFactory)
+        /// <param name="htmlFactory"></param>
+        private void MakeSections(IHtmlFactory htmlFactory)
         {
             foreach (ISection site in this.Sections)
             {
-                string body = HtmlFactory.MakeSectionHtml(site);
-                string head = HtmlFactory.MakeHeadHtml();
+                string body = htmlFactory.MakeSectionHtml(site);
+                string head = htmlFactory.MakeHeadHtml();
                 string page = AddLeadingHtmlCode(this, site, head, body);
                 string path = Directory.CreateDirectory(Path.Combine(_output, site.SectionName)).ToString();
 
