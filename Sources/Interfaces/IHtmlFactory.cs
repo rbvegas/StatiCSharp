@@ -19,6 +19,12 @@
         public void WithWebsite(IWebsite website);
 
         /// <summary>
+        /// Creates html-code for inside the <head></head>-tag. This code is added to all sites.
+        /// </summary>
+        /// <returns>A string containing the html-code.</returns>
+        public string MakeHeadHtml();
+
+        /// <summary>
         /// Method that returns the html-code for the index.
         /// </summary>
         /// /// <param name="website">The websites index to render.</param>
