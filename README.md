@@ -29,8 +29,8 @@ var myAwesomeWebsite = new Website(
     name: "My Awesome Website",
     description: @"Description of your website",
     language: "en-US",
-    sections: "posts, about",
-    source: @"/path/to/your/project"
+    sections: "posts, about",           //select which folders should be treated as sections
+    source: @"/path/to/your/project"    // path to the folder of your website project
     );
 
 myAwesomeWebsite.Make();
@@ -70,6 +70,9 @@ using StatiCsharp;
 ```
 
 ## Quick start
+
+You can use StatiC#'s [project template](/Documentation/ProjectTemplate) to quick start or follow the following steps to set up your project manually.  
+Nevertheless its recommended to read this readme to get a understanding how StatiC# works.  
 
 StatiC# expects three folders to work with at the path given during the initialization of our website (we will come to that later).  
   
@@ -129,7 +132,7 @@ var myAwesomeWebsite = new Website(
     description: @"Description of your website",
     language: "en-US",
     sections: "posts, about",         // select which folders should be treated as sections
-    source: @"/path/to/myWebsite"     // path to the folder of your website project
+    source: @"/path/to/your/project"  // path to the folder of your website project
     );
 
 myAwesomeWebsite.Make();
@@ -139,6 +142,8 @@ Run the project and your new awesome website will be generated in the `output` d
 ```
 $ dotnet run
 ```
+
+Check out the [documentation](/Documentation) for further information.
 
 ## Dependencies
 

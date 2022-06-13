@@ -6,7 +6,7 @@
 
 Add the template of your choice to your website project as a project or package reference. Check out the documentation of your template for more details. Here, we implement Foundation as a package reference in the project file:
 
-```bash
+```
 <ItemGroup>
     <PackageReference Include="StatiCsharp.Themes.Foundation" Version="0.1.0" />
 </ItemGroup>
