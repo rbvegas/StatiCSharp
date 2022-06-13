@@ -16,6 +16,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
     <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageTags>StatiC#; StatiCsharp; staticsharp; Staticsharp; static; website; generator;</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
