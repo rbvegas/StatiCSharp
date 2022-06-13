@@ -10,7 +10,7 @@
         <img src="https://img.shields.io/badge/.NET-6.0-blueviolet?style=flat" />
     </a>
     <img src="https://img.shields.io/badge/Platforms-Win+Mac+Linux-green?style=flat" />
-    <img src="https://img.shields.io/badge/Version-0.1.0--alpha3-green?style=flat" />
+    <img src="https://img.shields.io/badge/Version-0.1.0--alpha4-green?style=flat" />
 </p>
 
 Welcome to **StatiC#**, a static webside generator written in C#. It enables entire websites to be built using C#. Custom themes can be used by editing the integrated default theme or by importing a theme.
@@ -57,7 +57,7 @@ After .NET has created the project files we can add StatiC# as a project referen
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="StatiCsharp" Version="0.1.0-alpha3" />
+    <PackageReference Include="StatiCsharp" Version="0.1.0-alpha4" />
   </ItemGroup>
 
 </Project>
