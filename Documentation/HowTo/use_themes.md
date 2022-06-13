@@ -6,7 +6,7 @@
 
 Add the template of your choice to your website project as a project or package reference. Check out the documentation of your template for more details. Here, we implement Foundation as a package reference in the project file:
 
-```C#
+```bash
 <ItemGroup>
     <PackageReference Include="StatiCsharp.Themes.Foundation" Version="0.1.0" />
 </ItemGroup>
@@ -25,8 +25,8 @@ var myAwesomeWebsite = new Website(
     name: "My Awesome Website",
     description: @"Description of your website",
     language: "en-US",
-    sections: "posts, about",
-    source: @"/path/to/your/project"
+    sections: "posts, about",           //select which folders should be treated as sections
+    source: @"/path/to/your/project"    // path to the folder of your website project
     );
 
 var theme = new FoundationHtmlFactory();
