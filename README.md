@@ -11,6 +11,7 @@
     </a>
     <img src="https://img.shields.io/badge/Platforms-Win+Mac+Linux-green?style=flat" />
     <img src="https://img.shields.io/badge/Version-0.1.0--alpha3-green?style=flat" />
+    <img src="https://img.shields.io/badge/Status-Broken-critical?style=flat" />
 </p>
 
 Welcome to **StatiC#**, a static webside generator written in C#. It enables entire websites to be built using C#. Custom themes can be used by editing the integrated default theme or by importing a theme.
