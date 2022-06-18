@@ -89,7 +89,6 @@ I recomment to put those folders within your project folder of *myWebsite*. Your
 │   ├── Resources
 │   ├── myWebsite.csproj
 │   ├── Program.cs
-│   ├── styles.css
 ```
 StatiC# renders four different types of sites:  
 
