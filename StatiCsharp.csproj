@@ -26,6 +26,7 @@
     <ItemGroup>
 		<Content Include="DefaultResources\styles.css" pack="true">
 			<PackageCopyToOutput>true</PackageCopyToOutput>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
     </ItemGroup>
 
