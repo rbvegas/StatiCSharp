@@ -153,9 +153,9 @@ namespace StatiCsharp
             this._description = description;
             this._language = new CultureInfo(language);
             this._sourceDir = Path.Combine(source);
-            this._content = Path.Combine(source, "content");
-            this._resources = Path.Combine(source, "resources");
-            this._output = Path.Combine(source, "output");
+            this._content = Path.Combine(source, "Content");
+            this._resources = Path.Combine(source, "Resources");
+            this._output = Path.Combine(source, "Output");
             this._makeSectionsFor = sections.Replace(" ", string.Empty).Split(',').ToList();
         }
 

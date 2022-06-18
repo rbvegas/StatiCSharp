@@ -12,7 +12,7 @@ namespace StatiCsharp
         {
             get {
                 string path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-                return Path.Combine(path, "Resources");
+                return Path.Combine(path, "DefaultResources");
             }
         }
 

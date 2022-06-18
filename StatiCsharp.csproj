@@ -1,39 +1,48 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <AssemblyVersion>0.1.0</AssemblyVersion>
-    <Version>0.1.0-alpha3</Version>
-    <Authors>Roland Braun</Authors>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Description>A static webside generator written in C#. It enables entire websites to be built using C#. Custom template support.</Description>
-    <Copyright>Roland Braun</Copyright>
-    <PackageProjectUrl>https://github.com/rolandbraun-dev/StatiCsharp</PackageProjectUrl>
-    <PackageReadmeFile>README_NUGET.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/rolandbraun-dev/StatiCsharp</RepositoryUrl>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <RepositoryType>git</RepositoryType>
-    <NeutralLanguage>en-US</NeutralLanguage>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AssemblyVersion>0.1.0</AssemblyVersion>
+        <Version>0.1.0-alpha5</Version>
+        <Authors>Roland Braun</Authors>
+        <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+        <Description>A static webside generator written in C#. It enables entire websites to be built using C#. Custom template support.</Description>
+        <Copyright>Roland Braun</Copyright>
+        <PackageProjectUrl>https://github.com/rolandbraun-dev/StatiCsharp</PackageProjectUrl>
+        <PackageReadmeFile>README_NUGET.md</PackageReadmeFile>
+        <RepositoryUrl>https://github.com/rolandbraun-dev/StatiCsharp</RepositoryUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryType>git</RepositoryType>
+        <NeutralLanguage>en-US</NeutralLanguage>
+        <PackageTags>StatiC#; StatiCsharp; staticsharp; Staticsharp; static; website; generator;</PackageTags>
+    </PropertyGroup>
 
-  <ItemGroup>
-	  <PackageReference Include="Markdig" Version="0.30.2" />
-  </ItemGroup>
+    <ItemGroup>
+      <None Remove="DefaultResources\styles.css" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <None Update="README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Update="README_NUGET.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Update="Resources\styles.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+    <ItemGroup>
+		<Content Include="DefaultResources\styles.css" pack="true">
+			<PackageCopyToOutput>true</PackageCopyToOutput>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Markdig" Version="0.30.2" />
+    </ItemGroup>
+	
+    <ItemGroup>
+        <None Update="README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        <None Update="README_NUGET.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
 
 </Project>
