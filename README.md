@@ -10,7 +10,7 @@
         <img src="https://img.shields.io/badge/.NET-6.0-blueviolet?style=flat" />
     </a>
     <img src="https://img.shields.io/badge/Platforms-Win+Mac+Linux-green?style=flat" />
-    <img src="https://img.shields.io/badge/Version-0.1.0--alpha4-green?style=flat" />
+    <img src="https://img.shields.io/badge/Version-0.1.0--alpha5-green?style=flat" />
 </p>
 
 Welcome to **StatiC#**, a static webside generator written in C#. It enables entire websites to be built using C#. Custom themes can be used by editing the integrated default theme or by importing a theme.
@@ -57,7 +57,7 @@ After .NET has created the project files we can add StatiC# as a project referen
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="StatiCsharp" Version="0.1.0-alpha4" />
+    <PackageReference Include="StatiCsharp" Version="0.1.0-alpha5" />
   </ItemGroup>
 
 </Project>
@@ -76,18 +76,17 @@ Nevertheless its recommended to read this readme to get a understanding how Stat
 
 StatiC# expects three folders to work with at the path given during the initialization of our website (we will come to that later).  
   
-`content`: This folder contains the markdown files that our website depents on.  
-`output`: Here the final website with all the necessary files will be saved.  
-`resources`: Put all your static files in here. All files will be copied, without any manipulation, to the output. Folders are migrated.  
+`Content`: This folder contains the markdown files that our website depents on.  
+`Output`: Here the final website with all the necessary files will be saved.  
+`Resources`: Put all your static files in here. All files will be copied, without any manipulation, to the output. Folders are migrated.  
 
-I recomment to put those folders within your project folder of *myWebsite*.  Also copy `styles.css` from the StatiC# project-folder to this folder (if you want to use the default theme, what I also recomment to get started). Your folder should look something like this:
+I recomment to put those folders within your project folder of *myWebsite*. Your folder should look something like this:
 
 ```bash
 ├── myWebsite
-│   ├── content
-│   ├── obj
-│   ├── outout
-│   ├── resources
+│   ├── Content
+│   ├── Outout
+│   ├── Resources
 │   ├── myWebsite.csproj
 │   ├── Program.cs
 │   ├── styles.css
@@ -99,11 +98,11 @@ StatiC# renders four different types of sites:
 *sections*: Sites that contain items e.g. articles in a specifig field.  
 *items*: The sites that are part of a section.  
   
-Add some content to your website by adding your markdown files to the `content` folder. Check out the [documentation](/Documentation) for a [template file](Documentation/HowTo/content-template.md):
+Add some content to your website by adding your markdown files to the `Content` folder. Check out the [documentation](/Documentation) for a [template file](Documentation/HowTo/content-template.md):
 
 ```bash
 ├── myWebsite
-│   ├── content
+│   ├── Content
 │   │   ├── index.md                    # this is your homepage 
 │   │   ├── posts                       # contains all items for the posts section
 │   │   │   ├── index.md                # content of the section site
@@ -112,9 +111,8 @@ Add some content to your website by adding your markdown files to the `content` 
 │   │   ├── about                       # contains a page
 │   │   │   ├── index.md                # content of the about page
 │   │   │   ├── another-page.md         # content of another page
-│   ├── obj
-│   ├── outout
-│   ├── resources
+│   ├── Outout
+│   ├── Resources
 │   ├── myWebsite.csproj
 │   ├── Program.cs
 ```
@@ -138,7 +136,7 @@ var myAwesomeWebsite = new Website(
 myAwesomeWebsite.Make();
 ```
 
-Run the project and your new awesome website will be generated in the `output` directory:
+Run the project and your new awesome website will be generated in the `Output` directory:
 ```
 $ dotnet run
 ```
