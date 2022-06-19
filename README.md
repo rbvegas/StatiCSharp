@@ -44,7 +44,7 @@ To get started, create a new console application at a path of your choice. Let's
 ```
 $ dotnet new console -n myWebsite
 ```
-After .NET has created the project files we can add StatiC# as a project reference. Open `myWebsite.csproj` and add StatiC# as a package reference. The file should then look something like this:
+After .NET has created the project files open `myWebsite.csproj` and add StatiC# as a package reference. The file should then look something like this:
 
 ```
 <Project Sdk="Microsoft.NET.Sdk">
