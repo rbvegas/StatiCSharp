@@ -94,5 +94,12 @@ private class Footer: IHtmlComponent
 }
 ```
 
-By the way, it would be nice if you implement the reference to StatiC# in your templates.  
+By the way, it would be nice if you implement the reference to StatiC# in your templates.
+
+## Managing resources
+
+...
+
+---
+
 Check out the [default theme]() to see a template in action. I would be pleased if you give me feedback for this guide, so that I can it better and make the entry to build custom themes with StatiC# as smoothly as possible. Would it be great, if many developers bring in their template ideas and there would be a big number of template to choose from 😉
