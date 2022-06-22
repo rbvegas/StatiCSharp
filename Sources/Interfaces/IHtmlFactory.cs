@@ -8,15 +8,18 @@
         public string ResourcesPath { get; }
 
         /// <summary>
-        /// The website the theme is used for.
+        /// The website the theme is used for. So that the theme can access additional information.
         /// </summary>
-        public IWebsite? Website { get; }
+        public IWebsite? Website { get; set; }
 
         /// <summary>
         /// Method to add a website to the theme.
         /// </summary>
         /// <param name="website"></param>
-        public void WithWebsite(IWebsite website);
+        public void WithWebsite(IWebsite website)
+        {
+            this.Website = website;
+        }
 
         /// <summary>
         /// Creates html-code for inside the <head></head>-tag. This code is added to all sites.
