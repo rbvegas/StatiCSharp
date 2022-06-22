@@ -59,7 +59,7 @@
         /// Method that returns the html-code for the taglist site.
         /// </summary>
         /// <param name="website"></param>
-        /// <returns></returns>
+        /// <returns>A string containing the html-code.</returns>
         public string MakeTagListHtml(List<IItem> items, string tag);
     }
 }
