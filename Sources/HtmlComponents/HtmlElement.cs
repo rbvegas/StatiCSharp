@@ -68,7 +68,7 @@ namespace StatiCsharp.HtmlComponents
         /// <returns>this - the element itself.</returns>
         public HtmlElement Class(string cssClass)
         {
-            Attributes.Add("class", cssClass);
+            Attributes["class"] = cssClass;
             return this;
         }
 
@@ -79,7 +79,7 @@ namespace StatiCsharp.HtmlComponents
         /// <returns>this - The element itself.></returns>
         public HtmlElement Style(string style)
         {
-            Attributes.Add("style", style);
+            Attributes["style"] = style;
             return this;
         }
 
