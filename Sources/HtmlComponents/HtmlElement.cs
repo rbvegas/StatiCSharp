@@ -106,6 +106,40 @@ namespace StatiCsharp.HtmlComponents
         }
 
         /// <summary>
+        /// Indicates that the element is not yet, or is no longer, relevant.<br/>
+        /// The browser won't render such elements. This attribute must not be used to hide content that could legitimately be shown.
+        /// </summary>
+        /// <returns></returns>
+        public HtmlElement Hidden()
+        {
+            Attributes["hidden"] = null;
+            return this;
+        }
+
+        /// <summary>
+        /// Defines a unique identifier which must be unique in the whole document.<br/>
+        /// Its purpose is to identify the element when linking, scripting, or styling.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public HtmlElement Id(string id)
+        {
+            Attributes["id"] = id;
+            return this;
+        }
+
+        /// <summary>
+        /// An integer attribute indicating if the element can take input focus, if it should participate to sequential keyboard navigation, and if so, at what position.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public HtmlElement TabIndex(int index)
+        {
+            Attributes["tabindex"] = index.ToString();
+            return this;
+        }
+
+        /// <summary>
         /// Renders the element to html code.
         /// </summary>
         /// <returns>A string containing the html code of this element</returns>
