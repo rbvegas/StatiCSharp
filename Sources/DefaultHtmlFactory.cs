@@ -12,8 +12,8 @@ namespace StatiCsharp
         public string ResourcesPath
         {
             get {
-                string path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-                return Path.Combine(path, "DefaultResources");
+                string? path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                return Path.Combine(path!, "DefaultResources");
             }
         }
 
@@ -189,7 +189,7 @@ namespace StatiCsharp
         private class TagList: IHtmlComponent
         {
             private List<string> tags;
-            private TagList(List<string> tags)
+            public TagList(List<string> tags)
             {
                 this.tags = tags;
             }
