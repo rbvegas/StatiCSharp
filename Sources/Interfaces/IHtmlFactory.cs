@@ -1,9 +1,12 @@
 ﻿namespace StatiCsharp.Interfaces
 {
+    /// <summary>
+    /// Interface to implement for making StatiC# compatible custom themes.
+    /// </summary>
     public interface IHtmlFactory
     {
         /// <summary>
-        /// Path to the corresponding css file.
+        /// Path to the corresponding resources. All files within this directory will be copied to the root directory of the output.
         /// </summary>
         public string ResourcesPath { get; }
 
@@ -13,7 +16,7 @@
         public IWebsite? Website { get; set; }
 
         /// <summary>
-        /// Method to add a website to the theme.
+        /// Method to inject a website into the theme.
         /// </summary>
         /// <param name="website"></param>
         public void WithWebsite(IWebsite website)
@@ -22,13 +25,13 @@
         }
 
         /// <summary>
-        /// Creates html-code for inside the <head></head>-tag. This code is added to all sites.
+        /// Creates html-code for inside the &lt;head&gt;&lt;/head&gt;-tag. This code is added to all sites.
         /// </summary>
         /// <returns>A string containing the html-code.</returns>
         public string MakeHeadHtml();
 
         /// <summary>
-        /// Method that returns the html-code for the index.
+        /// Method that returns the html-code for the index site.
         /// </summary>
         /// /// <param name="website">The websites index to render.</param>
         /// <returns>A string containing the html-code.</returns>
