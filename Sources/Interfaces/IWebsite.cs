@@ -2,10 +2,13 @@
 
 namespace StatiCsharp.Interfaces
 {
+    /// <summary>
+    /// Interface to confrom to for a website object while building templates.
+    /// </summary>
     public interface IWebsite
     {
         /// <summary>
-        /// The absolute url that the website will be hosted at.
+        /// The absolute domain of the website. E.g. "https://mydomain.com".
         /// </summary>
         string Url { get; }
 
@@ -15,17 +18,17 @@ namespace StatiCsharp.Interfaces
         string Name { get; }
 
         /// <summary>
-        /// A description of the website.
+        /// A short description of the website. Is used for metadata in the html sites.
         /// </summary>
         string Description { get; }
 
         /// <summary>
-        /// The website's primary language.
+        /// The language the websites main content is written in.
         /// </summary>
         CultureInfo Language { get; }
 
         /// <summary>
-        /// The path to the content (markdown files) of the website.
+        /// The abolute path to the content (markdown-files) for the website.
         /// </summary>
         string Content { get; }
 
@@ -35,12 +38,12 @@ namespace StatiCsharp.Interfaces
         string Resources { get; }
 
         /// <summary>
-        /// The path to the output directory.
+        /// The absolute path to the output directory.
         /// </summary>
         string Output { get; }
 
         /// <summary>
-        /// The source directory, containing Content, Ouput styles etc.
+        /// The absolute path to the directory that contains the directories `Content`, `Output` and `Resources`.
         /// </summary>
         string SourceDir { get; }
 
@@ -48,30 +51,24 @@ namespace StatiCsharp.Interfaces
         //TODO
 
         /// <summary>
-        /// The website's meta data and content for the index page.
+        /// Represents the index (homepage) of the website.
         /// </summary>
         ISite Index { get; }
 
         /// <summary>
-        /// The website's pages.
+        /// The collection of pages the website contains.
         /// </summary>
-        List<ISite> Pages { get; }
+        List<IPage> Pages { get; }
 
         /// <summary>
-        /// The website's sections (not pages).
+        /// The collection of sections the website's sections (not pages).
         /// </summary>
         List<ISection> Sections { get; }
 
         /// <summary>
-        /// The names of the sections the website will have. Need to be the exact name of the folders in the Content directory.
-        /// Sections are also visible in the navigation.
+        /// Collection of the websites section-names. Folders in the content directory with names matching one item of this list a treated as sections.
         /// </summary>
         List<string> MakeSectionsFor { get; }
 
-        /// <summary>
-        /// List of all used paths while creating the sites.
-        /// Used to find identical paths from meta data and to find files that have no markdown equivalent (got deleted) in markdown mode.
-        /// </summary>
-        List<string> PathDirectory { get; }
     }
 }
