@@ -40,7 +40,8 @@ namespace StatiCsharp.HtmlComponents
         }
 
         /// <summary>
-        /// Only for <ol> lists. Specifies the start value of a list item. The following list items will increment from that number
+        /// Only for &lt;ol&gt; lists.<br/>
+        /// Specifies the start value of a list item. The following list items will increment from that number
         /// </summary>
         /// <param name="value"></param>
         /// <returns>this - the element itself.</returns>
@@ -57,7 +58,7 @@ namespace StatiCsharp.HtmlComponents
 
 
     /// <summary>
-    /// A representation of a <ul></ul> element.
+    /// A representation of a &lt;ul&gt;&lt;/ul&gt; element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
     public class Ul : HtmlElement, IHtmlComponent
@@ -68,7 +69,7 @@ namespace StatiCsharp.HtmlComponents
         }
 
         /// <summary>
-        /// Initiate a new empty <ul> element.
+        /// Initiate a new empty &lt;ul&gt; element.
         /// </summary>
         public Ul()
         {
@@ -76,7 +77,7 @@ namespace StatiCsharp.HtmlComponents
         }
 
         /// <summary>
-        /// Initiate a new <ul> element with another element or component inside.
+        /// Initiate a new &lt;ul&gt; element with another element or component inside.
         /// </summary>
         /// <param name="component">The component for the content of the ul.</param>
         public Ul(IHtmlComponent component)
@@ -87,7 +88,7 @@ namespace StatiCsharp.HtmlComponents
         /// <summary>
         /// Initiate a new ul element with text.
         /// </summary>
-        /// <param name="text">The text for the content of the <ul>.</param>
+        /// <param name="text">The text for the content of the &lt;ul&gt;.</param>
         public Ul(string text)
         {
             Content = new List<IHtmlComponent> { new Text(text) };
@@ -97,7 +98,7 @@ namespace StatiCsharp.HtmlComponents
 
 
     /// <summary>
-    /// A representation of a <ol></ol> element.
+    /// A representation of a &lt;ol&gt;&lt;/ol&gt; element.<br/>
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
     public class Ol : HtmlElement, IHtmlComponent
@@ -108,7 +109,7 @@ namespace StatiCsharp.HtmlComponents
         }
 
         /// <summary>
-        /// Initiate a new empty <ol> element.
+        /// Initiate a new empty &lt;ol&gt; element.
         /// </summary>
         public Ol()
         {
@@ -116,7 +117,7 @@ namespace StatiCsharp.HtmlComponents
         }
 
         /// <summary>
-        /// Initiate a new <ol> element with another element or component inside.
+        /// Initiate a new &lt;ol&gt; element with another element or component inside.
         /// </summary>
         /// <param name="component">The component for the content of the ol.</param>
         public Ol(IHtmlComponent component)
@@ -127,14 +128,14 @@ namespace StatiCsharp.HtmlComponents
         /// <summary>
         /// Initiate a new ol element with text.
         /// </summary>
-        /// <param name="text">The text for the content of the <ol>.</param>
+        /// <param name="text">The text for the content of the &lt;ol&gt;.</param>
         public Ol(string text)
         {
             Content = new List<IHtmlComponent> { new Text(text) };
         }
 
         /// <summary>
-        /// The type attribute of the <ol> tag, defines the type of the list item marker:
+        /// The type attribute of the &lt;ol&gt; tag, defines the type of the list item marker:
         /// type="1"	The list items will be numbered with numbers (default)
         /// type="A"	The list items will be numbered with uppercase letters
         /// type="a"	The list items will be numbered with lowercase letters
@@ -153,7 +154,7 @@ namespace StatiCsharp.HtmlComponents
         }
 
         /// <summary>
-        /// The type attribute of the <ol> tag, defines the type of the list item marker:
+        /// The type attribute of the &lt;ol&gt; tag, defines the type of the list item marker:
         /// type="1"	The list items will be numbered with numbers (default)
         /// type="A"	The list items will be numbered with uppercase letters
         /// type="a"	The list items will be numbered with lowercase letters

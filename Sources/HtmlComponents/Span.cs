@@ -4,7 +4,7 @@ using System.Text;
 namespace StatiCsharp.HtmlComponents
 {
     /// <summary>
-    /// A representation of a <span></span> element.
+    /// A representation of a &lt;span&gt;&lt;/span&gt; element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
     public class Span : HtmlElement, IHtmlComponent
@@ -15,7 +15,7 @@ namespace StatiCsharp.HtmlComponents
         }
 
         /// <summary>
-        /// Initiate a new empty <span> element.
+        /// Initiate a new empty &lt;span&gt; element.
         /// </summary>
         public Span()
         {

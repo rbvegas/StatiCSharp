@@ -4,7 +4,7 @@ using System.Text;
 namespace StatiCsharp.HtmlComponents
 {
     /// <summary>
-    /// A base class for all basuc HTML elements.
+    /// A base class for all basic HTML elements.
     /// </summary>
     public abstract class HtmlElement : IHtmlComponent
     {
@@ -23,7 +23,7 @@ namespace StatiCsharp.HtmlComponents
 
         /// <summary>
         /// Contains the attributes that are added to the opening tag of the element.
-        /// <Key><Value> is equivalent to Key="Value".
+        /// &lt;Key&gt;&lt;Value&gt; is equivalent to Key="Value".
         /// </summary>
         private protected Dictionary<string, string?> Attributes
         {

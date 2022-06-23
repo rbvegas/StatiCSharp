@@ -24,9 +24,9 @@ namespace StatiCsharp.HtmlComponents
         }
 
         /// <summary>
-        /// The type attribute specifies the type of <input> element to display.
+        /// The type attribute specifies the type of &lt;input&gt; element to display.<br/>
         /// If the type attribute is not specified, the default type is "text".
-        /// Check https://www.w3schools.com/tags/att_input_type.asp for an overview.
+        /// <para>Check https://www.w3schools.com/tags/att_input_type.asp for an overview.</para>
         /// </summary>
         /// <param name="t"></param>
         /// <returns></returns>

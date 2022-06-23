@@ -1,10 +1,9 @@
 ﻿using StatiCsharp.Interfaces;
-using System.Text;
 
 namespace StatiCsharp.HtmlComponents
 {
     /// <summary>
-    /// A representation of an <a href></a> element.
+    /// A representation of an &lt;a&gt;&lt;/a&gt; element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
     public class A : HtmlElement, IHtmlComponent

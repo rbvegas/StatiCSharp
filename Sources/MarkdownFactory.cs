@@ -11,7 +11,7 @@ namespace StatiCsharp
         /// Parses the meta data (yaml) of a markdown file.
         /// </summary>
         /// <param name="path">Path to the markdown file.</param>
-        /// <returns>A Dictionary<string, string> with the parsed meta data.</returns>
+        /// <returns>A Dictionary&lt;string, string&gt; with the parsed meta data.</returns>
         public static Dictionary<string, string> ParseMetaData(string path)
         {
             Dictionary<string, string> metaData = new Dictionary<string, string>();

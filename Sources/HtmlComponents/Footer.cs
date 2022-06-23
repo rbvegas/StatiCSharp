@@ -1,10 +1,9 @@
 using StatiCsharp.Interfaces;
-using System.Text;
 
 namespace StatiCsharp.HtmlComponents
 {
     /// <summary>
-    /// A representation of a <footer></footer> element.
+    /// A representation of a &lt;footer&gt;&lt;/footer&gt; element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
     public class Footer : HtmlElement, IHtmlComponent
@@ -15,7 +14,7 @@ namespace StatiCsharp.HtmlComponents
         }
 
         /// <summary>
-        /// Initiate a new empty <footer> element.
+        /// Initiate a new empty &lt;footer&gt; element.
         /// </summary>
         public Footer()
         {
@@ -23,18 +22,18 @@ namespace StatiCsharp.HtmlComponents
         }
 
         /// <summary>
-        /// Initiate a new <footer> with another element or component inside.
+        /// Initiate a new &lt;footer&gt; with another element or component inside.
         /// </summary>
-        /// <param name="component">The element or component for the content of the <footer>.</param>
+        /// <param name="component">The element or component for the content of the &lt;footer&gt;.</param>
         public Footer(IHtmlComponent component)
         {
             Content = new List<IHtmlComponent>() { component };
         }
 
         /// <summary>
-        /// Initiate a new <footer> with text.
+        /// Initiate a new &lt;footer&gt; with text.
         /// </summary>
-        /// <param name="text">The text for the content of the <footer>.</param>
+        /// <param name="text">The text for the content of the &lt;footer&gt;.</param>
         public Footer(string text)
         {
             Content = new List<IHtmlComponent>() { new Text(text) };

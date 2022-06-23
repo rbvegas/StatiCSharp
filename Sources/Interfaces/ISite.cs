@@ -3,7 +3,7 @@
     public interface ISite
     {
         /// <summary>
-        /// The title of the site. E.g used for the <title>-tag in the browser.
+        /// The title of the site. E.g used for the &lt;title&gt;-tag in the browser.
         /// </summary>
         string Title { get; set; }
 

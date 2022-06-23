@@ -4,7 +4,7 @@ using System.Text;
 namespace StatiCsharp.HtmlComponents
 {
     /// <summary>
-    /// A representation of a <p></p> element.
+    /// A representation of a &lt;p&gt;&lt;/p&gt; element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
     public class Paragraph : HtmlElement, IHtmlComponent
@@ -14,7 +14,7 @@ namespace StatiCsharp.HtmlComponents
             get { return "p"; }
         }
         /// <summary>
-        /// Initiate a new empty <p> element.
+        /// Initiate a new empty &lt;p&gt; element.
         /// </summary>
         public Paragraph()
         {
@@ -31,7 +31,7 @@ namespace StatiCsharp.HtmlComponents
         }
 
         /// <summary>
-        /// Initiate a new <p> element with text.
+        /// Initiate a new &lt;p&gt; element with text.
         /// </summary>
         /// <param name="text">The text for the content of the paragraph.</param>
         public Paragraph(string text)
