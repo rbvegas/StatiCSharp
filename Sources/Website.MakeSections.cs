@@ -15,16 +15,16 @@ namespace StatiCsharp
                 string body = htmlFactory.MakeSectionHtml(site);
                 string head = htmlFactory.MakeHeadHtml();
                 string page = AddLeadingHtmlCode(this, site, head, body);
-                string path = Directory.CreateDirectory(Path.Combine(_output, site.SectionName)).ToString();
+                string path = Directory.CreateDirectory(Path.Combine(Output, site.SectionName)).ToString();
 
                 if (this.PathDirectory.Contains(path))
                 {
                     Console.WriteLine($"WARNING: The path {path} is allready in use. Change the path in meta data to avoid duplicates.");
                 }
 
-                WriteFile(path: path, filename: "index.html", content: page, gitMode: this._gitMode);
+                WriteFile(path: path, filename: "index.html", content: page, gitMode: GitMode);
 
-                this.PathDirectory.Add(path);
+                PathDirectory.Add(path);
             }
         }
     }

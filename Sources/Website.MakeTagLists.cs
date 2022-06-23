@@ -4,7 +4,7 @@ namespace StatiCsharp
 {
     public partial class Website: IWebsite
     {
-        public void MakeTagLists(IHtmlFactory htmlFactory)
+        private void MakeTagLists(IHtmlFactory htmlFactory)
         {
             // Collect all available tags
             List<string> tags = new List<string>();
@@ -43,16 +43,16 @@ namespace StatiCsharp
                 string page = AddLeadingHtmlCode(this, tagPage, head, body);
 
                 // Create directory, if it does not excist
-                string path = Directory.CreateDirectory(Path.Combine(_output, "tag", tag)).ToString();
+                string path = Directory.CreateDirectory(Path.Combine(Output, "tag", tag)).ToString();
 
                 if (this.PathDirectory.Contains(path))
                 {
                     Console.WriteLine($"WARNING: The path {path} is allready in use. Change the path in meta data to avoid duplicates.");
                 }
 
-                WriteFile(path: path, filename: "index.html", content: page, gitMode: this._gitMode);
+                WriteFile(path: path, filename: "index.html", content: page, gitMode: GitMode);
 
-                this.PathDirectory.Add(path);
+                PathDirectory.Add(path);
             }
         }
     }

@@ -12,9 +12,9 @@ namespace StatiCsharp
         {
             string body = htmlFactory.MakeIndexHtml(this);
             string head = htmlFactory.MakeHeadHtml();
-            string index = AddLeadingHtmlCode(this, this.Index, head, body);
-            WriteFile(_output, "index.html", index, gitMode: this._gitMode);
-            this.PathDirectory.Add(_output);
+            string index = AddLeadingHtmlCode(this, Index, head, body);
+            WriteFile(Output, "index.html", index, gitMode: GitMode);
+            PathDirectory.Add(Output);
         }
     }
 }

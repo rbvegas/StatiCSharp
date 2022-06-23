@@ -20,7 +20,7 @@ namespace StatiCsharp
                 
                 foreach (string directory in currentDirectories)
                 {
-                    if (!_pathDirectory.Contains(directory))
+                    if (!PathDirectory.Contains(directory))
                     {
                         // Delete only files named index.html. Other files can be resources!
                         if (File.Exists(Path.Combine(directory, "index.html")))
