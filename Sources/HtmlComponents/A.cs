@@ -4,7 +4,7 @@ namespace StatiCsharp.HtmlComponents
 {
     /// <summary>
     /// A representation of an &lt;a&gt;&lt;/a&gt; element.
-    /// Call the Render() method to turn it into an HTML string.
+    /// <para>Call the Render() method to turn it into an HTML string.</para>
     /// </summary>
     public class A : HtmlElement, IHtmlComponent
     {
