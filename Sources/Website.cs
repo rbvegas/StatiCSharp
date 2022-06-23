@@ -4,138 +4,58 @@ using static System.Console;
 
 namespace StatiCsharp
 {
+    /// <summary>
+    /// Provides a website as a standalone object, able to render itself to all the files needed to upload onto a webserver.
+    /// </summary>
     public partial class Website : IWebsite
     {
-        private string _url;
-        /// <summary>
-        /// The domain of the website.E.g. "https://mydomain.com".
-        /// </summary>
-        public string Url
-        {
-            get { return _url; }
-        }
+        /// <inheritdoc/>
+        public string Url { get; set; }
 
-        private string _name;
-        /// <summary>
-        /// The name of the website.
-        /// </summary>
-        public string Name
-        {
-            get { return _name; }
-        }
+        /// <inheritdoc/>
+        public string Name { get; set; }
 
-        private string _description;
-        /// <summary>
-        /// A short description of the website. Is used for metadata in the html sites.
-        /// </summary>
-        public string Description
-        {
-            get { return _description; }
-        }
+        /// <inheritdoc/>
+        public string Description { get; set; }
 
-        private CultureInfo _language;
-        /// <summary>
-        /// The language the websites main content is written in.
-        /// </summary>
-        public CultureInfo Language
-        {
-            get { return _language; }
-        }
+        /// <inheritdoc/>
+        public CultureInfo Language { get; set; }
 
-        private string _output;
-        /// <summary>
-        /// The absolute path to the output directory.
-        /// </summary>
-        public string Output
-        {
-            get { return _output; }
-        }
+        /// <inheritdoc/>
+        public string Output { get; set; }
 
-        private ISite _index = new Index();
-        /// <summary>
-        /// The index/homepage of the website.
-        /// </summary>
-        public ISite Index { get { return this._index; } }
+        /// <inheritdoc/>
+        public ISite Index { get; set; }
 
-        private List<ISite> _pages = new List<ISite>();
-        /// <summary>
-        /// The collection of pages the website contains.
-        /// </summary>
-        public List<ISite> Pages
-        {
-            get { return this._pages; }
-            set { this._pages = value; }
-        }
+        /// <inheritdoc/>
+        public List<IPage> Pages { get; set; }
 
-        private List<ISection> _sections = new List<ISection>();
-        /// <summary>
-        /// The collection of sections the website contains.
-        /// </summary>
-        public List<ISection> Sections
-        {
-            get { return this._sections; }
-            set { this._sections = value; }
-        }
+        /// <inheritdoc/>
+        public List<ISection> Sections { get; set; }
 
-        private List<string> _makeSectionsFor = new List<string>();
-        /// <summary>
-        /// Collection of the websites section-names. Folders in the content directory with names matching one item of this list a treated as sections.
-        /// </summary>
-        public List<string> MakeSectionsFor
-        {
-            get { return this._makeSectionsFor; }
-            set { this._makeSectionsFor = value; }
-        }
+        /// <inheritdoc/>
+        public List<string> MakeSectionsFor { get; set; }
 
-        private string _content;
-        /// <summary>
-        /// The abolute path to the content (markdown-files) for the website.
-        /// </summary>
-        public string Content
-        {
-            get { return this._content; }
-        }
+        /// <inheritdoc/>
+        public string Content { get; set; }
 
-        private string _resources = string.Empty;
-        /// <summary>
-        /// The absolute path to the resources directory for the website.
-        /// </summary>
-        public string Resources
-        { 
-            get { return this._resources;} 
-            set { this._resources = value; }
-        }
+        /// <inheritdoc/>
+        public string Resources { get; set; }
 
-        private string _sourceDir;
-        /// <summary>
-        /// The absolute path to the directory that contains the folders `content`, `output` and `resources`.
-        /// </summary>
-        public string SourceDir
-        {
-            get { return this._sourceDir;}
-            set { this._sourceDir = value; }
-        }
+        /// <inheritdoc/>
+        public string SourceDir { get; set; }
 
-        private List<string> _pathDirectory = new List<string>();
         /// <summary>
-        /// List of all used paths while creating the sites.
-        /// </summary>
-        public List<string> PathDirectory
-        {
-            get { return this._pathDirectory; }
-            set { this._pathDirectory = value; }
-        }
+        /// List of all used paths while creating the sites.<br/>
+        /// Used to find identical paths from meta data and to find files that have no markdown equivalent (got deleted) in GitMode.
+        ///  </summary>
+        private List<string> PathDirectory { get; set; }
 
-        private bool _gitMode = false;
         /// <summary>
         /// If true, the site generator only writes files if there are any changes.
         /// If false, all output files are rewritten.
         /// </summary>
-        public bool GitMode
-        {
-            get { return this._gitMode; }
-            set { this._gitMode = value; }
-        }
+        public bool GitMode { get; set; }
 
         /// <summary>
         /// Initialize a website.
@@ -148,15 +68,20 @@ namespace StatiCsharp
         /// <param name="source">The absolute path to the directory that contains the folders `content`, `output` and `resources`.</param>
         public Website(string url, string name, string description, string language, string sections, string source)
         {
-            this._url = url;
-            this._name = name;
-            this._description = description;
-            this._language = new CultureInfo(language);
-            this._sourceDir = Path.Combine(source);
-            this._content = Path.Combine(source, "Content");
-            this._resources = Path.Combine(source, "Resources");
-            this._output = Path.Combine(source, "Output");
-            this._makeSectionsFor = sections.Replace(" ", string.Empty).Split(',').ToList();
+            Url                 = url;
+            Name                = name;
+            Description         = description;
+            Language            = new CultureInfo(language);
+            SourceDir           = Path.Combine(source);
+            Content             = Path.Combine(source, "Content");
+            Resources           = Path.Combine(source, "Resources");
+            Output              = Path.Combine(source, "Output");
+            MakeSectionsFor     = sections.Replace(" ", string.Empty).Split(',').ToList();
+            Index               = new Index();
+            Pages               = new List<IPage>();
+            Sections            = new List<ISection>();
+            PathDirectory       = new List<string>();
+            GitMode             = false;
         }
 
         /// <summary>
@@ -166,7 +91,7 @@ namespace StatiCsharp
         {
             IHtmlFactory factory = new DefaultHtmlFactory();
             factory.WithWebsite(this);
-            this.Make(factory);
+            Make(factory);
         }
 
         /// <summary>
@@ -186,10 +111,10 @@ namespace StatiCsharp
             WriteLine("Collecting markdown data...");
             GenerateSitesFromMarkdown(this);
             
-            if (!this._gitMode)
+            if (!GitMode)
             {
                 WriteLine("Deleting old output files...");
-                DeleteAll(this._output);
+                DeleteAll(Output);
             }
 
             WriteLine("Generating index page...");
@@ -208,11 +133,15 @@ namespace StatiCsharp
             MakeTagLists(HtmlFactory);
 
             WriteLine("Copying resources...");
-            CopyAll(this.Resources, _output);
-            CopyAll(HtmlFactory.ResourcesPath, _output);
+            CopyAll(Resources, Output);
+            CopyAll(HtmlFactory.ResourcesPath, Output);
 
             WriteLine("Cleaning up...");
             CleanUp();
+
+            WriteLine($"Success! Your website has been generated at {Output}");
+            WriteLine("Press any key to exit...");
+            ReadKey();
         }
     }
 }
