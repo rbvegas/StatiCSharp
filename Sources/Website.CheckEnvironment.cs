@@ -11,7 +11,7 @@ namespace StatiCsharp
         /// Failures are printed in the console.
         /// </summary>
         /// <returns>True, if the check is ok.</returns>
-        private bool CheckEnvironment()
+        private bool CheckEnvironment(string? templateResources=null)
         {
             if (!Directory.Exists(Output))
             {
@@ -84,6 +84,14 @@ namespace StatiCsharp
                 return false;
             }
 
+            if (templateResources is not null)
+            {
+                if (!Directory.Exists(templateResources!))
+                {
+                    WriteLine($"Your template resources directory does not exist. Do you have read and write access to {templateResources} ?");
+                    return false;
+                }
+            }
             return true;
 
             
