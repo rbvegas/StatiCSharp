@@ -84,6 +84,28 @@ namespace StatiCsharp.HtmlComponents
         }
 
         /// <summary>
+        /// Specifies the width of the element.
+        /// </summary>
+        /// <param name="width"></param>
+        /// <returns>this - the element itself.</returns>
+        public HtmlElement Width(int width)
+        {
+            Attributes["width"] = width.ToString();
+            return this;
+        }
+
+        /// <summary>
+        /// Specifies the height of the element.
+        /// </summary>
+        /// <param name="height"></param>
+        /// <returns>this - the element itself.</returns>
+        public HtmlElement Height(int height)
+        {
+            Attributes["height"] = height.ToString();
+            return this;
+        }
+
+        /// <summary>
         /// Renders the element to html code.
         /// </summary>
         /// <returns>A string containing the html code of this element</returns>
