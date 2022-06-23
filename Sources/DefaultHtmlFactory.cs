@@ -8,6 +8,7 @@ namespace StatiCsharp
     /// </summary>
     public class DefaultHtmlFactory: IHtmlFactory
     {
+        /// <inheritdoc/>
         public string ResourcesPath
         {
             get {
@@ -17,22 +18,26 @@ namespace StatiCsharp
         }
 
         private IWebsite _website;
+        /// <inheritdoc/>
         public IWebsite Website
         {
             get { return this._website; }
             set { this._website = value; }
         }
 
+        /// <inheritdoc/>
         public void WithWebsite(IWebsite website)
         {
             this.Website = website;
         }
 
+        /// <inheritdoc/>
         public string MakeHeadHtml()
         {
             return "<link rel=\"stylesheet\" href=\"/styles.css\">";
         }
 
+        /// <inheritdoc/>
         public string MakeIndexHtml(IWebsite website)
         {
             // Collect all items to show. 10 items max.
@@ -52,6 +57,7 @@ namespace StatiCsharp
                     .Render();
         }
 
+        /// <inheritdoc/>
         public string MakePageHtml(IPage page)
         {
             return new HTML()   .Add(new SiteHeader(Website))
@@ -64,6 +70,7 @@ namespace StatiCsharp
                     .Render();
         }
 
+        /// <inheritdoc/>
         public string MakeSectionHtml(ISection section)
         {
             List<IItem> items = section.Items;
@@ -79,6 +86,7 @@ namespace StatiCsharp
                     .Render();
         }
 
+        /// <inheritdoc/>
         public string MakeItemHtml(IItem item)
         {
             return new HTML()   .Add(new SiteHeader(Website))
@@ -95,6 +103,7 @@ namespace StatiCsharp
                     .Render();
         }
 
+        /// <inheritdoc/>
         public string MakeTagListHtml(List<IItem> items, string tag)
         {
             items.Sort( (i1, i2) => DateTime.Compare(i1.Date.ToDateTime(TimeOnly.Parse("6pm")), i2.Date.ToDateTime(TimeOnly.Parse("6pm"))));
@@ -177,10 +186,10 @@ namespace StatiCsharp
             }
         }
 
-        public class TagList: IHtmlComponent
+        private class TagList: IHtmlComponent
         {
             private List<string> tags;
-            public TagList(List<string> tags)
+            private TagList(List<string> tags)
             {
                 this.tags = tags;
             }
