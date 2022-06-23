@@ -4,127 +4,40 @@ using System.Text;
 namespace StatiCsharp.HtmlComponents
 {
     /// <summary>
-    /// A representation of a <paragraph></paragraph> element.
+    /// A representation of a <p></p> element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
-    public class Paragraph : IHtmlComponent
+    public class Paragraph : HtmlElement, IHtmlComponent
     {
+        private protected override string TagName
+        {
+            get { return "p"; }
+        }
         /// <summary>
-        /// Contains the components inside the <paragraph> element.
-        /// </summary>
-        private List<IHtmlComponent> content;
-
-        /// CSS classes
-        private string? cssClass;
-
-        /// Styles
-        private string? cssStyle;
-
-        /// <summary>
-        /// Initiate a new empty <paragraph> element.
+        /// Initiate a new empty <p> element.
         /// </summary>
         public Paragraph()
         {
-            this.content = new List<IHtmlComponent>();
+            // No action needed, because the base class already initialized an empty List<IHtmlComponent>.
         }
 
         /// <summary>
-        /// Initiate a new <paragraph> element.
+        /// Initiate a new <paragraph> element with another element or component inside.
         /// </summary>
-        /// <param name="component">The component for the body of the <paragraph>.</param>
+        /// <param name="component">The element or component for the content of the paragraph.</param>
         public Paragraph(IHtmlComponent component)
         {
-            this.content = new List<IHtmlComponent>() { component };
+            Content = new List<IHtmlComponent>() { component };
         }
 
         /// <summary>
-        /// Initiate a new <paragraph> element.
+        /// Initiate a new <p> element with text.
         /// </summary>
-        /// <param name="text">The text inside the body of the <paragraph>.</param>
+        /// <param name="text">The text for the content of the paragraph.</param>
         public Paragraph(string text)
         {
-            this.content = new List<IHtmlComponent>() { new Text(text) };
+            Content = new List<IHtmlComponent>() { new Text(text) };
         }
 
-        /// <summary>
-        /// Add a new element to the body of this element.
-        /// </summary>
-        /// <param name="component">The element you want to add. Must implement IHtmlComponent.</param>
-        /// <returns>this - the <paragraph> object itself.</returns>
-        public Paragraph Add(IHtmlComponent component)
-        {
-            this.content.Add(component);
-            return this;
-        }
-
-        /// <summary>
-        /// Add text to the body of this element.
-        /// </summary>
-        /// <param name="text">The text you want to add.</param>
-        /// <returns>this - the <paragraph> object itself.</returns>
-        public Paragraph Add(string text)
-        {
-            this.content.Add(new Text(text));
-            return this;
-        }
-
-        /// <summary>
-        /// Add a class attribute.
-        /// </summary>
-        /// <param name="cssClass">The name of the css class you want to assign.</param>
-        /// <returns>this - the <paragraph> object itself.</returns>
-        public Paragraph Class(string cssClass)
-        {
-            this.cssClass = cssClass;
-            return this;
-        }
-
-        /// <summary>
-        /// Add a style attribute.
-        /// </summary>
-        /// <param name="style">The content of the style attribute.</param>
-        /// <returns>this - the <paragraph> object itself.></returns>
-        public Paragraph Style(string style)
-        {
-            this.cssStyle = style;
-            return this;
-        }
-
-        /// <summary>
-        /// Renders the <paragraph> to html code.
-        /// </summary>
-        /// <returns>A string containing the html code of this <paragraph>.</returns>
-        public string Render()
-        {
-            StringBuilder componentBuilder = new();
-
-            // Build leading tag
-            componentBuilder.Append("<p");
-            
-            // Add classes
-            if (cssClass is not null) {
-                componentBuilder.Append($" class=\"{this.cssClass}\"");
-            }
-            
-            // Add styles
-            if (cssStyle is not null)
-            {
-                componentBuilder.Append($" style=\"{this.cssStyle}\"");
-            }
-            // Close leading tag
-            componentBuilder.Append(">");
-
-
-            // Build body of div element
-            foreach (IHtmlComponent element in this.content)
-            {
-                componentBuilder.Append(element.Render());
-            }
-
-            // Build trailing tag
-            componentBuilder.Append("</p>");
-
-            return componentBuilder.ToString();
-        }
     }
 }

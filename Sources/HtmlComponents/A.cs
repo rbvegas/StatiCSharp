@@ -4,37 +4,31 @@ using System.Text;
 namespace StatiCsharp.HtmlComponents
 {
     /// <summary>
-    /// A representation of an anker element.
+    /// A representation of an <a href></a> element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
-    public class A: IHtmlComponent
+    public class A : HtmlElement, IHtmlComponent
     {
-        /// <summary>
-        /// Contains the components inside the anker tag.
-        /// </summary>
-        private List<IHtmlComponent> content;
-
-        /// <summary>
-        /// The content of the href tag.
-        /// </summary>
-        private string? href;
-
-        /// <summary>
-        /// CSS classes
-        /// </summary>
-        private string? cssClass;
-
-        /// <summary>
-        /// Styles
-        /// </summary>
-        private string? cssStyle;
+        private protected override string TagName
+        {
+            get { return "a"; }
+        }
 
         /// <summary>
         /// Initiate a new and empty anker-element.
         /// </summary>
         public A()
         {
-            this.content = new List<IHtmlComponent>();
+            // No action needed, because the base class already initialized an empty List<IHtmlComponent>.
+        }
+
+        /// <summary>
+        /// Initiate a new link with another element or component inside.
+        /// </summary>
+        /// <param name="component"></param>
+        public A(IHtmlComponent component)
+        {
+            Content = new List<IHtmlComponent>() { component };
         }
 
         /// <summary>
@@ -43,84 +37,23 @@ namespace StatiCsharp.HtmlComponents
         /// <param name="text">The text for the link.</param>
         public A(string text)
         {
-            this.content = new List<IHtmlComponent>();
-            this.content.Add(new Text(text));
+            Content = new List<IHtmlComponent>();
+            Content.Add(new Text(text));
         }
 
         /// <summary>
-        /// Add a new element to the body of this element.
+        /// Set the content of the href attribute.
         /// </summary>
-        /// <param name="element">The element you want to add. Must implement IHtmlComponent</param>
-        /// <returns>this - The anker object itself</returns>
-        public A Add(IHtmlComponent element)
-        {
-            this.content.Add(element);
-            return this;
-        }
-
+        /// <param name="href">The target of the link.</param>
+        /// <returns>this - the element itself.</returns>
         public A Href(string href)
         {
-            this.href = href;
+            if (!Attributes.TryAdd("href", href))
+            {
+                Attributes["href"] = href;
+            }
             return this;
         }
 
-        /// <summary>
-        /// Add a class attribute
-        /// </summary>
-        /// <param name="cssClass">The name of the css class you want to assign.</param>
-        /// <returns>this - The anker object itself</returns>
-        public A Class(string cssClass)
-        {
-            this.cssClass = cssClass;
-            return this;
-        }
-
-        /// <summary>
-        /// Add a style attribute
-        /// </summary>
-        /// <param name="style">The content of the style attribute.</param>
-        /// <returns>this - The anker object itself></returns>
-        public A Style(string style)
-        {
-            this.cssStyle = style;
-            return this;
-        }
-
-
-        public string Render()
-        {
-            StringBuilder componentBuilder = new();
-
-            // Build leading tag
-            componentBuilder.Append("<a");
-
-            // Add href
-            componentBuilder.Append($" href=\"{this.href}\"");
-
-            // Add classes
-            if (cssClass is not null)
-            {
-                componentBuilder.Append($" class=\"{this.cssClass}\"");
-            }
-
-            // Add styles
-            if (cssStyle is not null)
-            {
-                componentBuilder.Append($" style=\"{this.cssStyle}\"");
-            }
-            // Close leading tag
-            componentBuilder.Append(">");
-
-            // Build body of anker element
-            foreach (IHtmlComponent element in this.content)
-            {
-                componentBuilder.Append(element.Render());
-            }
-
-            // Build trailing tag
-            componentBuilder.Append("</a>");
-
-            return componentBuilder.ToString();
-        }
     }
 }

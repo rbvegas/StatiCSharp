@@ -4,68 +4,43 @@ using System.Text;
 namespace StatiCsharp.HtmlComponents
 {
     /// <summary>
-    /// A representation of a HTML document.
+    /// A representation of a HTML element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
-    public class HTML : IHtmlComponent
+    public class HTML : HtmlElement, IHtmlComponent
     {
-        // Contains the components inside the html-component
-        private List<IHtmlComponent> content;
+        private protected override string TagName
+        {
+            get { return "html"; }
+        }
 
         /// <summary>
         /// Initiate a new empty html element.
         /// </summary>
         public HTML()
         {
-            this.content = new List<IHtmlComponent>();
+            // No action needed, because the base class already initialized an empty List<IHtmlComponent>.
         }
 
         /// <summary>
-        /// Initiate a new html element.
+        /// Initiate a new html element with another element or component inside.
         /// </summary>
-        /// <param name="element">The element inside the body of the html tag.</param>
+        /// <param name="element">The element or component for the content of the html tag.</param>
         public HTML(IHtmlComponent element)
         {
-            this.content = new List<IHtmlComponent>();
-            this.content.Add(element);
+            Content = new List<IHtmlComponent>();
+            Content.Add(element);
         }
 
         /// <summary>
-        /// Initiate a new html element.
+        /// Initiate a new html element with text.
         /// </summary>
-        /// <param name="text">The text inside the body of the html tag.</param>
+        /// <param name="text">The text for the content of the html tag.</param>
         public HTML(string text)
         {
-            this.content = new List<IHtmlComponent>();
-            this.content.Add(new Text(text));
+            Content = new List<IHtmlComponent>();
+            Content.Add(new Text(text));
         }
 
-        /// <summary>
-        /// Add additional components to the html element.
-        /// </summary>
-        /// <param name="element">The component you want to add to the body of the html tag.</param>
-        /// <returns>this - the html element itself.</returns>
-        public HTML Add(IHtmlComponent element)
-        {
-            this.content.Add(element);
-            return this;
-        }
-
-        /// <summary>
-        /// Renders the component and all its containing elements as a html-code string.
-        /// </summary>
-        /// <returns>The html-code for the component.</returns>
-        public string Render()
-        {
-            StringBuilder componentBuilder = new StringBuilder("<html>");
-            foreach (IHtmlComponent element in this.content)
-            {
-                componentBuilder.Append(element.Render());
-            }
-            componentBuilder.Append("</html>");
-            return componentBuilder.ToString();
-        }
     }
-
-    
 }

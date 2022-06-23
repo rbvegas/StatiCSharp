@@ -7,109 +7,40 @@ namespace StatiCsharp.HtmlComponents
     /// A representation of a <header></header> element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
-    public class Header: IHtmlComponent
+    public class Header: HtmlElement, IHtmlComponent
     {
-        /// Contains the components inside the header-container.
-        private List<IHtmlComponent> content;
-
-        /// CSS classes
-        private string? cssClass;
-
-        /// Styles
-        private string? cssStyle;
-
+        private protected override string TagName
+        {
+            get { return "header"; }
+        }
+        
         /// <summary>
-        /// Initiate a new header element.
+        /// Inititate a new empty header.
         /// </summary>
         public Header()
         {
-            this.content = new List<IHtmlComponent>();
+            // No action needed, because the base class already initialized an empty List<IHtmlComponent>.
         }
 
         /// <summary>
-        /// Initiate a new header element.
+        /// Initiate a new header with another element or component inside.
         /// </summary>
-        /// <param name="element">The element for the content of the header.</param>
+        /// <param name="element">The element or component for the content of the header.</param>
         public Header(IHtmlComponent element)
         {
-            this.content = new List<IHtmlComponent>();
-            this.content.Add(element);
+            Content = new List<IHtmlComponent>();
+            Content.Add(element);
         }
 
         /// <summary>
-        /// Initiate a new header with a text-body.
+        /// Initiate a new header with text.
         /// </summary>
-        /// <param name="text">The text inside the header.</param>
+        /// <param name="text">The text for the content of the header.</param>
         public Header(string text)
         {
-            this.content= new List<IHtmlComponent>();
-            this.content.Add(new Text(text));
+            Content= new List<IHtmlComponent>();
+            Content.Add(new Text(text));
         }
 
-        /// <summary>
-        /// Add new element to the body of this element.
-        /// </summary>
-        /// <param name="element">The element you want to add. Must implement IHtmlComponent</param>
-        /// <returns>this - The header object itself</returns>
-        public Header Add(IHtmlComponent element)
-        {
-            this.content.Add(element);
-            return this;
-        }
-
-        /// <summary>
-        /// Add a class attribute
-        /// </summary>
-        /// <param name="cssClass">The name of the css class you want to assign.</param>
-        /// <returns>this - The header object itself</returns>
-        public Header Class(string cssClass)
-        {
-            this.cssClass = cssClass;
-            return this;
-        }
-
-        /// <summary>
-        /// Add a style attribute
-        /// </summary>
-        /// <param name="style">The content of the style attribute.</param>
-        /// <returns>this - The header object itself></returns>
-        public Header Style(string style)
-        {
-            this.cssStyle = style;
-            return this;
-        }
-
-        public string Render()
-        {
-            StringBuilder componentBuilder = new StringBuilder();
-
-            // Build leading tag
-            componentBuilder.Append("<header");
-
-            // Add classes
-            if (cssClass is not null)
-            {
-                componentBuilder.Append($" class=\"{this.cssClass}\"");
-            }
-
-            // Add styles
-            if (cssStyle is not null)
-            {
-                componentBuilder.Append($" style=\"{this.cssStyle}\"");
-            }
-            // Close leading tag
-            componentBuilder.Append(">");
-
-            // Build body of header element
-            foreach (IHtmlComponent element in this.content)
-            {
-                componentBuilder.Append(element.Render());
-            }
-
-            // Build trailing tag
-            componentBuilder.Append("</header>");
-
-            return componentBuilder.ToString();
-        }
     }
 }

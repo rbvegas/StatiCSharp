@@ -4,115 +4,38 @@ using System.Text;
 namespace StatiCsharp.HtmlComponents
 {
     /// <summary>
-    /// A representation of a nav element.
+    /// A representation of a <nav></nav> element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
-    public class Nav : IHtmlComponent
+    public class Nav : HtmlElement, IHtmlComponent
     {
-        /// Contains the components inside the nav-container.
-        private List<IHtmlComponent> content;
+        private protected override string TagName
+        {
+            get { return "nav"; }
+        }
 
-        /// CSS classes
-        private string? cssClass;
-
-        /// Styles
-        private string? cssStyle;
-
-        /// <summary>
-        /// Initiate a new and empty nav-element.
-        /// </summary>
         public Nav()
         {
-            this.content = new List<IHtmlComponent>();
+            // No action needed, because the base class already initialized an empty List<IHtmlComponent>.
         }
 
         /// <summary>
-        /// Initiate a new nav element.
+        /// Initiate a new nav element with another element or component inside.
         /// </summary>
-        /// <param name="component">The component inside the body of the nav tag.</param>
+        /// <param name="component">The element or component for the content of the nav tag.</param>
         public Nav(IHtmlComponent component)
         {
-            this.content = new List<IHtmlComponent> { component };
+            Content = new List<IHtmlComponent> { component };
         }
 
         /// <summary>
-        /// Initiate a new nav element.
+        /// Initiate a new nav element with text.
         /// </summary>
-        /// <param name="text">The text inside the body of the nav tag.</param>
+        /// <param name="text">The text for the content of the nav tag.</param>
         public Nav(string text)
         {
-            this.content = new List<IHtmlComponent> { new Text(text) };
+            Content = new List<IHtmlComponent> { new Text(text) };
         }
 
-        /// <summary>
-        /// Add a new element to the body of this element.
-        /// </summary>
-        /// <param name="element">The element you want to add. Must implement IHtmlComponent</param>
-        /// <returns>this - The nav object itself</returns>
-        public Nav Add(IHtmlComponent element)
-        {
-            this.content.Add(element);
-            return this;
-        }
-
-        /// <summary>
-        /// Add a class attribute
-        /// </summary>
-        /// <param name="cssClass">The name of the css class you want to assign.</param>
-        /// <returns>this - The nav object itself</returns>
-        public Nav Class(string cssClass)
-        {
-            this.cssClass = cssClass;
-            return this;
-        }
-
-        /// <summary>
-        /// Add a style attribute
-        /// </summary>
-        /// <param name="style">The content of the style attribute.</param>
-        /// <returns>this - The nav object itself></returns>
-        public Nav Style(string style)
-        {
-            this.cssStyle = style;
-            return this;
-        }
-
-        /// <summary>
-        /// Renders the nav to html code.
-        /// </summary>
-        /// <returns>A string containing the html code of this nav.</returns>
-        public string Render()
-        {
-            StringBuilder componentBuilder = new();
-
-            // Build leading tag
-            componentBuilder.Append("<nav");
-
-            // Add classes
-            if (cssClass is not null)
-            {
-                componentBuilder.Append($" class=\"{this.cssClass}\"");
-            }
-
-            // Add styles
-            if (cssStyle is not null)
-            {
-                componentBuilder.Append($" style=\"{this.cssStyle}\"");
-            }
-            // Close leading tag
-            componentBuilder.Append(">");
-
-
-            // Build body of div element
-            foreach (IHtmlComponent element in this.content)
-            {
-                componentBuilder.Append(element.Render());
-            }
-
-            // Build trailing tag
-            componentBuilder.Append("</nav>");
-
-            return componentBuilder.ToString();
-        }
     }
 }

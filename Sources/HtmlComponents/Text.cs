@@ -3,20 +3,20 @@
 namespace StatiCsharp.HtmlComponents
 {
     /// <summary>
-    /// A representation of simple text.
+    /// A representation of text.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
     public class Text: IHtmlComponent
     {
         // Contains the text as a string
-        private string text;
+        private string _Text { get; set; }
 
         /// <summary>
         /// Initiate an empty Text.
         /// </summary>
         public Text()
         {
-            this.text = string.Empty;
+            _Text = string.Empty;
         }
 
         /// <summary>
@@ -25,18 +25,18 @@ namespace StatiCsharp.HtmlComponents
         /// <param name="text">Your text.</param>
         public Text(string text)
         {
-            this.text = text;
+            _Text = text;
         }
 
         public Text Add(string text)
         {
-            this.text = text;
+            _Text = text;
             return this;
         }
 
         public string Render()
         {
-            return this.text;
+            return _Text;
         }
     }
 }

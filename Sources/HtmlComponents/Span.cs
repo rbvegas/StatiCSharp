@@ -4,116 +4,41 @@ using System.Text;
 namespace StatiCsharp.HtmlComponents
 {
     /// <summary>
-    /// A representation of a span element.
+    /// A representation of a <span></span> element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
-    public class Span : IHtmlComponent
+    public class Span : HtmlElement, IHtmlComponent
     {
-        /// <summary>
-        /// Contains the components inside the span-container.
-        /// </summary>
-        private List<IHtmlComponent> content;
-
-        /// CSS classes
-        private string? cssClass;
-
-        /// Styles
-        private string? cssStyle;
+        private protected override string TagName
+        {
+            get { return "span"; }
+        }
 
         /// <summary>
-        /// Initiate a new empty span element.
+        /// Initiate a new empty <span> element.
         /// </summary>
         public Span()
         {
-            this.content = new List<IHtmlComponent>();
+            // No action needed, because the base class already initialized an empty List<IHtmlComponent>.
         }
 
         /// <summary>
-        /// Initiate a new span element.
+        /// Initiate a new span element with another element or component inside.
         /// </summary>
-        /// <param name="component">The component for the content of the span.</param>
+        /// <param name="component">The element or component for the content of the span.</param>
         public Span(IHtmlComponent component)
         {
-            this.content = new List<IHtmlComponent>() { component };
+            Content = new List<IHtmlComponent>() { component };
         }
 
         /// <summary>
-        /// Initiate a new span element.
+        /// Initiate a new span element with text.
         /// </summary>
-        /// <param name="text">The text inside the body of the span.</param>
+        /// <param name="text">The text for the content of the span.</param>
         public Span(string text)
         {
-            this.content = new List<IHtmlComponent>() { new Text(text) };
+            Content = new List<IHtmlComponent>() { new Text(text) };
         }
 
-        /// <summary>
-        /// Add a new element to the body of this element.
-        /// </summary>
-        /// <param name="component">The element you want to add. Must implement IHtmlComponent</param>
-        /// <returns>this - The span object itself</returns>
-        public Span Add(IHtmlComponent component)
-        {
-            this.content.Add(component);
-            return this;
-        }
-
-        /// <summary>
-        /// Add a class attribute
-        /// </summary>
-        /// <param name="cssClass">The name of the css class you want to assign.</param>
-        /// <returns>this - The span object itself</returns>
-        public Span Class(string cssClass)
-        {
-            this.cssClass = cssClass;
-            return this;
-        }
-
-        /// <summary>
-        /// Add a style attribute
-        /// </summary>
-        /// <param name="style">The content of the style attribute.</param>
-        /// <returns>this - The span object itself></returns>
-        public Span Style(string style)
-        {
-            this.cssStyle = style;
-            return this;
-        }
-
-        /// <summary>
-        /// Renders the span to html code.
-        /// </summary>
-        /// <returns>A string containing the html code of this span.</returns>
-        public string Render()
-        {
-            StringBuilder componentBuilder = new();
-
-            // Build leading tag
-            componentBuilder.Append("<span");
-            
-            // Add classes
-            if (cssClass is not null) {
-                componentBuilder.Append($" class=\"{this.cssClass}\"");
-            }
-            
-            // Add styles
-            if (cssStyle is not null)
-            {
-                componentBuilder.Append($" style=\"{this.cssStyle}\"");
-            }
-            // Close leading tag
-            componentBuilder.Append(">");
-
-
-            // Build body of span element
-            foreach (IHtmlComponent element in this.content)
-            {
-                componentBuilder.Append(element.Render());
-            }
-
-            // Build trailing tag
-            componentBuilder.Append("</span>");
-
-            return componentBuilder.ToString();
-        }
     }
 }
