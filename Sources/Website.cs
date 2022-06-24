@@ -65,7 +65,7 @@ namespace StatiCsharp
         /// <param name="description">A short description of the website. Is used for metadata in the html sites.</param>
         /// <param name="language">The language the websites main content is written in.</param>
         /// <param name="sections">Collection of the websites section-names. Folders in the content directory with names matching one item of this list a treated as sections.</param>
-        /// <param name="source">The absolute path to the directory that contains the folders `content`, `output` and `resources`.</param>
+        /// <param name="source">The absolute path to the directory that contains the folders `Content`, `Output` and `Resources`.</param>
         public Website(string url, string name, string description, string language, string sections, string source)
         {
             Url                 = url;
@@ -90,7 +90,7 @@ namespace StatiCsharp
         public void Make()
         {
             IHtmlFactory factory = new DefaultHtmlFactory();
-            factory.WithWebsite(this);
+            factory.Website = this;
             Make(factory);
         }
 
@@ -105,7 +105,7 @@ namespace StatiCsharp
                 return;
             }
 
-            HtmlFactory.WithWebsite(this);
+            HtmlFactory.Website = this;
             WriteLine("Making your website...");
 
             WriteLine("Collecting markdown data...");
