@@ -10,7 +10,8 @@ namespace StatiCsharp
         /// </summary>
         /// <param name="website">The website, containing information for the head.</param>
         /// <param name="context">The site where the html-code should be added.</param>
-        /// <param name="body">The body for the the, rendered by a HtmlFactory</param>
+        /// <param name="body">The body for the the, rendered by a HtmlFactory.</param>
+        /// <param name="head">The additional content for the head of the site.</param>
         /// <returns>The content for a html-file as a string.</returns>
         private string AddLeadingHtmlCode(IWebsite website, ISite context, string head, string body)
         {
@@ -24,9 +25,7 @@ namespace StatiCsharp
             siteBuilder.Append($"<meta name=\"description\" content=\"{website.Description}\">");
             siteBuilder.Append(head);
             siteBuilder.Append("</head>");
-            siteBuilder.Append("<body>");
             siteBuilder.Append(body);
-            siteBuilder.Append("</body>");
             siteBuilder.Append("</html>");
 
             return siteBuilder.ToString();
