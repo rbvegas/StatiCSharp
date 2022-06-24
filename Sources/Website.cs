@@ -52,7 +52,7 @@ namespace StatiCsharp
         private List<string> PathDirectory { get; set; }
 
         /// <summary>
-        /// If true, the site generator only writes files if there are any changes.
+        /// If true, the site generator only writes files if there are any changes.<br/>
         /// If false, all output files are rewritten.
         /// </summary>
         public bool GitMode { get; set; }
@@ -140,8 +140,6 @@ namespace StatiCsharp
             CleanUp();
 
             WriteLine($"Success! Your website has been generated at {Output}");
-            WriteLine("Press any key to exit...");
-            ReadKey();
         }
     }
 }
