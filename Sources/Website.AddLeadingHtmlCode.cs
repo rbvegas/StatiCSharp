@@ -23,6 +23,7 @@ namespace StatiCsharp
             siteBuilder.Append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
             siteBuilder.Append($"<title>{context.Title}</title>");
             siteBuilder.Append($"<meta name=\"description\" content=\"{website.Description}\">");
+            siteBuilder.Append("<link rel=\"icon\" type=\"image/x-icon\" href=\"/favicon.png\">");
             siteBuilder.Append(head);
             siteBuilder.Append("</head>");
             siteBuilder.Append(body);
