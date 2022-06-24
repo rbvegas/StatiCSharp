@@ -133,8 +133,8 @@ namespace StatiCsharp
             MakeTagLists(HtmlFactory);
 
             WriteLine("Copying resources...");
-            CopyAll(Resources, Output);
             CopyAll(HtmlFactory.ResourcesPath, Output);
+            CopyAll(Resources, Output);
 
             WriteLine("Cleaning up...");
             CleanUp();
