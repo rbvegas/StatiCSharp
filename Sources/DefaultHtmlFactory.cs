@@ -45,7 +45,7 @@ namespace StatiCsharp
                                 .Add(new Div()
                                     .Add(new Div(website.Index.Content)
                                             .Class("welcomeWrapper"))
-                                    .Add(new Text("<h2>Latest Content</h2>"))
+                                    .Add(new H2("Latest Content"))
                                     .Add(new ItemList(items))
                                     .Class("wrapper"))
                                 .Add(new Footer())
