@@ -17,13 +17,8 @@ namespace StatiCsharp
             }
         }
 
-        private IWebsite _website;
         /// <inheritdoc/>
-        public IWebsite Website
-        {
-            get { return this._website; }
-            set { this._website = value; }
-        }
+        public IWebsite Website { get; set; }
 
         /// <inheritdoc/>
         public void WithWebsite(IWebsite website)
