@@ -21,10 +21,16 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <None Remove="DefaultResources\favicon.png" />
       <None Remove="DefaultResources\styles.css" />
     </ItemGroup>
 
     <ItemGroup>
+		<Content Include="DefaultResources\favicon.png" pack="true">
+			<PackageCopyToOutput>true</PackageCopyToOutput>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		
 		<Content Include="DefaultResources\styles.css" pack="true">
 			<PackageCopyToOutput>true</PackageCopyToOutput>
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
