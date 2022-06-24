@@ -19,7 +19,7 @@ namespace StatiCsharp
             List<int> yamlMarker = YamlMarkers(lines);
 
             // Add meta data from md-file between yaml markers in dict, if there are any.
-            if (yamlMarker.Count > 0)
+            if (yamlMarker.Count == 2)
             {
                 try
                 {
@@ -57,6 +57,13 @@ namespace StatiCsharp
             return content;
         }
 
+        /// <summary>
+        /// Finds the line number of the so called yaml marker "---".<br/>
+        /// The meta data is then between those lines.<br/>
+        /// Only looking for the first two markers. If there is no marker in the first line, it is assumed that there is no meta data given.
+        /// </summary>
+        /// <param name="lines"></param>
+        /// <returns>A List&lt;int&gt; with ether zero entries if no meta data was found, or two entries identifying the marker positions. (0 is first line in the document)</returns>
         private static List<int> YamlMarkers(string[] lines)
         {
             List<int> marker = new List<int>();
@@ -77,6 +84,11 @@ namespace StatiCsharp
                 {
                     break;
                 }
+            }
+            
+            if (marker.Count == 1)
+            {
+                marker.Clear();
             }
             return marker;
         }
