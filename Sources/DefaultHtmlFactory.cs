@@ -21,12 +21,6 @@ namespace StatiCsharp
         public IWebsite Website { get; set; }
 
         /// <inheritdoc/>
-        public void WithWebsite(IWebsite website)
-        {
-            this.Website = website;
-        }
-
-        /// <inheritdoc/>
         public string MakeHeadHtml()
         {
             return "<link rel=\"stylesheet\" href=\"/styles.css\">";
