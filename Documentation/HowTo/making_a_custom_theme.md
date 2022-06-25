@@ -8,20 +8,21 @@ You can code your template purely in C#, if you want. Additionally you can build
 
 ## Supported HTML components
 
-StatiC# has build in the following HTML components (more are added frequently).  
+StatiC# has build in the following HTML elements (more are added frequently).  
 
 - \<a href="">
 - \<article>
 - \<div>
 - \<footer>
-- \<h1>
+- \<h1>...\<h6>
 - \<html>
 - \<header>
+- \<ul>
+- \<ol>
 - \<li>
 - \<nav>
 - \<p>
 - \<span>
-- \<ui>
 
 Of course, you can make your own and its welcome to contribute new elements or features of elements to this project.  
 
@@ -35,10 +36,10 @@ using StatiCsharp.HtmlComponents;
 using StatiCsharp.Interfaces;
 ```
 
-Create a new class that will handle your template. This class need to implement `IHtmlFactory` and located in the `StatiCsharp` namespace. You can call it whatever you want, but it is StatiC# convention to call it `NameofyourtemplateHtmlFactory`.
+Create a new class that will handle your template. This class need to implement `IHtmlFactory`. You can call it whatever you want, but it is StatiC# convention to call it `NameofyourtemplateHtmlFactory`.
 
 ```C#
-namespace StatiCsharp
+namespace YourTemplate
 {
     public class YourTemplateHtmlFactory: IHtmlFactory
     {
