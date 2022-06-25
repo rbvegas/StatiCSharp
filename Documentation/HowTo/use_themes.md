@@ -34,7 +34,7 @@ var theme = new FoundationHtmlFactory();
 myAwesomeWebsite.Make(theme);
 ```
 
-Build and run your project. Your website is created with the new theme in your `output` directory.
+Build and run your project. Your website is created with the new theme in your `Output` directory.
 
 ```bash
 $ dotnet run
