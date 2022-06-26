@@ -11,9 +11,9 @@
  ```bash
  ├── myWebsite
  │   ├── ...
- │   ├── content
- │   ├── output
- │   ├── resources
+ │   ├── Content
+ │   ├── Output
+ │   ├── Resources
  │   ├── ...
  ```
  
@@ -24,4 +24,3 @@ website.Content   = @"another\path\to\content";
 website.Output    = @"another\path\to\output";
 website.Resources = @"another\path\to\resources";
 ```
-Those directories need to exist when building your website, because StatiC# does not create those folder if they do not exist.
