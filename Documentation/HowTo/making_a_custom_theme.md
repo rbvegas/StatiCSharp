@@ -12,11 +12,14 @@ StatiC# has build in the following HTML elements (more are added frequently).
 
 - \<a href="">
 - \<article>
+- \<body>
 - \<div>
 - \<footer>
 - \<h1>...\<h6>
 - \<html>
 - \<header>
+- \<img>
+- \<input>
 - \<ul>
 - \<ol>
 - \<li>
