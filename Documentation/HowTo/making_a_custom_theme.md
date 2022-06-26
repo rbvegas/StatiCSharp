@@ -123,7 +123,7 @@ Additionaly include the file as `<Content Include="..." /> and set parameters as
 <ItemGroup>
     <Content Include="YourthemenameResources\yourthemename-theme\styles.css" pack="true">
         <PackageCopyToOutput>true</PackageCopyToOutput>
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	<CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>	
 </ItemGroup>
 ```
