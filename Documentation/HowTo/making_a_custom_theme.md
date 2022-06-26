@@ -69,15 +69,16 @@ By using the StatiC#-HTML-Components you can write HTML-Code in C#. Let's check 
 ```C#
 public string MakePageHtml(IPage page)
 {
-    return new Body()   .Add(new SiteHeader(website))
-                        .Add(new Div()
-                            .Add(new Article()
-                                .Add(new Div(page.Content)
-                                    .Class("content")))
-                            .Class("wrapper"))
-                        .Add(new Footer())
-            .Render();
-}
+    return new Body()   
+		.Add(new SiteHeader(Website))
+		.Add(new Div()
+		    .Add(new Article()
+			.Add(new Div(page.Content)
+			    .Class("content")))
+		    .Class("wrapper"))
+		.Add(new Footer())
+		.Render();
+        }
 ```
 
 In this case, inspect the [IPage interface](github.com/rolandbraun-dev/StatiCsharp/blob/master/Sources/Interfaces/IPage.cs) for information about the content you can access via `page`. Pay attention to the fact, that all parameter interfaces inherit from [ISite](github.com/rolandbraun-dev/StatiCsharp/blob/master/Sources/Interfaces/ISite.cs), so you have always access to those properties, too.  
@@ -91,10 +92,10 @@ private class Footer : IHtmlComponent
     public string Render()
     {
         return new HtmlComponents.Footer()
-            .Add(new Paragraph()
-                .Add(new Text("Generated with ❤️ using "))
-                .Add(new A("StatiC#").Href("https://github.com/rolandbraun-dev/StatiCsharp")))
-            .Render();
+		    .Add(new Paragraph()
+			.Add(new Text("Generated with ❤️ using "))
+			.Add(new A("StatiC#").Href("https://github.com/rolandbraun-dev/StatiCsharp")))
+		    .Render();
     }
 }
 ```
@@ -107,7 +108,20 @@ With all the steps from above you can build the HTML-code for all sites that are
 
 Add a folder to your projects root directory an call it `YourthemnameResources`. Within this folder create a new one called `yourthemename-theme`. Again, this is a StatiC# convention. StatiC# will copy all files and folders you provide in `YourthemenameResources` to the root directory of the generated website. The user is also capable of using additional resources. To prevent potential conflicts you are recommended to put everything that has to do with your theme into a seperate folder `yourthemename-theme`. There is only one exeption: If you want to provide a favicon, put it in `YourthemenameResources`. If the user provides a favicon, yours will be overriden.  
 
-You have to implement into your project, that the resources are copied to the output directory of the website generating proces. Lets say you want to provide a `styles.css` file:  
+Tell StatiC# from where to copy your resources by using the `ResourcesPath` property. When folling this guide, your files will be placed in the mentioned directory next the `.dll` of your template. One way to give StatiC# the path of that directory is:
+
+```C#
+public string ResourcesPath
+{
+    get
+    {
+        string? path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+        return Path.Combine(path!, "DefaultResources");
+    }
+}
+```
+
+You have to implement into your project, that the resources are copied to the output directory of the website generating process. Lets say you want to provide a `styles.css` file:  
 Add the file to your project into `yourthemename-theme`.  
 Open your `.csproj` file and add the file as `<None Remove="..." />`:
 
