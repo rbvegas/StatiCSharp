@@ -31,7 +31,7 @@ Of course, you can make your own and its welcome to contribute new elements or f
 
 ## Getting started
 
-To get started create a new class library project in [.NET](https://dotnet.microsoft.com/en-us/) that is version 6 or higher and add [StatiC#](https://github.com/rolandbraun-dev/StatiCsharp) as a package reference to the project. Feel free to check out the implemented template while following this documentation.  
+To get started create a new class library project in [.NET](https://dotnet.microsoft.com/en-us/) that is version 6 or higher and add [StatiC#](https://github.com/RolandBraunDev/StatiCsharp) as a package reference to the project. Feel free to check out the implemented template while following this documentation.  
 On the top of your class-file import `StatiCsharp.HtmlComponents` and `StatiCsharp.Interfaces`:
 
 ```C#
@@ -83,9 +83,9 @@ public string MakePageHtml(IPage page)
         }
 ```
 
-In this case, inspect the [IPage interface](github.com/rolandbraun-dev/StatiCsharp/blob/master/Sources/Interfaces/IPage.cs) for information about the content you can access via `page`. Pay attention to the fact, that all parameter interfaces inherit from [ISite](github.com/rolandbraun-dev/StatiCsharp/blob/master/Sources/Interfaces/ISite.cs), so you have always access to those properties, too.  
+In this case, inspect the [IPage interface](github.com/RolandBraunDev/StatiCsharp/blob/master/Sources/Interfaces/IPage.cs) for information about the content you can access via `page`. Pay attention to the fact, that all parameter interfaces inherit from [ISite](github.com/RolandBraunDev/StatiCsharp/blob/master/Sources/Interfaces/ISite.cs), so you have always access to those properties, too.  
 Initiate a new `Body` object, which is a representation of your current body of the html site. Then follows the elements you want to add to the body of the page. You see that you can use chaining and you are able to nest the elements. This makes your code more readable. Imagine: The code above is everything you need to display a page.  
-`SiteHeader` and `Footer` are not basic HTML elements. They are custom components that can be used across all your sites. You can create those components with the use of other components or whatever you want. But you need to implement [IHtmlComponent](github.com/rolandbraun-dev/StatiCsharp/blob/master/Sources/Interfaces/IHtmlComponent.cs) to work with StatiC#. To ensure chaining you have to return the element itself after every method you implement to customize the element.  
+`SiteHeader` and `Footer` are not basic HTML elements. They are custom components that can be used across all your sites. You can create those components with the use of other components or whatever you want. But you need to implement [IHtmlComponent](github.com/RolandBraunDev/StatiCsharp/blob/master/Sources/Interfaces/IHtmlComponent.cs) to work with StatiC#. To ensure chaining you have to return the element itself after every method you implement to customize the element.  
 Again an example from the integrated default theme for a footer:
 
 ```C#
@@ -96,7 +96,7 @@ private class Footer : IHtmlComponent
         return new HtmlComponents.Footer()
 		    .Add(new Paragraph()
 			.Add(new Text("Generated with ❤️ using "))
-			.Add(new A("StatiC#").Href("https://github.com/rolandbraun-dev/StatiCsharp")))
+			.Add(new A("StatiC#").Href("https://github.com/RolandBraunDev/StatiCsharp")))
 		    .Render();
     }
 }
