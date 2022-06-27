@@ -4,7 +4,7 @@ Welcome to **StatiC#**, a static website generator written in C#. It enables ent
 
 StatiC# provides a website as a standalone object, able to render itself to all the files needed to upload onto a webserver.  
 
-If you want to quickstart with your new website, you can start with the default configuration and build up from there. You can find a template in the [documentation](https://github.com/rolandbraun-dev/StatiCsharp/tree/master/Documentation/ProjectTemplate).  
+If you want to quickstart with your new website, you can start with the default configuration and build up from there. You can find a template in the [documentation](https://github.com/RolandBraunDev/StatiCsharp/tree/master/Documentation/ProjectTemplate).  
 Here is an example:
 
 ```C#
@@ -84,7 +84,7 @@ StatiC# renders four different types of sites:
 *sections*: Sites that contain items e.g. articles in a specifig field.  
 *items*: The sites that are part of a section.  
   
-Add some content to your website by adding your markdown files to the `Content` folder. Check out the [documentation](https://github.com/rolandbraun-dev/StatiCsharp/tree/master/Documentation) for a [template file](https://github.com/rolandbraun-dev/StatiCsharp/blob/master/Documentation/HowTo/content-template.md):
+Add some content to your website by adding your markdown files to the `Content` folder. Check out the [documentation](https://github.com/RolandBraunDev/StatiCsharp/tree/master/Documentation) for a [template file](https://github.com/RolandBraunDev/StatiCsharp/blob/master/Documentation/HowTo/content-template.md):
 
 ```bash
 ├── myWebsite
@@ -144,7 +144,7 @@ Before you start using StatiC# in any of your projects, please have in mind that
 
 Since this is a very young project, it’s likely to have many limitations and missing features, which is something that can really only be discovered and addressed as you use it. While StatiC# is used in production on my personal website, it’s recommended that you first try it out for your specific use case, to make sure it supports the features that you need.  
 
-If you wish to make a change, [open a Pull Request](https://github.com/rolandbraun-dev/StatiCsharp/pull/new) — even if it just contains a draft of the changes you’re planning, or a test that reproduces an issue — and we can discuss it further from there.
+If you wish to make a change, [open a Pull Request](https://github.com/RolandBraunDev/StatiCsharp/pull/new) — even if it just contains a draft of the changes you’re planning, or a test that reproduces an issue — and we can discuss it further from there.
 
 I hope you’ll enjoy using StatiC#!
 
