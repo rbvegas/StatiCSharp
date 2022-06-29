@@ -149,8 +149,9 @@ If you wish to make a change, [open a Pull Request](https://github.com/RolandBra
 I hope you’ll enjoy using StatiC#!
 
 
-## Future Features
+## Dev Plan
 
+⬜ Distinction between data and logic classes  
 ⬜ Syntax highlighting  
 ⬜ Math  
 ⬜ Build in markdown parser
