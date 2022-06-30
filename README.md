@@ -164,7 +164,7 @@ I hope you’ll enjoy using StatiC#!
 
 ## Dev Plan
 
-⬜ Distinction between data and logic classes  
+⬜ Refactoring: Distinction between data and logic classes  
 ⬜ Syntax highlighting  
 ⬜ Math  
 ⬜ Build in markdown parser
