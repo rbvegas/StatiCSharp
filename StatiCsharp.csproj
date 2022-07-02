@@ -10,9 +10,9 @@
         <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
         <Description>A static webside generator written in C#. It enables entire websites to be built using C#. Custom template support.</Description>
         <Copyright>Roland Braun</Copyright>
-        <PackageProjectUrl>https://github.com/rolandbraun-dev/StatiCsharp</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/RolandBraunDev/StatiCsharp</PackageProjectUrl>
         <PackageReadmeFile>README_NUGET.md</PackageReadmeFile>
-        <RepositoryUrl>https://github.com/rolandbraun-dev/StatiCsharp</RepositoryUrl>
+        <RepositoryUrl>https://github.com/RolandBraunDev/StatiCsharp</RepositoryUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <RepositoryType>git</RepositoryType>
         <NeutralLanguage>en-US</NeutralLanguage>
@@ -21,7 +21,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Remove="DefaultResources\favicon.png" />
       <None Remove="DefaultResources\styles.css" />
     </ItemGroup>
 
@@ -31,7 +30,7 @@
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		
-		<Content Include="DefaultResources\styles.css" pack="true">
+		<Content Include="DefaultResources\default-theme\styles.css" pack="true">
 			<PackageCopyToOutput>true</PackageCopyToOutput>
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
