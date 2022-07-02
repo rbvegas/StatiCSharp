@@ -4,7 +4,7 @@ using StatiCsharp.Interfaces;
 namespace StatiCsharp
 {
     /// <summary>
-    /// Implementation of the default theme thats shipping with StatiC#.
+    /// Implementation of the default theme that's shipping with StatiC#.
     /// </summary>
     public class DefaultHtmlFactory: IHtmlFactory
     {
