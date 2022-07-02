@@ -58,6 +58,23 @@ namespace StatiCsharp
             PathDirectory   = new List<string>();
         }
 
+        /// <summary>
+        /// Initialize a new manager that generates the output from a given website and theme.
+        /// </summary>
+        /// <param name="website">The website that contains the content.</param>
+        /// <param name="source">The absolute path to the directory that contains the folders `Content`, `Output` and `Resources`.</param>
+        public WebsiteManager(IWebsite website, string source)
+        {
+            Website         = website;
+            HtmlFactory     = new DefaultHtmlFactory();
+            SourceDir       = Path.Combine(source);
+            Content         = Path.Combine(source, "Content");
+            Resources       = Path.Combine(source, "Resources");
+            Output          = Path.Combine(source, "Output");
+            GitMode         = false;
+            PathDirectory   = new List<string>();
+        }
+
         /// <inheritdoc/>
         public void Make()
         {
