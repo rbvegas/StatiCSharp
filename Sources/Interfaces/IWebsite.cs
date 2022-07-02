@@ -28,29 +28,6 @@ namespace StatiCsharp.Interfaces
         CultureInfo Language { get; }
 
         /// <summary>
-        /// The abolute path to the content (markdown-files) for the website.
-        /// </summary>
-        string Content { get; }
-
-        /// <summary>
-        ///  The path to the resources (static files) of the website.
-        /// </summary>
-        string Resources { get; }
-
-        /// <summary>
-        /// The absolute path to the output directory.
-        /// </summary>
-        string Output { get; }
-
-        /// <summary>
-        /// The absolute path to the directory that contains the directories `Content`, `Output` and `Resources`.
-        /// </summary>
-        string SourceDir { get; }
-
-        /// The website's favicon, if any.
-        //TODO
-
-        /// <summary>
         /// Represents the index (homepage) of the website.
         /// </summary>
         ISite Index { get; }
