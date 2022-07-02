@@ -23,7 +23,7 @@ namespace StatiCsharp
         /// <inheritdoc/>
         public string MakeHeadHtml()
         {
-            return "<link rel=\"stylesheet\" href=\"/styles.css\">";
+            return "<link rel=\"stylesheet\" href=\"/default-theme/styles.css\">";
         }
 
         /// <inheritdoc/>
