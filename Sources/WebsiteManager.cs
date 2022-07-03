@@ -66,7 +66,7 @@ namespace StatiCsharp
         public WebsiteManager(IWebsite website, string source)
         {
             Website         = website;
-            HtmlFactory     = new DefaultHtmlFactory();
+            HtmlFactory     = new DefaultHtmlFactory(Website);
             SourceDir       = Path.Combine(source);
             Content         = Path.Combine(source, "Content");
             Resources       = Path.Combine(source, "Resources");
@@ -85,8 +85,6 @@ namespace StatiCsharp
             }
 
             WriteLine("Starting generating your website:");
-            
-            HtmlFactory.Website = Website;
 
             WriteLine("Collecting markdown data...");
             GenerateSitesFromMarkdown();
