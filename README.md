@@ -17,9 +17,9 @@ Welcome to **StatiC#**, a static website generator written in C#. It enables ent
 
 ---
 
-StatiC# provides a website as a standalone object, able to render itself to all the files needed to upload onto a webserver.  
+StatiC# provides everything you need to create a website with all the files needed to upload onto a webserver.  
 
-If you want to quickstart with your new website, you can start with the default configuration and build up from there. Here is an example:
+If you want to quickstart with your new website, you can start with the [default configuration](https://github.com/RolandBraunDev/StatiCsharp/tree/develop/Documentation/ProjectTemplate) and build up from there. Here is an example:
 
 ```C#
 using StatiCsharp;
@@ -30,10 +30,14 @@ var myAwesomeWebsite = new Website(
     description: @"Description of your website",
     language: "en-US",
     sections: "posts, about",           //select which folders should be treated as sections
-    source: @"/path/to/your/project"    // path to the folder of your website project
-    );
+);
 
-myAwesomeWebsite.Make();
+var manager = new WebsiteManager(
+    website: website,
+    source: @"/path/to/your/project"    // path to the folder of your website project
+);
+
+manager.Make();
 ```
 
 
@@ -74,13 +78,13 @@ using StatiCsharp;
 You can use StatiC#'s [project template](/Documentation/ProjectTemplate) to quick start or follow the following steps to set up your project manually.  
 Nevertheless its recommended to read this readme to get a understanding how StatiC# works.  
 
-StatiC# expects three folders to work with at the path given during the initialization of our website (we will come to that later).  
+StatiC# expects three folders to work with at the path given during the initialization of the WebsiteManager.  
   
 `Content`: This folder contains the markdown files that our website depents on.  
 `Output`: Here the final website with all the necessary files will be saved.  
 `Resources`: Put all your static files in here. All files will be copied, without any manipulation, to the output. Folders are migrated.  
 
-I recomment to put those folders within your project folder of *myWebsite*. Your folder should look something like this:
+It's recommented to put those folders within your project folder of *myWebsite*. Your folder should look something like this:
 
 ```bash
 ├── myWebsite
@@ -128,11 +132,15 @@ var myAwesomeWebsite = new Website(
     name: "My Awesome Website",
     description: @"Description of your website",
     language: "en-US",
-    sections: "posts, about",         // select which folders should be treated as sections
-    source: @"/path/to/your/project"  // path to the folder of your website project
-    );
+    sections: "posts, about",           //select which folders should be treated as sections
+);
 
-myAwesomeWebsite.Make();
+var manager = new WebsiteManager(
+    website: website,
+    source: @"/path/to/your/project"    // path to the folder of your website project
+);
+
+manager.Make();
 ```
 
 Run the project and your new awesome website will be generated in the `Output` directory:
