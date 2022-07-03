@@ -17,8 +17,19 @@ namespace StatiCsharp
             }
         }
 
-        /// <inheritdoc/>
-        public IWebsite? Website { get; set; }
+        /// <summary>
+        /// The website the theme is used for. So that the theme can access additional information.
+        /// </summary>
+        private IWebsite Website { get; set; }
+
+        /// <summary>
+        /// Initiate a new default theme, using the given website.
+        /// </summary>
+        /// <param name="website"></param>
+        public DefaultHtmlFactory(IWebsite website)
+        {
+            Website = website;
+        }
 
         /// <inheritdoc/>
         public string MakeHeadHtml()
@@ -49,7 +60,7 @@ namespace StatiCsharp
         /// <inheritdoc/>
         public string MakePageHtml(IPage page)
         {
-            return new Body()   .Add(new SiteHeader(Website!))
+            return new Body()   .Add(new SiteHeader(Website))
                                 .Add(new Div()
                                     .Add(new Article()
                                         .Add(new Div(page.Content)
@@ -65,7 +76,7 @@ namespace StatiCsharp
             List<IItem> items = section.Items;
             items.Sort( (i1, i2) => DateTime.Compare(i1.Date.ToDateTime(TimeOnly.Parse("6pm")), i2.Date.ToDateTime(TimeOnly.Parse("6pm"))));
             items.Reverse();
-            return new Body()   .Add(new SiteHeader(Website!))
+            return new Body()   .Add(new SiteHeader(Website))
                                 .Add(new Div(section.Content)
                                     .Class("wrapper"))
                                 .Add(new Div()
@@ -78,7 +89,7 @@ namespace StatiCsharp
         /// <inheritdoc/>
         public string MakeItemHtml(IItem item)
         {
-            return new Body()   .Add(new SiteHeader(Website!))
+            return new Body()   .Add(new SiteHeader(Website))
                                 .Add(new Div()
                                     .Add(new TagList(item.Tags))
                                     .Add(new Text(item.Date.ToString("MMMM dd, yyyy")))
@@ -97,7 +108,7 @@ namespace StatiCsharp
         {
             items.Sort( (i1, i2) => DateTime.Compare(i1.Date.ToDateTime(TimeOnly.Parse("6pm")), i2.Date.ToDateTime(TimeOnly.Parse("6pm"))));
             items.Reverse();
-            return new Body()   .Add(new SiteHeader(Website!))
+            return new Body()   .Add(new SiteHeader(Website))
                                 .Add(new Div()
                                     .Add(new H1()
                                         .Add(new Text("Tagged with "))
