@@ -11,12 +11,6 @@
         string ResourcesPath { get; }
 
         /// <summary>
-        /// The website the theme is used for. So that the theme can access additional information.<br/><br/>
-        /// StatiC# will inject the current website into this property.
-        /// </summary>
-        IWebsite? Website { get; set; }
-
-        /// <summary>
         /// Creates html-code for inside the &lt;head&gt;&lt;/head&gt;-tag. This code is added to all sites.
         /// </summary>
         /// <returns>A string containing the html-code.</returns>
