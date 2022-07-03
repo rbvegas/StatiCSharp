@@ -1,7 +1,7 @@
 ﻿---  
 Date: 2022-01-31  
 Path: path-for-this-site  
-Author: Your Name
+Author: Your Name  
 Title: Title of the site  
 Description: Some words describing the site.  
 Tags: tag1, tag2  
