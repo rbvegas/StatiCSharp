@@ -95,6 +95,9 @@ namespace StatiCsharp
                 DeleteAll(Output);
             }
 
+            WriteLine("Copying theme resources...");
+            CopyAll(HtmlFactory.ResourcesPath, Output);
+
             WriteLine("Writing index...");
             MakeIndex();
 
@@ -110,8 +113,7 @@ namespace StatiCsharp
             WriteLine("Writing tag lists...");
             MakeTagLists();
 
-            WriteLine("Copying resources...");
-            CopyAll(HtmlFactory.ResourcesPath, Output);
+            WriteLine("Copying user resources...");
             CopyAll(Resources, Output);
 
             WriteLine("Cleaning up...");
