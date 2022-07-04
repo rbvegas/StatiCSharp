@@ -38,17 +38,17 @@ namespace StatiCsharp
         }
 
         /// <inheritdoc/>
-        public string MakeIndexHtml(IWebsite website)
+        public string MakeIndexHtml(IIndex index)
         {
             // Collect all items to show. 10 items max.
             List<IItem> items = new List<IItem>();
-            foreach (ISection section in website.Sections)
+            foreach (ISection section in Website.Sections)
                 {
                     section.Items.ForEach((item) => items.Add(item));
                 }
-            return  new Body()  .Add(new SiteHeader(website))
+            return  new Body()  .Add(new SiteHeader(Website))
                                 .Add(new Div()
-                                    .Add(new Div(website.Index.Content)
+                                    .Add(new Div(index.Content)
                                             .Class("welcomeWrapper"))
                                     .Add(new H2("Latest Content"))
                                     .Add(new ItemList(items))
