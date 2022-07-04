@@ -42,5 +42,16 @@ namespace StatiCsharp.HtmlComponents
             Attributes["src"] = src;
             return this;
         }
+
+        /// <summary>
+        /// Add an alternate text.
+        /// </summary>
+        /// <param name="alt">The alternative text.</param>
+        /// <returns>this - the element itself.</returns>
+        public Image Alt(string alt)
+        {
+            Attributes["alt"] = alt;
+            return this;
+        }
     }
 }
