@@ -21,7 +21,7 @@
         /// </summary>
         /// /// <param name="website">The websites index to render.</param>
         /// <returns>A string containing the html-code.</returns>
-        string MakeIndexHtml(IWebsite website);
+        string MakeIndexHtml(IIndex index);
 
         /// <summary>
         /// Method that returns the html-code for a page (not section or item).
