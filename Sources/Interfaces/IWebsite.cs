@@ -30,7 +30,7 @@ namespace StatiCsharp.Interfaces
         /// <summary>
         /// Represents the index (homepage) of the website.
         /// </summary>
-        ISite Index { get; }
+        IIndex Index { get; }
 
         /// <summary>
         /// The collection of pages the website contains.

@@ -5,7 +5,7 @@ namespace StatiCsharp
     /// <summary>
     /// Represenation of the index page.
     /// </summary>
-    internal class Index : ISite
+    internal class Index : IIndex
     {
         private string title = string.Empty;
         public string Title

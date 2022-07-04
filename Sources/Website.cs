@@ -22,7 +22,7 @@ namespace StatiCsharp
         public CultureInfo Language { get; set; }
 
         /// <inheritdoc/>
-        public ISite Index { get; set; }
+        public IIndex Index { get; set; }
 
         /// <inheritdoc/>
         public List<IPage> Pages { get; set; }
