@@ -22,7 +22,9 @@ namespace StatiCsharp
             siteBuilder.Append("<meta charset=\"utf-8\">");
             siteBuilder.Append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
             siteBuilder.Append($"<title>{context.Title}</title>");
-            siteBuilder.Append($"<meta name=\"description\" content=\"{website.Description}\">");
+            siteBuilder.Append($"<meta name=\"description\" content=\"{context.Description}\">");
+            siteBuilder.Append($"<meta name=\"author\" content=\"{context.Author}\">");
+            siteBuilder.Append($"<meta name=\"keywords\" content=\"{string.Join(", ", context.Tags)}\">");
             siteBuilder.Append("<link rel=\"icon\" type=\"image/x-icon\" href=\"/favicon.png\">");
             siteBuilder.Append(head);
             siteBuilder.Append("</head>");
