@@ -29,7 +29,7 @@ var myAwesomeWebsite = new Website(
     name: "My Awesome Website",
     description: @"Description of your website",
     language: "en-US",
-    sections: "posts, about",           //select which folders should be treated as sections
+    sections: "posts, about"            //select which folders should be treated as sections
 );
 
 var manager = new WebsiteManager(
@@ -132,7 +132,7 @@ var myAwesomeWebsite = new Website(
     name: "My Awesome Website",
     description: @"Description of your website",
     language: "en-US",
-    sections: "posts, about",           //select which folders should be treated as sections
+    sections: "posts, about"            //select which folders should be treated as sections
 );
 
 var manager = new WebsiteManager(
