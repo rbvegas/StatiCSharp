@@ -4,8 +4,8 @@ By default, __StatiC#__ will delete all files in the output folder and then writ
 
 You can use StatiC# in _GitMode_ to ensure that the files in the output directory are only touched if their content has changed. New files are created as needed. At the same time files that have no corresponding markdown file are deleted. With that behavior you can delete an article by deleting the markdown file it is referring to.  
 
-Activate GitMode with the property of your website object before using Make():  
+Activate GitMode with the property of your WebsiteManager before using Make():  
 
 ```C#
-website.GitMode = true;
+manager.GitMode = true;
 ```

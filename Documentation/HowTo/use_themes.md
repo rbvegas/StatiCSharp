@@ -1,6 +1,6 @@
 # Use Themes
 
-**StatiC#** makes it easy to use different themes for your website. This article shows how to use *Foundation*.  
+**StatiC#** makes it easy to use different themes for your website. This article shows how to use [Foundation](https://www.nuget.org/packages/StatiCsharp.Theme.Foundation).  
 
 ## Add a template to your website project
 
@@ -25,13 +25,18 @@ var myAwesomeWebsite = new Website(
     name: "My Awesome Website",
     description: @"Description of your website",
     language: "en-US",
-    sections: "posts, about",           //select which folders should be treated as sections
-    source: @"/path/to/your/project"    // path to the folder of your website project
+    sections: "posts, about"    //select which folders should be treated as sections
     );
 
-var theme = new FoundationHtmlFactory();
+var theme = new FoundationHtmlFactory(website);
 
-myAwesomeWebsite.Make(theme);
+var manager = new WebsiteManager(
+    website: website,
+    htmlFactory: theme,
+    source: @"/path/to/your/project"    // path to the folder of your website project
+);
+
+manager.Make();
 ```
 
 Build and run your project. Your website is created with the new theme in your `Output` directory.
