@@ -12,7 +12,20 @@ namespace StatiCsharp.HtmlComponents
         /// Defines the tagname of the element.
         /// </summary>
         private protected abstract string TagName { get; }
-        
+
+        private protected bool _voidElement = false;
+        /// <summary>
+        /// If this element is a void element.<br/>
+        /// A void element is an element whose content model never allows it to have contents under any circumstances.<br/>
+        /// Void elements can have attributes.<br/>
+        /// Void elements only have a start tag. Closing tags must not be specified for void elements.
+        /// </summary>
+        private protected virtual bool VoidElement
+        {
+            get { return _voidElement; }
+            set { _voidElement = value; }
+        }
+
         /// <summary>
         /// Contains the components inside the element.
         /// </summary>
@@ -31,20 +44,6 @@ namespace StatiCsharp.HtmlComponents
             set { _attributes = value; }
         }
 
-
-        private protected bool _voidElement = false;
-        /// <summary>
-        /// If this element is a void element.
-        /// A void element is an element whose content model never allows it to have contents under any circumstances.
-        /// Void elements can have attributes.
-        /// Void elements only have a start tag. Closing tags must not be specified for void elements.
-        /// </summary>
-        private protected virtual bool VoidElement
-        {
-            get { return _voidElement; }
-            set { _voidElement = value; }
-        }
-
         public HtmlElement()
         {
             Content = new List<IHtmlComponent>();
@@ -54,10 +53,21 @@ namespace StatiCsharp.HtmlComponents
         /// Add a new element or component to the content of this element.
         /// </summary>
         /// <param name="component">The element or component you want to add. Must implement IHtmlComponent</param>
-        /// <returns>his - The element object itself</returns>
+        /// <returns>this - The element object itself</returns>
         public HtmlElement Add(IHtmlComponent component)
         {
             Content.Add(component);
+            return this;
+        }
+
+        /// <summary>
+        /// Add text to the content of this element.
+        /// </summary>
+        /// <param name="text">The text to add inside the content of the element.</param>
+        /// <returns>this - The element object itself</returns>
+        public HtmlElement Add(string text)
+        {
+            Content.Add(new Text(text));
             return this;
         }
 
