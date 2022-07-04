@@ -4,7 +4,7 @@ Welcome to **StatiC#**, a static website generator written in C#. It enables ent
 
 StatiC# provides a website as a standalone object, able to render itself to all the files needed to upload onto a webserver.  
 
-If you want to quickstart with your new website, you can start with the default configuration and build up from there. You can find a template in the [documentation](https://github.com/RolandBraunDev/StatiCsharp/tree/master/Documentation/ProjectTemplate).  
+If you want to quickstart with your new website, you can start with the [default configuration](https://github.com/RolandBraunDev/StatiCsharp/tree/develop/Documentation/ProjectTemplate) and build up from there. You can find a template in the [documentation](https://github.com/RolandBraunDev/StatiCsharp/tree/master/Documentation/ProjectTemplate).  
 Here is an example:
 
 ```C#
@@ -16,10 +16,14 @@ var myAwesomeWebsite = new Website(
     description: @"Description of your website",
     language: "en-US",
     sections: "posts, about",           //select which folders should be treated as sections
-    source: @"/path/to/your/project"    // path to the folder of your website project
-    );
+);
 
-myAwesomeWebsite.Make();
+var manager = new WebsiteManager(
+    website: website,
+    source: @"/path/to/your/project"    // path to the folder of your website project
+);
+
+manager.Make();
 ```
 
 
@@ -57,7 +61,7 @@ using StatiCsharp;
 
 ## Quick start
 
-You can use StatiC#'s [project template](/Documentation/ProjectTemplate) to quick start or follow the following steps to set up your project manually.  
+You can use StatiC#'s [project template](https://github.com/RolandBraunDev/StatiCsharp/tree/master/Documentation/ProjectTemplate) to quick start or follow the following steps to set up your project manually.  
 Nevertheless its recommended to read this readme to get a understanding how StatiC# works.  
 
 StatiC# expects three folders to work with at the path given during the initialization of our website (we will come to that later).  
@@ -115,11 +119,15 @@ var myAwesomeWebsite = new Website(
     name: "My Awesome Website",
     description: @"Description of your website",
     language: "en-US",
-    sections: "posts, about",         // select which folders should be treated as sections
-    source: @"/path/to/your/project"  // path to the folder of your website project
-    );
+    sections: "posts, about",           //select which folders should be treated as sections
+);
 
-myAwesomeWebsite.Make();
+var manager = new WebsiteManager(
+    website: website,
+    source: @"/path/to/your/project"    // path to the folder of your website project
+);
+
+manager.Make();
 ```
 
 Run the project and your new awesome website will be generated in the `Output` directory:
@@ -127,7 +135,7 @@ Run the project and your new awesome website will be generated in the `Output` d
 $ dotnet run
 ```
 
-Check out the [documentation](/Documentation) for further information.
+Check out the [documentation](https://github.com/RolandBraunDev/StatiCsharp/tree/master/Documentation) for further information.
 
 ## Dependencies
 
@@ -147,10 +155,3 @@ Since this is a very young project, it’s likely to have many limitations and m
 If you wish to make a change, [open a Pull Request](https://github.com/RolandBraunDev/StatiCsharp/pull/new) — even if it just contains a draft of the changes you’re planning, or a test that reproduces an issue — and we can discuss it further from there.
 
 I hope you’ll enjoy using StatiC#!
-
-
-## Dev Plan
-
-⬜ Syntax highlighting  
-⬜ Math  
-⬜ Build in markdown parser

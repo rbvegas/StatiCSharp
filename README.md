@@ -168,10 +168,3 @@ Since this is a very young project, it’s likely to have many limitations and m
 If you wish to make a change, [open a Pull Request](https://github.com/RolandBraunDev/StatiCsharp/pull/new) — even if it just contains a draft of the changes you’re planning, or a test that reproduces an issue — and we can discuss it further from there.
 
 I hope you’ll enjoy using StatiC#!
-
-
-## Dev Plan
-
-⬜ Syntax highlighting  
-⬜ Math  
-⬜ Build in markdown parser
