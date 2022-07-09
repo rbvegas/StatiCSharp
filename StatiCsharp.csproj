@@ -18,6 +18,7 @@
         <NeutralLanguage>en-US</NeutralLanguage>
         <PackageTags>StatiC#; StatiCsharp; staticsharp; Staticsharp; static; website; generator;</PackageTags>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<PackageIcon>Icon.png</PackageIcon>
     </PropertyGroup>
 
     <ItemGroup>
@@ -41,6 +42,10 @@
     </ItemGroup>
 	
     <ItemGroup>
+        <None Update="Icon.png">
+          <Pack>True</Pack>
+          <PackagePath>\</PackagePath>
+        </None>
         <None Update="README.md">
             <Pack>True</Pack>
             <PackagePath>\</PackagePath>
