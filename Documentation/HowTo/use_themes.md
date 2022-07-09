@@ -31,7 +31,7 @@ var myAwesomeWebsite = new Website(
 var theme = new FoundationHtmlFactory(website);
 
 var manager = new WebsiteManager(
-    website: website,
+    website: myAwesomeWebsite,
     htmlFactory: theme,
     source: @"/path/to/your/project"    // path to the folder of your website project
 );
