@@ -12,7 +12,7 @@
     <img src="https://img.shields.io/badge/Platforms-Win+Mac+Linux-green?style=flat" />
     <img src="https://img.shields.io/badge/Version-0.1.0--alpha7-green?style=flat" />
     <a href="https://www.nuget.org/packages/StatiCsharp">
-        <img src="https://img.shields.io/nuget/v/StatiCsharp?color=informational" />
+        <img src="https://img.shields.io/nuget/v/StatiCsharp?color=orange" />
     </a>
 </p>
 
