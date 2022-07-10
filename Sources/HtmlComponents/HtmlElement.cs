@@ -13,36 +13,24 @@ namespace StatiCsharp.HtmlComponents
         /// </summary>
         private protected abstract string TagName { get; }
 
-        private protected bool _voidElement = false;
         /// <summary>
         /// If this element is a void element.<br/>
         /// A void element is an element whose content model never allows it to have contents under any circumstances.<br/>
         /// Void elements can have attributes.<br/>
         /// Void elements only have a start tag. Closing tags must not be specified for void elements.
         /// </summary>
-        private protected virtual bool VoidElement
-        {
-            get { return _voidElement; }
-            set { _voidElement = value; }
-        }
+        private protected virtual bool VoidElement { get; set; } = false;
 
         /// <summary>
         /// Contains the components inside the element.
         /// </summary>
         private protected List<IHtmlComponent> Content { get; set; }
 
-
-        private Dictionary<string, string?> _attributes = new Dictionary<string, string?>();
-
         /// <summary>
         /// Contains the attributes that are added to the opening tag of the element.
         /// &lt;Key&gt;&lt;Value&gt; is equivalent to Key="Value".
         /// </summary>
-        private protected Dictionary<string, string?> Attributes
-        {
-            get { return _attributes; }
-            set { _attributes = value; }
-        }
+        private protected Dictionary<string, string?> Attributes { get; set; } = new Dictionary<string, string?>();
 
         public HtmlElement()
         {
