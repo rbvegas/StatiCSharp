@@ -10,7 +10,7 @@
         <img src="https://img.shields.io/badge/.NET-6.0-blueviolet?style=flat" />
     </a>
     <img src="https://img.shields.io/badge/Platforms-Win+Mac+Linux-green?style=flat" />
-    <img src="https://img.shields.io/badge/Version-0.1.0--alpha7-green?style=flat" />
+    <img src="https://img.shields.io/badge/Version-0.1.0--alpha8-green?style=flat" />
     <a href="https://www.nuget.org/packages/StatiCsharp">
         <img src="https://img.shields.io/nuget/v/StatiCsharp?color=orange" />
     </a>
@@ -64,7 +64,7 @@ After .NET has created the project files open `myWebsite.csproj` and add StatiC#
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="StatiCsharp" Version="0.1.0-alpha7" />
+    <PackageReference Include="StatiCsharp" Version="0.1.0-alpha8" />
   </ItemGroup>
 
 </Project>
