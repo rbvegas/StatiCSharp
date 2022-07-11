@@ -13,13 +13,13 @@ namespace StatiCsharp
             string pathToContent = Content;
 
             // For the index: Collecting meta data and content from markdown files.
-            Dictionary<string, string> mdMetaData = MarkdownFactory.ParseMetaData(Path.Combine(pathToContent, "index.md"));
-            string mdContent = MarkdownFactory.ParseContent(Path.Combine(pathToContent, "index.md"));
-            Website.Index.Content = Markdown.ToHtml(MarkdownFactory.ParseContent(Path.Combine(pathToContent, "index.md")));
-            string MarkdownFilePath = Path.GetFileName(Path.Combine(pathToContent, "index.md"));
-            Website.Index.MarkdownFileName = MarkdownFilePath.Substring(0, MarkdownFilePath.LastIndexOf(".md"));
+            Dictionary<string, string> markdownMetaData = MarkdownFactory.ParseMetaData(Path.Combine(pathToContent, "index.md"));
+            string markdownContent = MarkdownFactory.ParseContent(Path.Combine(pathToContent, "index.md"));
+            Website.Index.Content = Markdown.ToHtml(markdownContent);
+            string markdownFilePath = Path.GetFileName(Path.Combine(pathToContent, "index.md"));
+            Website.Index.MarkdownFileName = markdownFilePath.Substring(0, markdownFilePath.LastIndexOf(".md"));
             Website.Index.MarkdownFilePath = Path.Combine(pathToContent, "index.md").ToString();
-            MapMetaData(mdMetaData, Website.Index);
+            MapMetaData(markdownMetaData, Website.Index);
 
             // Collecting pages and sections data
             string[] directoriesOfContent = Directory.GetDirectories(pathToContent);
