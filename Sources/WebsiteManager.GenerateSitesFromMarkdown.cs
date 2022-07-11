@@ -8,7 +8,6 @@ namespace StatiCsharp
         /// <summary>
         /// Generates index, pages, sections and items from the markdown files in the `Content` directory.
         /// </summary>
-        /// <param name="website">The website where the parsed sites are added to.</param>
         private void GenerateSitesFromMarkdown()
         {
             string pathToContent = Content;
