@@ -1,6 +1,6 @@
-﻿using StatiCsharp.Interfaces;
+﻿using StatiCSharp.Interfaces;
 
-namespace StatiCsharp.HtmlComponents
+namespace StatiCSharp.HtmlComponents
 {
     public class Input : HtmlElement, IHtmlComponent
     {

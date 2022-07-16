@@ -1,6 +1,6 @@
-﻿using StatiCsharp.Interfaces;
+﻿using StatiCSharp.Interfaces;
 
-namespace StatiCsharp.HtmlComponents
+namespace StatiCSharp.HtmlComponents
 {
     /// <summary>
     /// A representation of an &lt;a&gt;&lt;/a&gt; element.

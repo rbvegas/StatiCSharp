@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using StatiCsharp.Interfaces;
+using StatiCSharp.Interfaces;
 
-namespace StatiCsharp
+namespace StatiCSharp
 {
     public partial class WebsiteManager : IWebsiteManager
     {

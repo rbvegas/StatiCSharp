@@ -1,7 +1,7 @@
-﻿using StatiCsharp.HtmlComponents;
-using StatiCsharp.Interfaces;
+﻿using StatiCSharp.HtmlComponents;
+using StatiCSharp.Interfaces;
 
-namespace StatiCsharp
+namespace StatiCSharp
 {
     /// <summary>
     /// Implementation of the default theme that's shipping with StatiC#.
@@ -225,7 +225,7 @@ namespace StatiCsharp
                 return new HtmlComponents.Footer()
                 .Add(new Paragraph()
                         .Add(new Text("Generated with ❤️ using "))
-                        .Add(new A("StatiC#").Href("https://github.com/RolandBraunDev/StatiCsharp")))
+                        .Add(new A("StatiC#").Href("https://github.com/RolandBraunDev/StatiCSharp")))
                 .Render();
             }
         }

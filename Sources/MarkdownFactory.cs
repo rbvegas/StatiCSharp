@@ -1,6 +1,6 @@
 ﻿using static System.Console;
 
-namespace StatiCsharp
+namespace StatiCSharp
 {
     /// <summary>
     /// Privides usefull methods to work with markdown files and data.
@@ -33,7 +33,7 @@ namespace StatiCsharp
                 }
                 catch
                 {
-                    WriteLine($"No meta data found in {path}\nCheck out https://github.com/rolandbraun-dev/StatiCsharp/blob/master/Documentation/HowTo/content-template.md for a site template.");
+                    WriteLine($"No meta data found in {path}\nCheck out https://github.com/rolandbraun-dev/StatiCSharp/blob/master/Documentation/HowTo/content-template.md for a site template.");
                 }
             }
             return metaData;

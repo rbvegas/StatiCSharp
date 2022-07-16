@@ -1,4 +1,4 @@
-﻿namespace StatiCsharp.Tools
+﻿namespace StatiCSharp.Tools
 {
     /// <summary>
     /// Provides methods to generate paths from filenames.

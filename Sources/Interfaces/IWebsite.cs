@@ -1,6 +1,6 @@
 ﻿using System.Globalization; // CultureInfo
 
-namespace StatiCsharp.Interfaces
+namespace StatiCSharp.Interfaces
 {
     /// <summary>
     /// Interface to confrom to for a website object while building templates.

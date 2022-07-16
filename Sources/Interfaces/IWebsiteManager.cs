@@ -1,4 +1,4 @@
-﻿namespace StatiCsharp.Interfaces
+﻿namespace StatiCSharp.Interfaces
 {
     internal interface IWebsiteManager
     {

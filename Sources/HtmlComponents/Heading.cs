@@ -1,6 +1,6 @@
-using StatiCsharp.Interfaces;
+using StatiCSharp.Interfaces;
 
-namespace StatiCsharp.HtmlComponents
+namespace StatiCSharp.HtmlComponents
 {
     /// <summary>
     /// A representation of a <h1></h1> element.

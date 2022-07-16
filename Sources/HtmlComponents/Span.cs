@@ -1,7 +1,7 @@
-using StatiCsharp.Interfaces;
+using StatiCSharp.Interfaces;
 using System.Text;
 
-namespace StatiCsharp.HtmlComponents
+namespace StatiCSharp.HtmlComponents
 {
     /// <summary>
     /// A representation of a &lt;span&gt;&lt;/span&gt; element.

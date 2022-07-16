@@ -1,7 +1,7 @@
-﻿using StatiCsharp.Interfaces;
+﻿using StatiCSharp.Interfaces;
 
 
-namespace StatiCsharp
+namespace StatiCSharp
 {
     internal class Section : ISection
     {

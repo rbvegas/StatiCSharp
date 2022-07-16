@@ -1,7 +1,7 @@
-﻿using StatiCsharp.Interfaces;
+﻿using StatiCSharp.Interfaces;
 using System.Text;
 
-namespace StatiCsharp
+namespace StatiCSharp
 {
     public partial class WebsiteManager : IWebsiteManager
     {

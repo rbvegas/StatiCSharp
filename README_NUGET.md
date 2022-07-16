@@ -4,11 +4,11 @@ Welcome to **StatiC#**, a static website generator written in C#. It enables ent
 
 StatiC# provides a website as a standalone object, able to render itself to all the files needed to upload onto a webserver.  
 
-If you want to quickstart with your new website, you can start with the [default configuration](https://github.com/RolandBraunDev/StatiCsharp/tree/develop/Documentation/ProjectTemplate) and build up from there. You can find a template in the [documentation](https://github.com/RolandBraunDev/StatiCsharp/tree/master/Documentation/ProjectTemplate).  
+If you want to quickstart with your new website, you can start with the [default configuration](https://github.com/RolandBraunDev/StatiCSharp/tree/develop/Documentation/ProjectTemplate) and build up from there. You can find a template in the [documentation](https://github.com/RolandBraunDev/StatiCSharp/tree/master/Documentation/ProjectTemplate).  
 Here is an example:
 
 ```C#
-using StatiCsharp;
+using StatiCSharp;
 
 var myAwesomeWebsite = new Website(
     url: "https://yourdomain.com",
@@ -47,7 +47,7 @@ After .NET has created the project files open `myWebsite.csproj` and add StatiC#
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="StatiCsharp" Version="0.1.0-alpha8" />
+    <PackageReference Include="StatiCSharp" Version="0.1.0-alpha8" />
   </ItemGroup>
 
 </Project>
@@ -56,12 +56,12 @@ After .NET has created the project files open `myWebsite.csproj` and add StatiC#
 Then you can get started using StatiC# by importing it at the beginning of your `Program.cs`:
 
 ```C#
-using StatiCsharp;
+using StatiCSharp;
 ```
 
 ## Quick start
 
-You can use StatiC#'s [project template](https://github.com/RolandBraunDev/StatiCsharp/tree/master/Documentation/ProjectTemplate) to quick start or follow the following steps to set up your project manually.  
+You can use StatiC#'s [project template](https://github.com/RolandBraunDev/StatiCSharp/tree/master/Documentation/ProjectTemplate) to quick start or follow the following steps to set up your project manually.  
 Nevertheless its recommended to read this readme to get a understanding how StatiC# works.  
 
 StatiC# expects three folders to work with at the path given during the initialization of our website (we will come to that later).  
@@ -88,7 +88,7 @@ StatiC# renders four different types of sites:
 *sections*: Sites that contain items e.g. articles in a specifig field.  
 *items*: The sites that are part of a section.  
   
-Add some content to your website by adding your markdown files to the `Content` folder. Check out the [documentation](https://github.com/RolandBraunDev/StatiCsharp/tree/master/Documentation) for a [template file](https://github.com/RolandBraunDev/StatiCsharp/blob/master/Documentation/HowTo/content-template.md):
+Add some content to your website by adding your markdown files to the `Content` folder. Check out the [documentation](https://github.com/RolandBraunDev/StatiCSharp/tree/master/Documentation) for a [template file](https://github.com/RolandBraunDev/StatiCSharp/blob/master/Documentation/HowTo/content-template.md):
 
 ```bash
 ├── myWebsite
@@ -112,7 +112,7 @@ Store your content in folders and StatiC# cares about the rest. All folders are 
 Finally set up the parameters in `Program.cs` in your *myWebsite* project:
 
 ```C#
-using StatiCsharp;
+using StatiCSharp;
 
 var myAwesomeWebsite = new Website(
     url: "https://yourdomain.com",
@@ -135,7 +135,7 @@ Run the project and your new awesome website will be generated in the `Output` d
 $ dotnet run
 ```
 
-Check out the [documentation](https://github.com/RolandBraunDev/StatiCsharp/tree/master/Documentation) for further information.
+Check out the [documentation](https://github.com/RolandBraunDev/StatiCSharp/tree/master/Documentation) for further information.
 
 ## Dependencies
 
@@ -152,6 +152,6 @@ Before you start using StatiC# in any of your projects, please have in mind that
 
 Since this is a very young project, it’s likely to have many limitations and missing features, which is something that can really only be discovered and addressed as you use it. While StatiC# is used in production on my personal website, it’s recommended that you first try it out for your specific use case, to make sure it supports the features that you need.  
 
-If you wish to make a change, [open a Pull Request](https://github.com/RolandBraunDev/StatiCsharp/pull/new) — even if it just contains a draft of the changes you’re planning, or a test that reproduces an issue — and we can discuss it further from there.
+If you wish to make a change, [open a Pull Request](https://github.com/RolandBraunDev/StatiCSharp/pull/new) — even if it just contains a draft of the changes you’re planning, or a test that reproduces an issue — and we can discuss it further from there.
 
 I hope you’ll enjoy using StatiC#!

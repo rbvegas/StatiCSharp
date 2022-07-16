@@ -1,4 +1,4 @@
-﻿namespace StatiCsharp.Interfaces
+﻿namespace StatiCSharp.Interfaces
 {
     public interface IPage: ISite
     {

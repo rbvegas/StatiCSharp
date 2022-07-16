@@ -1,7 +1,7 @@
-﻿using StatiCsharp.Interfaces;
+﻿using StatiCSharp.Interfaces;
 using static System.Console;
 
-namespace StatiCsharp
+namespace StatiCSharp
 {
     /// <summary>
     /// Manager that handles the website generating process with the given website and theme.

@@ -1,7 +1,7 @@
 ﻿using Markdig;
-using StatiCsharp.Interfaces;
+using StatiCSharp.Interfaces;
 
-namespace StatiCsharp
+namespace StatiCSharp
 {
     public partial class WebsiteManager : IWebsiteManager
     {

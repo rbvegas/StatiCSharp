@@ -1,6 +1,6 @@
-﻿using StatiCsharp.Interfaces;
+﻿using StatiCSharp.Interfaces;
 
-namespace StatiCsharp
+namespace StatiCSharp
 {
     /// <summary>
     /// Represenation of the index page.

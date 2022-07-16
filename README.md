@@ -11,8 +11,8 @@
     </a>
     <img src="https://img.shields.io/badge/Platforms-Win+Mac+Linux-green?style=flat" />
     <img src="https://img.shields.io/badge/Version-0.1.0--alpha8-green?style=flat" />
-    <a href="https://www.nuget.org/packages/StatiCsharp">
-        <img src="https://img.shields.io/nuget/v/StatiCsharp?color=orange" />
+    <a href="https://www.nuget.org/packages/StatiCSharp">
+        <img src="https://img.shields.io/nuget/v/StatiCSharp?color=orange" />
     </a>
 </p>
 
@@ -22,10 +22,10 @@ Welcome to **StatiC#**, a static website generator written in C#. It enables ent
 
 StatiC# provides everything you need to create a website with all the files needed to upload onto a webserver.  
 
-If you want to quickstart with your new website, you can start with the [default configuration](https://github.com/RolandBraunDev/StatiCsharp/tree/develop/Documentation/ProjectTemplate) and build up from there. Here is an example:
+If you want to quickstart with your new website, you can start with the [default configuration](https://github.com/RolandBraunDev/StatiCSharp/tree/develop/Documentation/ProjectTemplate) and build up from there. Here is an example:
 
 ```C#
-using StatiCsharp;
+using StatiCSharp;
 
 var myAwesomeWebsite = new Website(
     url: "https://yourdomain.com",
@@ -64,7 +64,7 @@ After .NET has created the project files open `myWebsite.csproj` and add StatiC#
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="StatiCsharp" Version="0.1.0-alpha8" />
+    <PackageReference Include="StatiCSharp" Version="0.1.0-alpha8" />
   </ItemGroup>
 
 </Project>
@@ -73,7 +73,7 @@ After .NET has created the project files open `myWebsite.csproj` and add StatiC#
 Then you can get started using StatiC# by importing it at the beginning of your `Program.cs`:
 
 ```C#
-using StatiCsharp;
+using StatiCSharp;
 ```
 
 ## Quick start
@@ -128,7 +128,7 @@ Store your content in folders and StatiC# cares about the rest. All folders are 
 Finally set up the parameters in `Program.cs` in your *myWebsite* project:
 
 ```C#
-using StatiCsharp;
+using StatiCSharp;
 
 var myAwesomeWebsite = new Website(
     url: "https://yourdomain.com",
@@ -168,6 +168,6 @@ Before you start using StatiC# in any of your projects, please have in mind that
 
 Since this is a very young project, it’s likely to have many limitations and missing features, which is something that can really only be discovered and addressed as you use it. While StatiC# is used in production on my personal website, it’s recommended that you first try it out for your specific use case, to make sure it supports the features that you need.  
 
-If you wish to make a change, [open a Pull Request](https://github.com/RolandBraunDev/StatiCsharp/pull/new) — even if it just contains a draft of the changes you’re planning, or a test that reproduces an issue — and we can discuss it further from there.
+If you wish to make a change, [open a Pull Request](https://github.com/RolandBraunDev/StatiCSharp/pull/new) — even if it just contains a draft of the changes you’re planning, or a test that reproduces an issue — and we can discuss it further from there.
 
 I hope you’ll enjoy using StatiC#!

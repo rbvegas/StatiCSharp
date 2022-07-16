@@ -1,8 +1,8 @@
-﻿using StatiCsharp.Interfaces;
+﻿using StatiCSharp.Interfaces;
 using System.Globalization; // CultureInfo
 using static System.Console;
 
-namespace StatiCsharp
+namespace StatiCSharp
 {
     /// <summary>
     /// Provides a website as a standalone object, able to render itself to all the files needed to upload onto a webserver.
