@@ -1,7 +1,7 @@
 # Supported meta data for sites
 
 You can provide meta data for all your sites (md-files).  
-These meta data need to be placed at the top of your markdown files and is [yaml](https://en.wikipedia.org/wiki/YAML) like. You find an example in the [content template](https://github.com/rolandbraun-dev/StatiCsharp/blob/master/Documentation/HowTo/content-template.md).  
+These meta data need to be placed at the top of your markdown files and is [yaml](https://en.wikipedia.org/wiki/YAML) like. You find an example in the [content template](https://github.com/rolandbraun-dev/StatiCSharp/blob/master/Documentation/HowTo/content-template.md).  
 
 It is recommended to provide all meta data in your files.  
 

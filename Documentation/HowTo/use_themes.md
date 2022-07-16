@@ -1,6 +1,6 @@
 # Use Themes
 
-**StatiC#** makes it easy to use different themes for your website. This article shows how to use [Foundation](https://www.nuget.org/packages/StatiCsharp.Theme.Foundation).  
+**StatiC#** makes it easy to use different themes for your website. This article shows how to use [Foundation](https://www.nuget.org/packages/StatiCSharp.Theme.Foundation).  
 
 ## Add a template to your website project
 
@@ -8,7 +8,7 @@ Add the template of your choice to your website project as a project or package 
 
 ```
 <ItemGroup>
-    <PackageReference Include="StatiCsharp.Themes.Foundation" Version="0.1.0" />
+    <PackageReference Include="StatiCSharp.Themes.Foundation" Version="0.1.0" />
 </ItemGroup>
 ```
 Your can use the NuGet package manager as well.  
@@ -17,7 +17,7 @@ Build your project to restore packages.
 Now we can import the theme in the `Program.cs` of the website project, initiate a new member and inject it to the StatiC# website generating process:
 
 ```C#
-using StatiCsharp;
+using StatiCSharp;
 using Foundation;
 
 var myAwesomeWebsite = new Website(
