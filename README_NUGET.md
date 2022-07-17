@@ -15,12 +15,12 @@ var myAwesomeWebsite = new Website(
     name: "My Awesome Website",
     description: @"Description of your website",
     language: "en-US",
-    sections: "posts, about"            //select which folders should be treated as sections
+    sections: "posts, about"            // Select which folders should be treated as sections
 );
 
 var manager = new WebsiteManager(
     website: website,
-    source: @"/path/to/your/project"    // path to the folder of your website project
+    source: @"/path/to/your/project"    // Path to the folder of your website project
 );
 
 manager.Make();
@@ -93,14 +93,14 @@ Add some content to your website by adding your markdown files to the `Content` 
 ```bash
 ├── myWebsite
 │   ├── Content
-│   │   ├── index.md                    # this is your homepage 
-│   │   ├── posts                       # contains all items for the posts section
-│   │   │   ├── index.md                # content of the section site
-│   │   │   ├── your-first-post.md      # item within the posts section
-│   │   │   ├── your-second-post.md     # another item within the posts section
-│   │   ├── about                       # contains a page
-│   │   │   ├── index.md                # content of the about page
-│   │   │   ├── another-page.md         # content of another page
+│   │   ├── index.md                    // This is your homepage.
+│   │   ├── posts                       // Contains all items for the posts section.
+│   │   │   ├── index.md                // Content of the section site.
+│   │   │   ├── your-first-post.md      // Item within the posts section.
+│   │   │   ├── your-second-post.md     // Another item within the posts section.
+│   │   ├── about                       // Contains a page.
+│   │   │   ├── index.md                // Content of the about page.
+│   │   │   ├── another-page.md         // Content of another page.
 │   ├── Outout
 │   ├── Resources
 │   ├── myWebsite.csproj
@@ -119,12 +119,12 @@ var myAwesomeWebsite = new Website(
     name: "My Awesome Website",
     description: @"Description of your website",
     language: "en-US",
-    sections: "posts, about"            //select which folders should be treated as sections
+    sections: "posts, about"            // Select which folders should be treated as sections.
 );
 
 var manager = new WebsiteManager(
     website: website,
-    source: @"/path/to/your/project"    // path to the folder of your website project
+    source: @"/path/to/your/project"    // Path to the folder of your website project.
 );
 
 manager.Make();
