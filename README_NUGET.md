@@ -72,7 +72,7 @@ StatiC# expects three folders to work with at the path given during the initiali
 
 I recomment to put those folders within your project folder of *myWebsite*. Your folder should look something like this:
 
-```bash
+```
 ├── myWebsite
 │   ├── Content
 │   ├── Outout
@@ -90,7 +90,7 @@ StatiC# renders four different types of sites:
   
 Add some content to your website by adding your markdown files to the `Content` folder. Check out the [documentation](https://github.com/RolandBraunDev/StatiCSharp/tree/master/Documentation) for a [template file](https://github.com/RolandBraunDev/StatiCSharp/blob/master/Documentation/HowTo/content-template.md):
 
-```bash
+```
 ├── myWebsite
 │   ├── Content
 │   │   ├── index.md                    // This is your homepage.
