@@ -23,7 +23,7 @@ namespace StatiCSharp.HtmlComponents
         }
 
         /// <summary>
-        /// Initiate a new span element with another element or component inside.
+        /// Initiate a new &lt;span&gt; element with another element or component inside.
         /// </summary>
         /// <param name="component">The element or component for the content of the span.</param>
         public Span(IHtmlComponent component)
@@ -32,7 +32,7 @@ namespace StatiCSharp.HtmlComponents
         }
 
         /// <summary>
-        /// Initiate a new span element with text.
+        /// Initiate a new &lt;span&gt; element with text.
         /// </summary>
         /// <param name="text">The text for the content of the span.</param>
         public Span(string text)

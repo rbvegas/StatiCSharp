@@ -3,7 +3,7 @@ using StatiCSharp.Interfaces;
 namespace StatiCSharp.HtmlComponents
 {
     /// <summary>
-    /// A representation of a <h1></h1> element.
+    /// A representation of a &lt;h1&gt;&lt;/h1&gt; element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
     public class H1 : HtmlElement, IHtmlComponent
@@ -42,7 +42,7 @@ namespace StatiCSharp.HtmlComponents
 
 
     /// <summary>
-    /// A representation of a <h2></h2> element.
+    /// A representation of a &lt;h2&gt;&lt;/h2&gt; element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
     public class H2 : HtmlElement, IHtmlComponent
@@ -81,7 +81,7 @@ namespace StatiCSharp.HtmlComponents
 
 
     /// <summary>
-    /// A representation of a <h3></h3> element.
+    /// A representation of a &lt;h3&gt;&lt;/h3&gt; element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
     public class H3 : HtmlElement, IHtmlComponent
@@ -120,7 +120,7 @@ namespace StatiCSharp.HtmlComponents
 
 
     /// <summary>
-    /// A representation of a <h4></h4> element.
+    /// A representation of a &lt;h4&gt;&lt;/h4&gt; element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
     public class H4 : HtmlElement, IHtmlComponent
@@ -159,7 +159,7 @@ namespace StatiCSharp.HtmlComponents
 
 
     /// <summary>
-    /// A representation of a <h5></h5> element.
+    /// A representation of a &lt;h5&gt;&lt;/h5&gt; element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
     public class H5 : HtmlElement, IHtmlComponent
@@ -198,7 +198,7 @@ namespace StatiCSharp.HtmlComponents
 
 
     /// <summary>
-    /// A representation of a <h6></h6> element.
+    /// A representation of a &lt;h6&gt;&lt;/h6&gt; element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
     public class H6 : HtmlElement, IHtmlComponent
