@@ -74,10 +74,7 @@ namespace StatiCSharp
         public void Make()
         {
             WriteLine("Checking environment...");
-            if (!CheckEnvironment())
-            {
-                return;
-            }
+            CheckEnvironment(HtmlFactory.ResourcesPath);
 
             WriteLine("Starting generating your website:");
 
