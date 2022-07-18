@@ -1,112 +1,57 @@
 ﻿using StatiCSharp.Interfaces;
-using static System.Console;
+using StatiCSharp.Exceptions;
 
 namespace StatiCSharp
 {
     public partial class WebsiteManager : IWebsiteManager
     {
         /// <summary>
-        /// Checks if all nessessary folders exist and if it can read and write in this folders.
-        /// If a folder does not exists it's created.
-        /// Failures are printed in the console.
+        /// Checks if all nessessary directories exist and if it can read and write in this folders.<br/>
+        /// If a directory does not exist, it tries to create it.
         /// </summary>
-        /// <returns>True, if the check is ok.</returns>
-        private bool CheckEnvironment(string? templateResources = null)
+        /// <exception cref="CannotCreateDirectoryException"></exception>
+        /// <exception cref="DirectoryNotWriteableException"></exception>
+        private void CheckEnvironment(string? templateResources = null)
         {
-            if (!Directory.Exists(Output))
+            string[] assumedDirectories = new string[] {Output, Content, Resources};
+            foreach (string assumedDirectory in assumedDirectories)
             {
+                if (!Directory.Exists(assumedDirectory))
+                {
+                    try
+                    {
+                        Directory.CreateDirectory(assumedDirectory);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new CannotCreateDirectoryException(message: $"Your {nameof(assumedDirectory).ToLower()} directory does not exist. Trying to create it failed. Do you have read and write access to {assumedDirectory} ?", ex);
+                    }
+                }
+
                 try
                 {
-                    Directory.CreateDirectory(Output);
+                    DirectoryIsWritable(assumedDirectory);
                 }
-                catch
+                catch (Exception ex)
                 {
-                    WriteLine($"Your output directory does not exist. Trying to create it failed. Do you have read and write access to {Output} ?");
-                    return false;
+                    throw new DirectoryNotWriteableException(message: $"Trying to write to {assumedDirectory} failed. Do you have read and write access?", ex);
                 }
             }
 
-            try
-            {
-                DirectoryIsWritable(Output);
-            }
-            catch
-            {
-                WriteLine($"Trying to write to {Output} failed. Do you have read and write access?");
-                return false;
-            }
-
-
-            if (!Directory.Exists(Content))
-            {
-                try
-                {
-                    Directory.CreateDirectory(Content);
-                }
-                catch
-                {
-                    WriteLine($"Your content directory does not exist. Trying to create it failed. Do you have read and write access to {Content} ?");
-                    return false;
-                }
-            }
-
-            try
-            {
-                DirectoryIsWritable(Content);
-            }
-            catch
-            {
-                WriteLine($"Trying to write to {Content} failed. Do you have read and write access?");
-                return false;
-            }
-
-
-            if (!Directory.Exists(Resources))
-            {
-                try
-                {
-                    Directory.CreateDirectory(Resources);
-                }
-                catch
-                {
-                    WriteLine($"Your resources directory does not exist. Trying to create it failed. Do you have read and write access to {Resources} ?");
-                    return false;
-                }
-            }
-
-            try
-            {
-                DirectoryIsWritable(Resources);
-            }
-            catch
-            {
-                WriteLine($"Trying to write to {Resources} failed. Do you have read and write access?");
-                return false;
-            }
 
             if (templateResources is not null)
             {
                 if (!Directory.Exists(templateResources!))
                 {
-                    WriteLine($"Your template resources directory does not exist. Do you have read and write access to {templateResources} ?");
-                    return false;
+                    throw new DirectoryNotFoundException($"Your template resources directory does not exist. Do you have read and write access to {templateResources} ?");
                 }
             }
-            return true;
 
 
             void DirectoryIsWritable(string path)
             {
-                try
+                using (FileStream fs = File.Create(Path.Combine(path, Path.GetRandomFileName()), 1, FileOptions.DeleteOnClose))
                 {
-                    using (
-                        FileStream fs = File.Create(Path.Combine(path, Path.GetRandomFileName()), 1, FileOptions.DeleteOnClose)
-                        )
-                    { }
-                }
-                catch
-                {
-                    throw;
                 }
 
             }
