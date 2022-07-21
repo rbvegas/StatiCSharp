@@ -101,7 +101,7 @@ StatiC# renders four different types of sites:
 
 *index*: The homepage of your website  
 *pages*: Normal sites e.g. your about page.  
-*sections*: Sites that contain items e.g. articles in a specifig field.  
+*sections*: Sites that contain items e.g. articles in a specific field.  
 *items*: The sites that are part of a section.  
   
 Add some content to your website by adding your markdown files to the `Content` folder. Check out the [documentation](/Documentation) for a [template file](Documentation/HowTo/content-template.md):
