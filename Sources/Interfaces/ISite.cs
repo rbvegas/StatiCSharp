@@ -1,5 +1,9 @@
 ﻿namespace StatiCSharp.Interfaces
 {
+    /// <summary>
+    /// The interface that all sites (index, pages, sections, items) must implement.<br/>
+    /// Some sites may add additional interfaces that inherit from this one.
+    /// </summary>
     public interface ISite
     {
         /// <summary>

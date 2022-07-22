@@ -32,6 +32,9 @@ namespace StatiCSharp.HtmlComponents
         /// </summary>
         private protected Dictionary<string, string?> Attributes { get; set; } = new Dictionary<string, string?>();
 
+        /// <summary>
+        /// Initiate a new Html-Element, based on the derived class.
+        /// </summary>
         public HtmlElement()
         {
             Content = new List<IHtmlComponent>();

@@ -2,6 +2,10 @@
 
 namespace StatiCSharp.HtmlComponents
 {
+    /// <summary>
+    /// A representation of a &lt;input /&gt; element.
+    /// Call the Render() method to turn it into an HTML string.
+    /// </summary>
     public class Input : HtmlElement, IHtmlComponent
     {
         private protected override string TagName
