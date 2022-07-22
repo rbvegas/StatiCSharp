@@ -27,13 +27,21 @@ namespace StatiCSharp.HtmlComponents
         {
             _Text = text;
         }
-
+        /// <summary>
+        /// Initiate a new text from string.
+        /// </summary>
+        /// <param name="text">The text as string.</param>
+        /// <returns></returns>
         public Text Add(string text)
         {
             _Text = text;
             return this;
         }
 
+        /// <summary>
+        /// Renders the text into a html.
+        /// </summary>
+        /// <returns>The text as an html string.</returns>
         public string Render()
         {
             return _Text;
