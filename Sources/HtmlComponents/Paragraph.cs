@@ -22,7 +22,7 @@ namespace StatiCSharp.HtmlComponents
         }
 
         /// <summary>
-        /// Initiate a new <paragraph> element with another element or component inside.
+        /// Initiate a new &lt;paragraph&gt; element with another element or component inside.
         /// </summary>
         /// <param name="component">The element or component for the content of the paragraph.</param>
         public Paragraph(IHtmlComponent component)

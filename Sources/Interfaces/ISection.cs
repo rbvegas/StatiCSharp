@@ -1,6 +1,9 @@
 ﻿namespace StatiCSharp.Interfaces
 {
-    public  interface ISection: ISite
+    /// <summary>
+    /// The interface a section of the website must implement.
+    /// </summary>
+    public interface ISection: ISite
     {
         /// <summary>
         /// Name if the section. In the url the equivalent to `hierachy` of a page. (i.e. "dev" for rolandbraun.com/dev)

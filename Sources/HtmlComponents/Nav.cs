@@ -4,7 +4,7 @@ using System.Text;
 namespace StatiCSharp.HtmlComponents
 {
     /// <summary>
-    /// A representation of a <nav></nav> element.
+    /// A representation of a &lt;nav&gt;&lt;/nav&gt; element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
     public class Nav : HtmlElement, IHtmlComponent
@@ -14,6 +14,9 @@ namespace StatiCSharp.HtmlComponents
             get { return "nav"; }
         }
 
+        /// <summary>
+        /// Initiate a new empty nav element.
+        /// </summary>
         public Nav()
         {
             // No action needed, because the base class already initialized an empty List<IHtmlComponent>.

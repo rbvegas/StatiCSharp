@@ -2,6 +2,10 @@
 
 namespace StatiCSharp.HtmlComponents
 {
+    /// <summary>
+    /// A representation of a &lt;img /&gt; element.
+    /// Call the Render() method to turn it into an HTML string.
+    /// </summary>
     public class Image : HtmlElement, IHtmlComponent
     {
         private protected override string TagName

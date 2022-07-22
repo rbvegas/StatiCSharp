@@ -19,7 +19,7 @@
         /// <summary>
         /// Method that returns the html-code for the index site.
         /// </summary>
-        /// /// <param name="website">The websites index to render.</param>
+        /// <param name="index">The index page to render.</param>
         /// <returns>A string containing the html-code.</returns>
         string MakeIndexHtml(IIndex index);
 

@@ -2,6 +2,10 @@
 
 namespace StatiCSharp.HtmlComponents
 {
+    /// <summary>
+    /// A representation of a &lt;input /&gt; element.
+    /// Call the Render() method to turn it into an HTML string.
+    /// </summary>
     public class Input : HtmlElement, IHtmlComponent
     {
         private protected override string TagName
@@ -26,7 +30,7 @@ namespace StatiCSharp.HtmlComponents
         /// <summary>
         /// The type attribute specifies the type of &lt;input&gt; element to display.<br/>
         /// If the type attribute is not specified, the default type is "text".
-        /// <para>Check https://www.w3schools.com/tags/att_input_type.asp for an overview.</para>
+        /// <para>Check <see href="https://www.w3schools.com/tags/att_input_type.asp">W3Schools</see> for an overview.</para>
         /// </summary>
         /// <param name="t"></param>
         /// <returns></returns>

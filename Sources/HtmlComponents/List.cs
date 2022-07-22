@@ -3,7 +3,7 @@
 namespace StatiCSharp.HtmlComponents
 {
     /// <summary>
-    /// A representation of a <li></li> element.
+    /// A representation of a &lt;li&gt;&lt;/li&gt; element.
     /// Call the Render() method to turn it into an HTML string.
     /// </summary>
     public class Li: HtmlElement, IHtmlComponent
