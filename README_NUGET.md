@@ -19,7 +19,7 @@ var myAwesomeWebsite = new Website(
 );
 
 var manager = new WebsiteManager(
-    website: website,
+    website: myAwesomeWebsite,
     source: @"/path/to/your/project"    // Path to the folder of your website project
 );
 
@@ -123,7 +123,7 @@ var myAwesomeWebsite = new Website(
 );
 
 var manager = new WebsiteManager(
-    website: website,
+    website: myAwesomeWebsite,
     source: @"/path/to/your/project"    // Path to the folder of your website project.
 );
 
