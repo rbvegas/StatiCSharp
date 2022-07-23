@@ -6,16 +6,19 @@ namespace StatiCSharp
     public partial class WebsiteManager : IWebsiteManager
     {
         /// <summary>
-        /// Generates index, pages, sections and items from the markdown files in the `Content` directory.
+        /// Generates index, pages, sections and items for the IWebsite object from the markdown files in the `Content` directory.
         /// </summary>
         private void GenerateSitesFromMarkdown()
         {
             string pathToContent = Content;
+            var pipeline = new MarkdownPipelineBuilder()
+                .UseAdvancedExtensions()
+                .Build();
 
             // For the index: Collecting meta data and content from markdown files.
             Dictionary<string, string> markdownMetaData = MarkdownFactory.ParseMetaData(Path.Combine(pathToContent, "index.md"));
             string markdownContent = MarkdownFactory.ParseContent(Path.Combine(pathToContent, "index.md"));
-            Website.Index.Content = Markdown.ToHtml(markdownContent);
+            Website.Index.Content = Markdown.ToHtml(markdown: markdownContent, pipeline: pipeline);
             string markdownFilePath = Path.GetFileName(Path.Combine(pathToContent, "index.md"));
             Website.Index.MarkdownFileName = markdownFilePath.Substring(0, markdownFilePath.LastIndexOf(".md"));
             Website.Index.MarkdownFilePath = Path.Combine(pathToContent, "index.md").ToString();
@@ -41,7 +44,7 @@ namespace StatiCSharp
                         {
                             IPage currentPage = new Page();
                             MapMetaData(MarkdownFactory.ParseMetaData(Path.Combine(pathToContent, directory, filename)), currentPage);
-                            currentPage.Content = Markdown.ToHtml(MarkdownFactory.ParseContent(Path.Combine(pathToContent, directory, filename)));
+                            currentPage.Content = Markdown.ToHtml(markdown: MarkdownFactory.ParseContent(Path.Combine(pathToContent, directory, filename)), pipeline: pipeline);
 
                             currentPage.MarkdownFileName = filename;
                             currentPage.MarkdownFilePath = Path.Combine(directory, filename).ToString();
@@ -71,7 +74,7 @@ namespace StatiCSharp
                             {
                                 // Add content to the section itself
                                 MapMetaData(MarkdownFactory.ParseMetaData(Path.Combine(pathToContent, directory, filename)), currentSection);
-                                currentSection.Content = Markdown.ToHtml(MarkdownFactory.ParseContent(Path.Combine(pathToContent, directory, filename)));
+                                currentSection.Content = Markdown.ToHtml(markdown: MarkdownFactory.ParseContent(Path.Combine(pathToContent, directory, filename)), pipeline: pipeline);
 
                                 currentSection.MarkdownFileName = filename;
                                 currentSection.MarkdownFilePath = Path.Combine(directory, filename).ToString();
@@ -82,7 +85,7 @@ namespace StatiCSharp
                                 Item currentItem = new Item();
                                 Dictionary<string, string> currentMetaData = MarkdownFactory.ParseMetaData(Path.Combine(pathToContent, directory, filename));
                                 MapMetaData(MarkdownFactory.ParseMetaData(Path.Combine(pathToContent, directory, filename)), currentItem);
-                                currentItem.Content = Markdown.ToHtml(MarkdownFactory.ParseContent(Path.Combine(pathToContent, directory, filename)));
+                                currentItem.Content = Markdown.ToHtml(markdown: MarkdownFactory.ParseContent(Path.Combine(pathToContent, directory, filename)), pipeline: pipeline);
 
                                 currentItem.DateLastModified = DateOnly.FromDateTime(Directory.GetLastWriteTime(Path.Combine(pathToContent, directory, filename)));
 
