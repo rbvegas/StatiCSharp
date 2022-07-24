@@ -8,21 +8,24 @@ namespace StatiCSharp
         /// <summary>
         /// Generates index, pages, sections and items for the IWebsite object from the markdown files in the `Content` directory.
         /// </summary>
-        private void GenerateSitesFromMarkdown()
+        private void GenerateSitesFromMarkdown(string pathToContent)
         {
-            string pathToContent = Content;
             var pipeline = new MarkdownPipelineBuilder()
                 .UseAdvancedExtensions()
                 .Build();
 
-            // For the index: Collecting meta data and content from markdown files.
-            Dictionary<string, string> markdownMetaData = MarkdownFactory.ParseMetaData(Path.Combine(pathToContent, "index.md"));
-            string markdownContent = MarkdownFactory.ParseContent(Path.Combine(pathToContent, "index.md"));
-            Website.Index.Content = Markdown.ToHtml(markdown: markdownContent, pipeline: pipeline);
-            string markdownFilePath = Path.GetFileName(Path.Combine(pathToContent, "index.md"));
-            Website.Index.MarkdownFileName = markdownFilePath.Substring(0, markdownFilePath.LastIndexOf(".md"));
-            Website.Index.MarkdownFilePath = Path.Combine(pathToContent, "index.md").ToString();
-            MapMetaData(markdownMetaData, Website.Index);
+            // For the index: Collecting meta data and content from markdown files, if there are any
+            string pathOfIndex = Path.Combine(pathToContent, "index.md");
+            if (File.Exists(pathOfIndex))
+            {
+                Dictionary<string, string> markdownMetaData = MarkdownFactory.ParseMetaData(pathOfIndex);
+                string markdownContent = MarkdownFactory.ParseContent(pathOfIndex);
+                Website.Index.Content = Markdown.ToHtml(markdown: markdownContent, pipeline: pipeline);
+                string markdownFilePath = Path.GetFileName(pathOfIndex);
+                Website.Index.MarkdownFileName = markdownFilePath.Substring(0, markdownFilePath.LastIndexOf(".md"));
+                Website.Index.MarkdownFilePath = pathOfIndex;
+                MapMetaData(markdownMetaData, Website.Index);
+            }
 
             // Collecting pages and sections data
             string[] directoriesOfContent = Directory.GetDirectories(pathToContent);
