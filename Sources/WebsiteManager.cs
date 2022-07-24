@@ -79,7 +79,7 @@ namespace StatiCSharp
             WriteLine("Starting generating your website:");
 
             WriteLine("Collecting markdown data...");
-            GenerateSitesFromMarkdown();
+            GenerateSitesFromMarkdown(pathToContent: Content);
 
             if (!GitMode)
             {
