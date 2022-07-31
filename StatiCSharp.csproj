@@ -8,7 +8,7 @@
         <Version>0.1.0-beta1</Version>
         <Authors>Roland Braun</Authors>
         <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-        <Description>A static webside generator written in C#. It enables entire websites to be built using C#. Custom template support.</Description>
+        <Description>A static webside generator written in C#. It enables entire websites to be built using C#. Custom templates are supported.</Description>
         <Copyright>Roland Braun</Copyright>
         <PackageProjectUrl>https://github.com/RolandBraunDev/StatiCSharp</PackageProjectUrl>
         <PackageReadmeFile>README_NUGET.md</PackageReadmeFile>
@@ -21,26 +21,30 @@
 		<PackageIcon>Icon.png</PackageIcon>
     </PropertyGroup>
 
+	<!-- Default Resources-->
     <ItemGroup>
-      <None Remove="DefaultResources\styles.css" />
+        <None Remove="DefaultResources\styles.css" />
+	    <None Remove="DefaultResources\favicon.png" />
     </ItemGroup>
 
     <ItemGroup>
-		<Content Include="DefaultResources\favicon.png" pack="true">
-			<PackageCopyToOutput>true</PackageCopyToOutput>
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
-		
 		<Content Include="DefaultResources\default-theme\styles.css" pack="true">
 			<PackageCopyToOutput>true</PackageCopyToOutput>
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
+		
+		<Content Include="DefaultResources\favicon.png" pack="true">
+			<PackageCopyToOutput>true</PackageCopyToOutput>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
     </ItemGroup>
 
+	<!-- Markdig Markdown Reader -->
     <ItemGroup>
         <PackageReference Include="Markdig" Version="0.30.2" />
     </ItemGroup>
 	
+	<!-- NuGet -->
     <ItemGroup>
         <None Update="Icon.png">
           <Pack>True</Pack>
