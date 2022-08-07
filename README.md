@@ -22,7 +22,7 @@ Welcome to **StatiC#**, a static website generator written in C#. It enables ent
 
 StatiC# provides everything you need to create a website with all the files needed to upload onto a webserver.  
 
-If you want to quickstart with your new website, you can start with the [default configuration](https://github.com/RolandBraunDev/StatiCSharp/tree/develop/Documentation/ProjectTemplate) and build up from there. Here is an example:
+If you want to quickstart with your new website, you can start with the [default configuration](https://github.com/RolandBraunDev/StatiCSharp/tree/master/Documentation/ProjectTemplate) and build up from there. Here is an example:
 
 ```C#
 using StatiCSharp;
