@@ -8,7 +8,7 @@ Add the template of your choice to your website project as a project or package 
 
 ```
 <ItemGroup>
-    <PackageReference Include="StatiCSharp.Themes.Foundation" Version="0.1.0" />
+    <PackageReference Include="StatiCSharp.Themes.Foundation" Version="0.1.1" />
 </ItemGroup>
 ```
 Your can use the NuGet package manager as well.  
