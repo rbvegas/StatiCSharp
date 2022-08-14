@@ -2,7 +2,7 @@ Welcome to **StatiC#**, a static website generator written in C#. It enables ent
 
 ---
 
-StatiC# provides a website as a standalone object, able to render itself to all the files needed to upload onto a webserver.  
+StatiC# provides everything you need to create a website with all the files needed to upload onto a webserver.  
 
 If you want to quickstart with your new website, you can start with the [default configuration](https://github.com/RolandBraunDev/StatiCSharp/tree/master/Documentation/ProjectTemplate) and build up from there. You can find a template in the [documentation](https://github.com/RolandBraunDev/StatiCSharp/tree/master/Documentation/ProjectTemplate).  
 Here is an example:
@@ -64,7 +64,7 @@ using StatiCSharp;
 You can use StatiC#'s [project template](https://github.com/RolandBraunDev/StatiCSharp/tree/master/Documentation/ProjectTemplate) to quick start or follow the following steps to set up your project manually.  
 Nevertheless its recommended to read this readme to get a understanding how StatiC# works.  
 
-StatiC# expects three folders to work with at the path given during the initialization of our website (we will come to that later).  
+StatiC# expects three folders to work with at the path given during the initialization of the WebsiteManager.  
   
 `Content`: This folder contains the markdown files that our website depents on.  
 `Output`: Here the final website with all the necessary files will be saved.  
