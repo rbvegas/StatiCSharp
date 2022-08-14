@@ -9,6 +9,6 @@
         /// Renders the html component as a string.
         /// </summary>
         /// <returns>A string containing the components html-code.</returns>
-        internal string Render();
+        string Render();
     }
 }
