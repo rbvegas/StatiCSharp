@@ -54,7 +54,7 @@ public partial class WebsiteManager : IWebsiteManager
             if (oldFile == content)
                 return;
         }
-        Console.WriteLine("Writing index async...");
+        
         await File.WriteAllTextAsync(filePath, content);
     }
 }
