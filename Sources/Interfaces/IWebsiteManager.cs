@@ -43,6 +43,6 @@
         /// Files are saved in the `Output` directory.<br/><br/>
         /// If the `Output` directory is not explicity set, it is inside the `Source` directory.
         /// </summary>
-        void Make();
+        Task Make();
     }
 }
