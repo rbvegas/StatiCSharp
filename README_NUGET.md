@@ -23,7 +23,7 @@ var manager = new WebsiteManager(
     source: @"/path/to/your/project"    // Path to the folder of your website project
 );
 
-manager.Make();
+await manager.Make();
 ```
 
 
@@ -127,7 +127,7 @@ var manager = new WebsiteManager(
     source: @"/path/to/your/project"    // Path to the folder of your website project.
 );
 
-manager.Make();
+await manager.Make();
 ```
 
 Run the project and your new awesome website will be generated in the `Output` directory:
