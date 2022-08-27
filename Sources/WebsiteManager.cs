@@ -1,4 +1,5 @@
 ﻿using StatiCSharp.Interfaces;
+using System.Diagnostics;
 using static System.Console;
 
 namespace StatiCSharp;
@@ -74,17 +75,17 @@ public partial class WebsiteManager : IWebsiteManager
     public async Task Make()
     {
         WriteLine("Checking environment...");
-        CheckEnvironment(HtmlFactory.ResourcesPath);
+        await CheckEnvironmentAsync(HtmlFactory.ResourcesPath);
 
         WriteLine("Starting generating your website:");
 
         WriteLine("Collecting markdown data...");
-        GenerateSitesFromMarkdown(pathToContent: Content);
+        await GenerateSitesFromMarkdownAsync();
 
         if (!GitMode)
         {
             WriteLine("Deleting old output files...");
-            DeleteAll(Output);
+            await DeleteAllAsync(Output);
         }
 
         WriteLine("Copying theme resources...");
@@ -106,10 +107,10 @@ public partial class WebsiteManager : IWebsiteManager
         await MakeTagListsAsync();
 
         WriteLine("Copying user resources...");
-        CopyAll(Resources, Output);
+        await CopyAllAsync(Resources, Output);
 
         WriteLine("Cleaning up...");
-        CleanUp();
+        await CleanUpAsync();
 
         WriteLine($"Success! Your website has been generated at {Output}");
     }
