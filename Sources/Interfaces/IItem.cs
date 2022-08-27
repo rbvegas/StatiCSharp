@@ -8,6 +8,6 @@
         /// <summary>
         /// The section the items is a part of.
         /// </summary>
-        string Section { get; }
+        string Section { get; set; }
     }
 }
