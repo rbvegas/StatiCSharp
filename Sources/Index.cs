@@ -7,78 +7,28 @@ namespace StatiCSharp;
 /// </summary>
 internal class Index : IIndex
 {
-    private string title = string.Empty;
-    public string Title
-    {
-        get { return title; }
-        set { title = value; }
-    }
+    public string Title { get; set; } = string.Empty;
 
-    private string description = string.Empty;
-    public string Description
-    {
-        get { return description; }
-        set { description = value; }
-    }
+    public string Description { get; set; } = string.Empty;
 
-    private string author = string.Empty;
-    public string Author
-    {
-        get { return author; }
-        set { author = value; }
-    }
+    public string Author { get; set; } = string.Empty;
 
-    private DateOnly date = DateOnly.FromDateTime(DateTime.Now);
-    public DateOnly Date
-    {
-        get { return date; }
-        set { date = value; }
-    }
+    public DateOnly Date { get; set; } = DateOnly.FromDateTime(DateTime.Now);
 
-    private DateOnly dateLastModified = DateOnly.FromDateTime(DateTime.Now);
-    public DateOnly DateLastModified
-    {
-        get { return this.dateLastModified; }
-        set { this.dateLastModified = value; }
-    }
+    public DateOnly DateLastModified { get; set; } = DateOnly.FromDateTime(DateTime.Now);
 
-    private string path = string.Empty;
-    public string Path
-    {
-        get { return path; }
-        set { path = value; }
-    }
+    public string Path { get; set; } = string.Empty;
 
     public string Url
     {
         get { return "/"; }
     }
 
-    private string markdownFileName = string.Empty;
-    public string MarkdownFileName
-    {
-        get { return this.markdownFileName; }
-        set { this.markdownFileName = value; }
-    }
+    public string MarkdownFileName { get; set; } = string.Empty;
 
-    private string markdownFilePath = string.Empty;
-    public string MarkdownFilePath
-    {
-        get { return markdownFilePath; }
-        set { this.markdownFilePath = value; }
-    }
+    public string MarkdownFilePath { get; set; } = string.Empty;
 
-    private List<string> tags = new List<string>();
-    public List<string> Tags
-    {
-        get { return tags; }
-        set { tags = value; }
-    }
+    public List<string> Tags { get; set; } = new List<string>();
 
-    private string content = string.Empty;
-    public string Content
-    {
-        get { return content; }
-        set { content = value; }
-    }
+    public string Content { get; set; } = string.Empty;
 }

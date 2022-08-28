@@ -5,121 +5,52 @@ namespace StatiCSharp;
 
 internal class Section : ISection
 {
-    private string sectionName = string.Empty;
-    public string SectionName
-    {
-        get { return sectionName; }
-        set { sectionName = value; }
-    }
+    public string SectionName { get; set; } = string.Empty;
 
-    private List<IItem> items = new List<IItem>();
-    public List<IItem> Items
-    {
-        get { return items; }
-    }
+    public List<IItem> Items { get; set; } = new List<IItem>();
 
-    private string title = string.Empty;
-    public string Title
-    {
-        get { return this.title; }
-        set { this.title = value; }
-    }
+    public string Title { get; set; } = string.Empty;
 
-    private string description = string.Empty;
-    public string Description
-    {
-        get { return this.description; }
-        set { this.description = value; }
-    }
+    public string Description { get; set; } = string.Empty;
 
-    private string author = "";
-    public string Author
-    {
-        get { return this.author; }
-        set { this.author = value; }
-    }
+    public string Author { get; set; } = string.Empty;
 
-    private DateOnly date = DateOnly.FromDateTime(DateTime.Now);
-    public DateOnly Date
-    {
-        get { return this.date; }
-        set { this.date = value; }
-    }
+    public DateOnly Date { get; set; } = DateOnly.FromDateTime(DateTime.Now);
 
-    private DateOnly dateLastModified = DateOnly.FromDateTime(DateTime.Now);
-    public DateOnly DateLastModified
-    {
-        get { return this.dateLastModified; }
-        set { this.dateLastModified = value; }
-    }
+    public DateOnly DateLastModified { get; set; } = DateOnly.FromDateTime(DateTime.Now);
 
-    private string path = string.Empty;
-    public string Path
-    {
-        get { return this.path; }
-        set { this.path = value; }
-    }
+    public string Path { get; set; } = string.Empty;
 
     public string Url
     {
         get
         {
             string x = string.Empty;
-            if (this.path == string.Empty)
+            if (Path == string.Empty)
             {
-                x = this.markdownFileName.Substring(0, markdownFileName.LastIndexOf(".md")).Replace(" ", "-").Trim();
+                x = MarkdownFileName.Substring(0, MarkdownFileName.LastIndexOf(".md")).Replace(" ", "-").Trim();
             }
             else
             {
-                x = this.path;
+                x = Path;
             }
-            return $"/{this.sectionName}";
+            return $"/{SectionName}";
         }
     }
 
-    private string hierarchy = string.Empty;
-    public string Hierarchy
-    {
-        get { return this.hierarchy; }
-        set { this.hierarchy = value; }
-    }
+    public string Hierarchy { get; set; } = string.Empty;
 
-    private string markdownFileName = string.Empty;
-    public string MarkdownFileName
-    {
-        get { return this.markdownFileName; }
-        set { this.markdownFileName = value; }
-    }
+    public string MarkdownFileName { get; set; } = string.Empty;
 
-    private string markdownFilePath = string.Empty;
-    public string MarkdownFilePath
-    {
-        get { return markdownFilePath; }
-        set { this.markdownFilePath = value; }
-    }
+    public string MarkdownFilePath { get; set; } = string.Empty;
 
-    private List<string> tags = new List<string>();
-    public List<string> Tags
-    {
-        get { return this.tags; }
-        set { this.tags = value; }
-    }
+    public List<string> Tags { get; set; } = new List<string>();
 
-    private string content = string.Empty;
-    public string Content
-    {
-        get { return this.content; }
-        set { this.content = value; }
-    }
-
-    private void SortItems()
-    {
-        System.Console.WriteLine("Whould sort");
-    }
+    public string Content { get; set; } = string.Empty;
 
     public void AddItem(IItem item)
     {
-        this.items.Add(item);
-        this.items.OrderByDescending(x => x.Date);
+        Items.Add(item);
+        Items.OrderByDescending(x => x.Date);
     }
 }
