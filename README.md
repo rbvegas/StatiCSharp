@@ -16,11 +16,11 @@
     </a>
 </p>
 
-Welcome to **StatiC#**, a static website generator written in C#. It enables entire websites to be built using C#. Custom themes can be used by editing the integrated default theme or by importing a theme.
+Welcome to **StatiC#**, a static website generator written in C#. It enables entire websites to be built using C#. Custom themes can be used by editing the integrated default theme or importing a theme.
 
 ---
 
-StatiC# provides everything you need to create a website with all the files needed to upload onto a webserver.  
+StatiC# provides everything you need to create a website with all the files needed to upload onto a web server.  
 
 If you want to quickstart with your new website, you can start with the [default configuration](https://github.com/RolandBraunDev/StatiCSharp/tree/master/Documentation/ProjectTemplate) and build up from there. Here is an example:
 
