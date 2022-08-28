@@ -1,6 +1,5 @@
 ﻿using StatiCSharp.Interfaces;
 using System.Globalization; // CultureInfo
-using static System.Console;
 
 namespace StatiCSharp;
 
