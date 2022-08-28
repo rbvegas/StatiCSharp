@@ -264,6 +264,10 @@ public partial class WebsiteManager : IWebsiteManager
                 }
             }
             Website.Sections.Add(currentSection);
+            return;
         }
+
+        throw new NotImplementedException(message:$"The given type-parameter {typeof(T)} is not supported by this method.");
+
     }
 }
