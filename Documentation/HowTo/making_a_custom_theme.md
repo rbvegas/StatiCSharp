@@ -1,6 +1,6 @@
 # Making a Custom Theme
 
-StatiC# is build to provide third party templates.  It's more than welcome that users create their own template, to make their website even greater. Moreover, it would be fantastic if those template are shared with other users over GitHub or NuGet as a standalone package.  
+StatiC# is build to provide third party templates.  It's more than welcome that users create their own template, to make their website even greater. Moreover, it would be fantastic if those templates are shared with other users over GitHub or NuGet as a standalone package.  
 
 This article describes everything you need to start building your very own template. The only thing you must know is to code C#. StatiC# will deliver the tools you'll need.  
 
