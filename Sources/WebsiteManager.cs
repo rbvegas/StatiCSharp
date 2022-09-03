@@ -1,4 +1,5 @@
 ﻿using StatiCSharp.Interfaces;
+using System.Diagnostics;
 using static System.Console;
 
 namespace StatiCSharp;
@@ -71,45 +72,45 @@ public partial class WebsiteManager : IWebsiteManager
     }
 
     /// <inheritdoc/>
-    public void Make()
+    public async Task Make()
     {
         WriteLine("Checking environment...");
-        CheckEnvironment(HtmlFactory.ResourcesPath);
+        await CheckEnvironmentAsync(HtmlFactory.ResourcesPath);
 
         WriteLine("Starting generating your website:");
 
         WriteLine("Collecting markdown data...");
-        GenerateSitesFromMarkdown(pathToContent: Content);
+        await GenerateSitesFromMarkdownAsync();
 
         if (!GitMode)
         {
             WriteLine("Deleting old output files...");
-            DeleteAll(Output);
+            await DeleteAllAsync(Output);
         }
 
         WriteLine("Copying theme resources...");
         CopyAll(HtmlFactory.ResourcesPath, Output);
 
         WriteLine("Writing index...");
-        MakeIndex();
+        await MakeIndexAsync();
 
         WriteLine("Writing pages...");
-        MakePages();
+        await MakePagesAsync();
 
         WriteLine("Writing sections...");
-        MakeSections();
+        await MakeSectionsAsync();
 
         WriteLine("Writing items...");
-        MakeItems();
+        await MakeItemsAsync();
 
         WriteLine("Writing tag lists...");
-        MakeTagLists();
+        await MakeTagListsAsync();
 
         WriteLine("Copying user resources...");
-        CopyAll(Resources, Output);
+        await CopyAllAsync(Resources, Output);
 
         WriteLine("Cleaning up...");
-        CleanUp();
+        await CleanUpAsync();
 
         WriteLine($"Success! Your website has been generated at {Output}");
     }

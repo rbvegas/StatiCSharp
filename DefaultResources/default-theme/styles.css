@@ -49,6 +49,16 @@ a {
     text-decoration: none;
 }
 
+.wrapper p a {
+    color: #3897D3;
+    text-decoration: underline;
+}
+
+.wrapper p a:hover {
+    color: #227cb5;
+    text-decoration: none;
+}
+
 .content a {
     color: #3897D3;
     text-decoration: underline;

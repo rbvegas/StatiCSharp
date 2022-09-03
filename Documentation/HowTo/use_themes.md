@@ -36,7 +36,7 @@ var manager = new WebsiteManager(
     source: @"/path/to/your/project"    // path to the folder of your website project
 );
 
-manager.Make();
+await manager.Make();
 ```
 
 Build and run your project. Your website is created with the new theme in your `Output` directory.

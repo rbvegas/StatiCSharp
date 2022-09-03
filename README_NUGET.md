@@ -1,8 +1,8 @@
-Welcome to **StatiC#**, a static website generator written in C#. It enables entire websites to be built using C#. Custom themes can be used by editing the integrated default theme or by importing a theme.
+Welcome to **StatiC#**, a static website generator written in C#. It enables entire websites to be built using C#. Custom themes can be used by editing the integrated default theme or importing a theme.
 
 ---
 
-StatiC# provides everything you need to create a website with all the files needed to upload onto a webserver.  
+StatiC# provides everything you need to create a website with all the files needed to upload onto a web server.  
 
 If you want to quickstart with your new website, you can start with the [default configuration](https://github.com/RolandBraunDev/StatiCSharp/tree/master/Documentation/ProjectTemplate) and build up from there. You can find a template in the [documentation](https://github.com/RolandBraunDev/StatiCSharp/tree/master/Documentation/ProjectTemplate).  
 Here is an example:
@@ -23,7 +23,7 @@ var manager = new WebsiteManager(
     source: @"/path/to/your/project"    // Path to the folder of your website project
 );
 
-manager.Make();
+await manager.Make();
 ```
 
 
@@ -47,7 +47,7 @@ After .NET has created the project files open `myWebsite.csproj` and add StatiC#
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="StatiCSharp" Version="0.1.1" />
+    <PackageReference Include="StatiCSharp" Version="0.2.0" />
   </ItemGroup>
 
 </Project>
@@ -127,7 +127,7 @@ var manager = new WebsiteManager(
     source: @"/path/to/your/project"    // Path to the folder of your website project.
 );
 
-manager.Make();
+await manager.Make();
 ```
 
 Run the project and your new awesome website will be generated in the `Output` directory:
