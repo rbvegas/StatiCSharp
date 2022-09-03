@@ -28,7 +28,7 @@ var myAwesomeWebsite = new Website(
     sections: "posts, about"    //select which folders should be treated as sections
     );
 
-var theme = new FoundationHtmlFactory(website);
+var theme = new FoundationHtmlFactory(myAwesomeWebsite);
 
 var manager = new WebsiteManager(
     website: myAwesomeWebsite,
