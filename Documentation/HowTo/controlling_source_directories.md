@@ -1,4 +1,4 @@
-﻿# Controlling Source Directories
+﻿# Controlling source directories
  
  After initializing a new WebsiteManager the default location for your output, content and static files is in the given source directory. E.g.
  ```C#
