@@ -13,12 +13,14 @@
         <PackageProjectUrl>https://github.com/RolandBraunDev/StatiCSharp</PackageProjectUrl>
         <PackageReadmeFile>README_NUGET.md</PackageReadmeFile>
         <RepositoryUrl>https://github.com/RolandBraunDev/StatiCSharp</RepositoryUrl>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <RepositoryType>git</RepositoryType>
         <NeutralLanguage>en-US</NeutralLanguage>
         <PackageTags>StatiC#; StatiCSharp; staticsharp; Staticsharp; StatiCsharp; static; website; generator;</PackageTags>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageIcon>Icon.png</PackageIcon>
+		<Title>StatiC#</Title>
+		<PackageReleaseNotes>StatiC# is now non-blocking.</PackageReleaseNotes>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
     </PropertyGroup>
 
 	<!-- Default Resources-->
@@ -50,10 +52,12 @@
           <Pack>True</Pack>
           <PackagePath>\</PackagePath>
         </None>
-        <None Update="README.md">
-            <Pack>True</Pack>
-            <PackagePath>\</PackagePath>
+		
+        <None Update="LICENSE">
+          <Pack>True</Pack>
+          <PackagePath>\</PackagePath>
         </None>
+		
         <None Update="README_NUGET.md">
             <Pack>True</Pack>
             <PackagePath>\</PackagePath>
