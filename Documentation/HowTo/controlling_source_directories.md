@@ -3,7 +3,7 @@
  After initializing a new WebsiteManager the default location for your output, content and static files is in the given source directory. E.g.
  ```C#
  ...
- source: @"path\to\myWebsite"
+ source: @"C:\Users\Roland\myWebsite"
  ...
  ```
  and StatiC# will assume this folder structure:
