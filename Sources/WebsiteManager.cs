@@ -74,10 +74,10 @@ public partial class WebsiteManager : IWebsiteManager
     /// <inheritdoc/>
     public async Task Make()
     {
-        WriteLine("Checking environment...");
-        await CheckEnvironmentAsync(HtmlFactory.ResourcesPath);
+        WriteLine("Website generating process startet...");
 
-        WriteLine("Starting generating your website:");
+        WriteLine("Checking environment...");
+        CheckEnvironment(HtmlFactory.ResourcesPath);
 
         WriteLine("Collecting markdown data...");
         await GenerateSitesFromMarkdownAsync();
@@ -85,11 +85,11 @@ public partial class WebsiteManager : IWebsiteManager
         if (!GitMode)
         {
             WriteLine("Deleting old output files...");
-            await DeleteAllAsync(Output);
+            DeleteAll(Output);
         }
 
         WriteLine("Copying theme resources...");
-        CopyAll(HtmlFactory.ResourcesPath, Output);
+        await CopyAllAsync(HtmlFactory.ResourcesPath, Output);
 
         WriteLine("Writing index...");
         await MakeIndexAsync();
