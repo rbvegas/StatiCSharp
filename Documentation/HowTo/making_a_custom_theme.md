@@ -1,14 +1,14 @@
 # Making a custom theme
 
-StatiC# is build to provide third party templates.  It's more than welcome that users create their own template, to make their website even greater. Moreover, it would be fantastic if those templates are shared with other users over GitHub or NuGet as a standalone package.  
+StatiC# is built to provide third-party templates. It's more than welcome that users create their own templates, to make their website even greater. Moreover, it would be fantastic if those templates were shared with other users over GitHub or NuGet as a standalone package.  
 
 This article describes everything you need to start building your very own template. The only thing you must know is to code C#. StatiC# will deliver the tools you'll need.  
 
-You can code your template purely in C#, if you want. Additionally you can build reusable components.
+You can code your template purely in C# if you want. Additionally, you can build reusable components.
 
 ## Supported HTML components
 
-StatiC# has build in the following HTML elements (more are added frequently).  
+StatiC# has built-in the following HTML elements (more are added frequently).  
 
 - \<a href="">
 - \<article>
@@ -27,11 +27,11 @@ StatiC# has build in the following HTML elements (more are added frequently).
 - \<p>
 - \<span>
 
-Of course, you can make your own and its welcome to contribute new elements or features of elements to this project.  
+Of course, you can make your own, and it's welcome to contribute new elements or features of elements to this project.  
 
 ## Getting started
 
-To get started create a new class library project in [.NET](https://dotnet.microsoft.com/en-us/) that is version 6 or higher and add [StatiC#](https://github.com/RolandBraunDev/StatiCSharp) as a package reference to the project. Feel free to check out the [integrated template](https://github.com/RolandBraunDev/StatiCSharp/blob/master/Sources/DefaultHtmlFactory.cs) while following this documentation.  
+To get started, create a new class library project in [.NET](https://dotnet.microsoft.com/en-us/) that is version 6 or higher and add [StatiC#](https://github.com/RolandBraunDev/StatiCSharp) as a package reference to the project. Feel free to check out the [integrated template](https://github.com/RolandBraunDev/StatiCSharp/blob/master/Sources/DefaultHtmlFactory.cs) while following this documentation.  
 On the top of your class-file import `StatiCSharp.HtmlComponents` and `StatiCSharp.Interfaces`:
 
 ```C#
@@ -39,7 +39,7 @@ using StatiCSharp.HtmlComponents;
 using StatiCSharp.Interfaces;
 ```
 
-Create a new class that will handle your template. This class need to implement `IHtmlFactory`. You can call it whatever you want, but it is StatiC# convention to call it `NameOfYourTemplateHtmlFactory`.
+Create a new class that will handle your template. This class needs to implement `IHtmlFactory`. You can call it whatever you want, but it is StatiC# convention to call it `NameOfYourTemplateHtmlFactory`.
 
 ```C#
 namespace YourTemplate
@@ -53,19 +53,19 @@ namespace YourTemplate
 
 When adding `IHtmlFactory` your IDE will prompt you to add the following property and methods to your class:  
 - `public string ResourcesPath` The absolute path to the resources your template uses, like css files or images. How to work with those files is explained later.
-- `public string MakeHeadHtml()` Creates html-code for inside the \<head>-tag. This code is added to all sites.
-- `public string MakeIndexHtml(IIndex index)` Method that returns the \<body> html-code for the index site.
-- `public string MakePageHtml(IPage page)` Method that returns the \<body> html-code for a page (not section or item).
-- `public string MakeSectionHtml(ISection section)` Method that returns the \<body> html-code for a section site.
-- `public string MakeItemHtml(IItem item)` Method that returns the \<body> html-code for an item site.
-- `public string MakeTagListHtml(List<IItem> items, string tag)` Method that returns the \<body> html-code for the taglist site.
+- `public string MakeHeadHtml()` Creates HTML-code for inside the \<head>-tag. This code is added to all sites.
+- `public string MakeIndexHtml(IIndex index)` Method that returns the \<body> HTML-code for the index site.
+- `public string MakePageHtml(IPage page)` Method that returns the \<body> HTML-code for a page (not section or item).
+- `public string MakeSectionHtml(ISection section)` Method that returns the \<body> HTML -code for a section site.
+- `public string MakeItemHtml(IItem item)` Method that returns the \<body> HTML -code for an item site.
+- `public string MakeTagListHtml(List<IItem> items, string tag)` Method that returns the \<body> HTML -code for the taglist site.
 
 ## Build your first site
 
-First, let's take a look at the methods called `Make...Html()`. As their names suggest, these methods deliver the HTML-Code for the sites their name stands for. StatiC# calls these methods during the website generating process and injects the parameters, depending on the item that is processed at that moment. The return type of that methods is always a string, containing the HTML-Code for this site. Note: Only the HTML-Code within the \<body>-tag.  The \<head> is generated by StatiC#, although you can add elements to the \<head> with the `MakeHeadHtml()` method.   
+First, let's look at the method called `Make...Html()`. As their names suggest, these methods deliver the HTML-Code for the sites their name stands for. StatiC# calls these methods during the website generating process and injects the parameters depending on the item that is processed. The return type of that methods is always a string containing the HTML-Code for this site. Note: Only the HTML-Code within the \<body>-tag.  The \<head> is generated by StatiC#, although you can add elements to the \<head> with the `MakeHeadHtml()` method.   
 You can access the content through the object given with the parameters. Those objects do always implement the corresponding interface.  
 
-By using the StatiC#-HTML-Components you can write HTML-Code in C#. Let's check this out by an example with the `MakePageHtml()` method from the integrated default theme.
+By using the StatiC#-HTML-Components, you can write HTML-Code in C#. Let's check this out with an example with the `MakePageHtml()` method from the integrated default theme.
 
 ```C#
 public string MakePageHtml(IPage page)
@@ -82,12 +82,12 @@ public string MakePageHtml(IPage page)
         }
 ```
 
-In this case, inspect the [IPage interface](github.com/RolandBraunDev/StatiCSharp/blob/master/Sources/Interfaces/IPage.cs) for information about the content you can access via `page`. Pay attention to the fact, that all parameter interfaces inherit from [ISite](github.com/RolandBraunDev/StatiCSharp/blob/master/Sources/Interfaces/ISite.cs), so you have always access to those properties, too.  
-Initiate a new `Body` object, which is a representation of your current body of the html site. Then follows the elements you want to add to the body of the page. You see that you can use chaining and you are able to nest the elements. This makes your code more readable. Imagine: The code above is everything you need to display a page.  
-`SiteHeader` and `Footer` are not basic HTML elements. They are custom components that can be used across all your sites. You can create those components with the use of other components or whatever you want. But you need to implement [IHtmlComponent](github.com/RolandBraunDev/StatiCSharp/blob/master/Sources/Interfaces/IHtmlComponent.cs) to work with StatiC#. To ensure chaining you have to return the element itself after every method you implement to customize the element.  
-Note that the property `Website` is not initialized in the method. If you want access to the hole website object (this can be usefull for a navigation or sitemap) use dependency injection in your custom cunstructor, e.g. `DefaultHtmlFactory(IWebsite website)`.  
+In this case, inspect the [IPage interface](github.com/RolandBraunDev/StatiCSharp/blob/master/Sources/Interfaces/IPage.cs) for information about the content you can access via `page`. Pay attention to the fact that all parameter interfaces inherit from [ISite](github.com/RolandBraunDev/StatiCSharp/blob/master/Sources/Interfaces/ISite.cs), so you always have access to those properties, too.  
+Initiate a new `Body` object, which is a representation of your current body of the HTML site. Then follows the elements you want to add to the body of the page. You see that you can use chaining, and you are able to nest the elements. This makes your code more readable. Imagine: The code above is everything you need to display a page.  
+`SiteHeader` and `Footer` are not basic HTML elements. They are custom components that can be used across all your sites. You can create those components with the use of other components or whatever you want. But you need to implement [IHtmlComponent](github.com/RolandBraunDev/StatiCSharp/blob/master/Sources/Interfaces/IHtmlComponent.cs) to work with StatiC#. To ensure chaining, you have to return the element itself after every method you implement to customize the element.  
+Note that the property `Website` is not initialized in the method. If you want access to the whole website object (this can be useful for navigation or sitemap), use dependency injection in your custom constructor, e.g., `DefaultHtmlFactory(IWebsite website)`.  
 
-Here an example from the [integrated default theme](https://github.com/RolandBraunDev/StatiCSharp/blob/master/Sources/DefaultHtmlFactory.cs) for a custom component called Footer:
+Here is an example from the [integrated default theme](https://github.com/RolandBraunDev/StatiCSharp/blob/master/Sources/DefaultHtmlFactory.cs) for a custom component called Footer:
 
 ```C#
 private class Footer : IHtmlComponent
@@ -107,11 +107,11 @@ By the way, it would be nice if you implement this reference to StatiC# in your 
 
 ## Managing resources
 
-With all the steps from above you can build the HTML-code for all sites that are generated by StatiC#. If your templates consists just of HTML-Code... great, then your are done at this point. But for most of the cases you want to provide additional data like css files, javascript or images. Follow these steps to add those resources to your template.  
+With all the steps above, you can build the HTML code for all sites generated by StatiC#. If your templates consist just of HTML-Code... great, then you are done at this point. But for most of the cases, you want to provide additional data like CSS files, javascript, or images. Follow these steps to add those resources to your template.  
 
-Add a folder to your projects root directory and call it `YourThemNameResources`. Within this folder create a new one called `yourthemename-theme`. Again, this is a StatiC# convention. StatiC# will copy all files and folders you provide in `YourThemeNameResources` to the root directory of the generated website. The user is also capable of using additional resources. To prevent potential conflicts you are recommended to put everything that has to do with your theme into the seperate folder `yourthemename-theme`. There is only one exeption: If you want to provide a favicon, put it in `YourThemeNameResources`. If the user provides a favicon, yours will be overriden.  
+Add a folder to your project's root directory and call it `YourThemNameResources`. Within this folder, create a new one called `yourthemename-theme`. Again, this is a StatiC# convention. StatiC# will copy all files and folders you provide in `YourThemeNameResources` to the root directory of the generated website. The user is also capable of using additional resources. To prevent potential conflicts, you are recommended to put everything that has to do with your theme into the separate folder `yourthemename-theme`. There is only one exception: If you want to provide a favicon, put it in `YourThemeNameResources`. If the user provides a favicon, yours will be overridden.  
 
-Tell StatiC# from where to copy your resources by using the `ResourcesPath` property. When folling this guide, your files will be placed in the mentioned directory next the `.dll` of your template. One way to give StatiC# the path of that directory is:
+Tell StatiC# from where to copy your resources by using the `ResourcesPath` property. When following this guide, your files will be placed in the mentioned directory next to the `.dll` of your template. One way to give StatiC# the path of that directory is:
 
 ```C#
 public string ResourcesPath
@@ -124,7 +124,7 @@ public string ResourcesPath
 }
 ```
 
-You have to implement into your project, that the resources are copied to the output directory of the website generating process. Lets say you want to provide a `styles.css` file:  
+You have to implement into your project that the resources are copied to the output directory of the website generating process. Let's say you want to provide a `styles.css` file:  
 Add the file to your project into `yourthemename-theme`.  
 Open your `.csproj` file and add the file as `<None Remove="..." />`:
 
@@ -134,7 +134,7 @@ Open your `.csproj` file and add the file as `<None Remove="..." />`:
 </ItemGroup>
 ```
 
-Additionaly include the file as `<Content Include="..." />` and set the parameters as shown below. With that set, the file will be copied to the output directory ether if the themes is used via a package reference or via a project reference:
+Additionally, include the file as `<Content Include="..." />` and set the parameters as shown below. With that set, the file will be copied to the output directory either if the theme is used via a package reference or a project reference:
 
 ```
 <ItemGroup>
@@ -147,7 +147,7 @@ Additionaly include the file as `<Content Include="..." />` and set the paramete
 
 You have to provide these steps for all your files.  
 
-Your file is available at `/yourthemename-theme/styles.css`. Add this css-reference  by using the `MakeHeadHtml()`:
+Your file is available at `/yourthemename-theme/styles.css`. Add this CSS-reference  by using the `MakeHeadHtml()`:
 
 ```C#
 public string MakeHeadHtml()
@@ -156,8 +156,8 @@ public string MakeHeadHtml()
 }
 ```
 
-This whould be equivalent to javascript files. If you want to access images or other files within the \<body> tag you can link to them the same way.
+This would be equivalent to javascript files. If you want to access images or other files within the \<body> tag, you can link to them the same way.
 
 ---
 
-Check out the [default theme](https://github.com/RolandBraunDev/StatiCSharp/blob/master/Sources/DefaultHtmlFactory.cs) to see a template in action. I would be pleased if you give me feedback for this guide, so that I can it better and make the entry to build custom themes with StatiC# as smoothly as possible. It would be great, if many developers bring in their template ideas and there would be a big number of template to choose from.
+Check out the [default theme](https://github.com/RolandBraunDev/StatiCSharp/blob/master/Sources/DefaultHtmlFactory.cs) to see a template in action. I will be pleased if you give me feedback on this guide so that I can make it better and make the entry to build custom themes with StatiC# as smoothly as possible. It would be great if many developers bring in their template ideas, and there would be a large number of templates to choose from.
