@@ -10,7 +10,7 @@ namespace StatiCSharp;
 public partial class WebsiteManager : IWebsiteManager
 {
     /// <summary>
-    /// Asynchronously creates and writes the items (not sections or pages) of the website.
+    /// Asynchronous creates and writes the items (not sections or pages) of the website.
     /// </summary>
     /// <returns>A <see cref="Task"/> that represents the asynchronous items generating operation.</returns>
     private async Task MakeItemsAsync()

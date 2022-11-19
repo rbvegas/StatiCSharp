@@ -9,7 +9,7 @@ namespace StatiCSharp;
 public partial class WebsiteManager : IWebsiteManager
 {
     /// <summary>
-    /// Asynchronously generates index, pages, sections and items for the IWebsite object from the markdown files in the Content directory.
+    /// Asynchronous generates index, pages, sections and items for the IWebsite object from the markdown files in the Content directory.
     /// </summary>
     /// <returns></returns>
     private async Task GenerateSitesFromMarkdownAsync()
