@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
+        <ImplicitUsings>disable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <AssemblyVersion>0.2.0</AssemblyVersion>
         <Version>0.3.0</Version>
@@ -19,7 +19,8 @@
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageIcon>Icon.png</PackageIcon>
 		<Title>StatiC#</Title>
-		<PackageReleaseNotes>StatiC# is now non-blocking.</PackageReleaseNotes>
+		<PackageReleaseNotes>- StatiC# is now on .NET 7.
+- Metadata now supports the "Published" keyword to determine whether an HTML site is generated.</PackageReleaseNotes>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
     </PropertyGroup>
 

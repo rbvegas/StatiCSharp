@@ -1,4 +1,5 @@
 ﻿using StatiCSharp.Interfaces;
+using System.Collections.Generic;
 
 namespace StatiCSharp.HtmlComponents
 {

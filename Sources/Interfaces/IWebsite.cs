@@ -1,4 +1,5 @@
-﻿using System.Globalization; // CultureInfo
+﻿using System.Collections.Generic;
+using System.Globalization; // CultureInfo
 
 namespace StatiCSharp.Interfaces
 {

@@ -1,4 +1,6 @@
-﻿namespace StatiCSharp.Interfaces
+﻿using System.Threading.Tasks;
+
+namespace StatiCSharp.Interfaces
 {
     internal interface IWebsiteManager
     {

@@ -1,4 +1,7 @@
-﻿namespace StatiCSharp.Interfaces
+﻿using System;
+using System.Collections.Generic;
+
+namespace StatiCSharp.Interfaces
 {
     /// <summary>
     /// The interface that all sites (index, pages, sections, items) must implement.<br/>
