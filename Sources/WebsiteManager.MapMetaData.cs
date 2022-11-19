@@ -15,6 +15,15 @@ public partial class WebsiteManager : IWebsiteManager
         // Markdown.ToHtml adds <p>-marks at the beginning and end of each value. This is sliced manually every time for now. Trim() removes \n at the end of the string.
         try
         {
+            if (metaData["published"] is not null)
+            {
+                site.Published = bool.Parse(Markdown.ToHtml(metaData["published"]).Replace("<p>", "").Replace("</p>", "").Trim());
+            }
+        }
+        catch { }
+
+        try
+        {
             if (metaData["title"] is not null)
             {
                 site.Title = Markdown.ToHtml(metaData["title"]).Replace("<p>", "").Replace("</p>", "").Trim();

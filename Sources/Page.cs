@@ -7,6 +7,7 @@ namespace StatiCSharp;
 /// </summary>
 internal class Page : IPage
 {
+    public bool Published { get; set; } = true;
     public string Title { get; set; } = string.Empty;
 
     public string Description { get; set; } = string.Empty;
