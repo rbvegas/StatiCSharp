@@ -7,7 +7,6 @@ namespace StatiCSharp;
 
 internal class Section : ISection
 {
-    public bool Published { get; set; } = true;
     public string SectionName { get; set; } = string.Empty;
 
     public List<IItem> Items { get; set; } = new List<IItem>();

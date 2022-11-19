@@ -19,8 +19,7 @@
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageIcon>Icon.png</PackageIcon>
 		<Title>StatiC#</Title>
-		<PackageReleaseNotes>- StatiC# is now on .NET 7.
-- Metadata now supports the "Published" keyword to determine whether an HTML site is generated.</PackageReleaseNotes>
+		<PackageReleaseNotes>StatiC# is now on .NET 7</PackageReleaseNotes>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
     </PropertyGroup>
 

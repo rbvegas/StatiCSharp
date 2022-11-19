@@ -10,11 +10,6 @@ namespace StatiCSharp.Interfaces
     public interface ISite
     {
         /// <summary>
-        /// Indicates if the site is ready to publish.
-        /// </summary>
-        bool Published { get; set; }
-
-        /// <summary>
         /// The title of the site. E.g used for the &lt;title&gt;-tag in the browser.
         /// </summary>
         string Title { get; set; }
