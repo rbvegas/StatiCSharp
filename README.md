@@ -22,7 +22,7 @@ Welcome to **StatiC#**, a static website generator written in C#. It enables ent
 
 StatiC# provides everything you need to create a website with all the files needed to upload onto a web server.  
 
-If you want to quickstart with your new website, you can start with the [default configuration](https://github.com/RolandBraunDev/StatiCSharp/tree/master/Documentation/ProjectTemplate) and build up from there. Here is an example:
+If you want to quickstart with your new website, you can start with the [default configuration](Documentation/ProjectTemplate) and build up from there. Here is an example:
 
 ```C#
 using StatiCSharp;
@@ -78,7 +78,7 @@ using StatiCSharp;
 
 ## Quick start
 
-You can use StatiC#'s [project template](/Documentation/ProjectTemplate) to quick start or follow the following steps to set up your project manually.  
+You can use StatiC#'s [project template](Documentation/ProjectTemplate) to quick start or follow the following steps to set up your project manually.  
 Nevertheless its recommended to read this readme to get a understanding how StatiC# works.  
 
 StatiC# expects three folders to work with at the path given during the initialization of the WebsiteManager.  
@@ -104,7 +104,7 @@ StatiC# renders four different types of sites:
 *sections*: Sites that contain items e.g. articles in a specific field.  
 *items*: The sites that are part of a section.  
   
-Add some content to your website by adding your markdown files to the `Content` folder. Check out the [documentation](/Documentation) for a [template file](Documentation/HowTo/content-template.md):
+Add some content to your website by adding your markdown files to the `Content` folder. Check out the [documentation](Documentation/) for a [template file](Documentation/HowTo/content-template.md):
 
 ```
 ├── myWebsite
@@ -151,7 +151,7 @@ Run the project and your new awesome website will be generated in the `Output` d
 $ dotnet run
 ```
 
-Check out the [documentation](/Documentation) for further information.
+Check out the [documentation](Documentation/) for further information.
 
 ## Dependencies
 
