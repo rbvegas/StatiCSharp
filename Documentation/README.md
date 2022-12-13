@@ -13,4 +13,4 @@ This collection contains documentation focused on helping you understand how to 
 - [Favicon](HowTo/favicon.md)
 - [Making a custom theme](HowTo/making_a_custom_theme.md)
 
-*Contributions adding more “How-to”'s or other documentation are more than welcome.*
+Contributions adding more How-to's or other documentation are more than welcome.
