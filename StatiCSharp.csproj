@@ -4,7 +4,7 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>disable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <AssemblyVersion>0.2.0</AssemblyVersion>
+        <AssemblyVersion>0.3.0</AssemblyVersion>
         <Version>0.3.0</Version>
         <Authors>Roland Braun</Authors>
         <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
