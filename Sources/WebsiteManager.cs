@@ -1,7 +1,7 @@
 ﻿using StatiCSharp.Interfaces;
 using System.Collections.Generic;
 using System.IO;
-using static System.Console;
+using static StatiCSharp.StatiCSharpConsole;
 using System.Threading.Tasks;
 
 namespace StatiCSharp;
@@ -79,7 +79,8 @@ public partial class WebsiteManager : IWebsiteManager
         WriteLine("Website generating process startet...");
 
         WriteLine("Checking environment...");
-        CheckEnvironment(HtmlFactory.ResourcesPath);
+        var checkEnvTask = Task.Run(() => CheckEnvironment(HtmlFactory.ResourcesPath)).ConfigureAwait(false);
+        await checkEnvTask;
 
         WriteLine("Collecting markdown data...");
         await GenerateSitesFromMarkdownAsync();
