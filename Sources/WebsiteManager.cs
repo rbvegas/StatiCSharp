@@ -1,8 +1,8 @@
 ﻿using StatiCSharp.Interfaces;
 using System.Collections.Generic;
 using System.IO;
-using static StatiCSharp.StatiCSharpConsole;
 using System.Threading.Tasks;
+using static StatiCSharp.StatiCSharpConsole;
 
 namespace StatiCSharp;
 
@@ -88,7 +88,8 @@ public partial class WebsiteManager : IWebsiteManager
         if (!GitMode)
         {
             WriteLine("Deleting old output files...");
-            DeleteAll(Output);
+            var deleteAllTask = Task.Run(() => DeleteAll(Output));
+            await deleteAllTask;
         }
 
         WriteLine("Copying theme resources...");
