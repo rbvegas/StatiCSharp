@@ -19,7 +19,8 @@
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageIcon>Icon.png</PackageIcon>
 		<Title>StatiC#</Title>
-		<PackageReleaseNotes>StatiC# is now on .NET 7</PackageReleaseNotes>
+		<PackageReleaseNotes>StatiC# is now on .NET 7.
+Improved async compatibility. You can use Make() without causing a deadlock in GUI applications.</PackageReleaseNotes>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
     </PropertyGroup>
 
