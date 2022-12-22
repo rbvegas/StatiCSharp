@@ -1,5 +1,4 @@
 ﻿---  
-Published: true
 Date: 2022-01-31  
 Path: path-for-this-site  
 Author: Your Name  
