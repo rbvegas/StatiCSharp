@@ -7,7 +7,6 @@ It is recommended to provide all metadata in your files.
 
 The following entries are currently available:
 
-- Published: A boolean value of whether the site is ready to be published. If false, no HTML file is generated. True is the default.
 - Title: The title of that site.
 - Description: A short description of the site. Is displayed in the item list e.g.
 - Author: The authors' name.
@@ -19,7 +18,6 @@ Important! => To mark your entries as metadata, ensure the data is written betwe
 
 ```
 ---
-Published: true
 Title: The title of that site.
 Description: A short description of the site. Is displayed in the item list e.g.
 Author: The authors' name.
