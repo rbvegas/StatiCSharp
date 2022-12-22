@@ -1,6 +1,6 @@
 ﻿# Controlling source directories
  
- After initializing a new WebsiteManager the default location for your output, content and static files is in the given source directory. E.g.
+ After initializing a new WebsiteManager, the default location for your output, content, and static files is in the given source directory. E.g.
  ```C#
  ...
  source: @"C:\Users\Roland\myWebsite"
@@ -17,7 +17,7 @@
  │   ├── ...
  ```
  
-If you want to change this behavior you can change these defaults by changing the corresponding properties of the WebsiteManager:
+If you want to change this behavior, you can change these defaults by changing the corresponding properties of the WebsiteManager:
 
 ```C#
 manager.Content   = @"another\path\to\Content";

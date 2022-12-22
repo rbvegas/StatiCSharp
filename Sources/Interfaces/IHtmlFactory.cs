@@ -1,4 +1,6 @@
-﻿namespace StatiCSharp.Interfaces
+﻿using System.Collections.Generic;
+
+namespace StatiCSharp.Interfaces
 {
     /// <summary>
     /// Interface to implement for making StatiC# compatible custom themes.

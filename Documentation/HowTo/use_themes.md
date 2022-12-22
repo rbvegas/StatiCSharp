@@ -11,10 +11,10 @@ Add the template of your choice to your website project as a project or package 
     <PackageReference Include="StatiCSharp.Themes.Foundation" Version="0.1.1" />
 </ItemGroup>
 ```
-Your can use the NuGet package manager as well.  
+You can use the NuGet package manager as well.  
 Build your project to restore packages.  
 
-Now we can import the theme in the `Program.cs` of the website project, initiate a new member and inject it to the StatiC# website generating process:
+Now we can import the theme in the `Program.cs` of the website project, initiate a new member, and inject it to the StatiC# website generating process:
 
 ```C#
 using StatiCSharp;

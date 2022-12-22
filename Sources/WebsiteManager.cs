@@ -1,6 +1,8 @@
 ﻿using StatiCSharp.Interfaces;
-using System.Diagnostics;
-using static System.Console;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+using static StatiCSharp.StatiCSharpConsole;
 
 namespace StatiCSharp;
 
@@ -74,10 +76,11 @@ public partial class WebsiteManager : IWebsiteManager
     /// <inheritdoc/>
     public async Task Make()
     {
-        WriteLine("Checking environment...");
-        await CheckEnvironmentAsync(HtmlFactory.ResourcesPath);
+        WriteLine("Website generating process startet...");
 
-        WriteLine("Starting generating your website:");
+        WriteLine("Checking environment...");
+        var checkEnvTask = Task.Run(() => CheckEnvironment(HtmlFactory.ResourcesPath)).ConfigureAwait(false);
+        await checkEnvTask;
 
         WriteLine("Collecting markdown data...");
         await GenerateSitesFromMarkdownAsync();
@@ -85,11 +88,12 @@ public partial class WebsiteManager : IWebsiteManager
         if (!GitMode)
         {
             WriteLine("Deleting old output files...");
-            await DeleteAllAsync(Output);
+            var deleteAllTask = Task.Run(() => DeleteAll(Output));
+            await deleteAllTask;
         }
 
         WriteLine("Copying theme resources...");
-        CopyAll(HtmlFactory.ResourcesPath, Output);
+        await CopyAllAsync(HtmlFactory.ResourcesPath, Output);
 
         WriteLine("Writing index...");
         await MakeIndexAsync();

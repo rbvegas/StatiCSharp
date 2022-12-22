@@ -1,16 +1,16 @@
 <p align="center">
-    <img src="Logo.png" width="400" max-width="90%" alt="StatiC#" />
+    <img src="Logo.svg" width="400" max-width="90%" alt="StatiC#" />
 </p>
 
 <p align="center">
     <a href="https://docs.microsoft.com/en-us/dotnet/csharp/">
-        <img src="https://img.shields.io/badge/C%23-10.0-blue?style=flat" alt="C# 10.0" />
+        <img src="https://img.shields.io/badge/C%23-11.0-blue?style=flat" alt="C# 10.0" />
     </a>
     <a href="https://dotnet.microsoft.com">
-        <img src="https://img.shields.io/badge/.NET-6.0-blueviolet?style=flat" />
+        <img src="https://img.shields.io/badge/.NET-7.0-blueviolet?style=flat" />
     </a>
     <img src="https://img.shields.io/badge/Platforms-Win+Mac+Linux-green?style=flat" />
-    <img src="https://img.shields.io/badge/Version-0.2.0-green?style=flat" />
+    <img src="https://img.shields.io/badge/Version-0.3.0-green?style=flat" />
     <a href="https://www.nuget.org/packages/StatiCSharp">
         <img src="https://img.shields.io/nuget/v/StatiCSharp?color=orange" />
     </a>
@@ -22,7 +22,7 @@ Welcome to **StatiC#**, a static website generator written in C#. It enables ent
 
 StatiC# provides everything you need to create a website with all the files needed to upload onto a web server.  
 
-If you want to quickstart with your new website, you can start with the [default configuration](https://github.com/RolandBraunDev/StatiCSharp/tree/master/Documentation/ProjectTemplate) and build up from there. Here is an example:
+If you want to quickstart with your new website, you can start with the [default configuration](Documentation/ProjectTemplate) and build up from there. Here is an example:
 
 ```C#
 using StatiCSharp;
@@ -37,7 +37,7 @@ var myAwesomeWebsite = new Website(
 
 var manager = new WebsiteManager(
     website: myAwesomeWebsite,
-    source: @"/path/to/your/project"    // Path to the folder of your website project.
+    source: @"C:\path\to\your\project"  // Absolute path to your Content, Resources and Output directories.
 );
 
 await manager.Make();
@@ -58,13 +58,13 @@ After .NET has created the project files open `myWebsite.csproj` and add StatiC#
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="StatiCSharp" Version="0.2.0" />
+    <PackageReference Include="StatiCSharp" Version="0.3.0" />
   </ItemGroup>
 
 </Project>
@@ -78,7 +78,7 @@ using StatiCSharp;
 
 ## Quick start
 
-You can use StatiC#'s [project template](/Documentation/ProjectTemplate) to quick start or follow the following steps to set up your project manually.  
+You can use StatiC#'s [project template](Documentation/ProjectTemplate) to quick start or follow the following steps to set up your project manually.  
 Nevertheless its recommended to read this readme to get a understanding how StatiC# works.  
 
 StatiC# expects three folders to work with at the path given during the initialization of the WebsiteManager.  
@@ -104,7 +104,7 @@ StatiC# renders four different types of sites:
 *sections*: Sites that contain items e.g. articles in a specific field.  
 *items*: The sites that are part of a section.  
   
-Add some content to your website by adding your markdown files to the `Content` folder. Check out the [documentation](/Documentation) for a [template file](Documentation/HowTo/content-template.md):
+Add some content to your website by adding your markdown files to the `Content` folder. Check out the [documentation](Documentation/) for a [template file](Documentation/HowTo/content-template.md):
 
 ```
 ├── myWebsite
@@ -140,7 +140,7 @@ var myAwesomeWebsite = new Website(
 
 var manager = new WebsiteManager(
     website: myAwesomeWebsite,
-    source: @"/path/to/your/project"    // Path to the folder of your website project.
+    source: @"C:\path\to\your\project"  // Absolute path to your Content, Resources and Output directories.
 );
 
 await manager.Make();
@@ -151,7 +151,7 @@ Run the project and your new awesome website will be generated in the `Output` d
 $ dotnet run
 ```
 
-Check out the [documentation](/Documentation) for further information.
+Check out the [documentation](Documentation/) for further information.
 
 ## Dependencies
 

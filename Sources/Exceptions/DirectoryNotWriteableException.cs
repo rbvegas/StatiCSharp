@@ -1,4 +1,6 @@
-﻿namespace StatiCSharp.Exceptions;
+﻿using System;
+
+namespace StatiCSharp.Exceptions;
 
 internal class DirectoryNotWriteableException : Exception
 {

@@ -20,7 +20,7 @@ var myAwesomeWebsite = new Website(
 
 var manager = new WebsiteManager(
     website: myAwesomeWebsite,
-    source: @"/path/to/your/project"    // Path to the folder of your website project
+    source: @"C:\path\to\your\project"  // Absolute path to your Content, Resources and Output directories.
 );
 
 await manager.Make();
@@ -41,13 +41,13 @@ After .NET has created the project files open `myWebsite.csproj` and add StatiC#
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="StatiCSharp" Version="0.2.0" />
+    <PackageReference Include="StatiCSharp" Version="0.3.0" />
   </ItemGroup>
 
 </Project>
@@ -124,7 +124,7 @@ var myAwesomeWebsite = new Website(
 
 var manager = new WebsiteManager(
     website: myAwesomeWebsite,
-    source: @"/path/to/your/project"    // Path to the folder of your website project.
+    source: @"C:\path\to\your\project"  // Absolute path to your Content, Resources and Output directories.
 );
 
 await manager.Make();
