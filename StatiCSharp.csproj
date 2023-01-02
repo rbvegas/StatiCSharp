@@ -4,8 +4,8 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>disable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <AssemblyVersion>0.3.1</AssemblyVersion>
-        <Version>0.3.1</Version>
+        <AssemblyVersion>0.4.0</AssemblyVersion>
+        <Version>0.4.0</Version>
         <Authors>Roland Braun</Authors>
         <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
         <Description>A static website generator written in C#. It enables entire websites to be built using C#. Custom templates are supported. See the documentation to learn how to create them.</Description>
@@ -19,8 +19,7 @@
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageIcon>Icon.png</PackageIcon>
 		<Title>StatiC#</Title>
-		<PackageReleaseNotes>StatiC# is now on .NET 7.
-Improved async compatibility. You can use Make() without causing a deadlock in GUI applications.</PackageReleaseNotes>
+		<PackageReleaseNotes></PackageReleaseNotes>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
     </PropertyGroup>
 
