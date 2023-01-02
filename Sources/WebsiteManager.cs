@@ -110,11 +110,11 @@ public partial class WebsiteManager : IWebsiteManager
         WriteLine("Writing tag lists...");
         await MakeTagListsAsync();
 
-        WriteLine("Copying user resources...");
-        await CopyAllAsync(Resources, Output);
-
         WriteLine("Cleaning up...");
         await CleanUpAsync();
+
+        WriteLine("Copying user resources...");
+        await CopyAllAsync(Resources, Output);
 
         WriteLine($"Success! Your website has been generated at {Output}");
     }
