@@ -62,7 +62,7 @@ using StatiCSharp;
 ## Quick start
 
 You can use StatiC#'s [project template](https://github.com/RolandBraunDev/StatiCSharp/tree/master/Documentation/ProjectTemplate) to quick start or follow the following steps to set up your project manually.  
-Nevertheless its recommended to read this readme to get a understanding how StatiC# works.  
+Nevertheless it's recommended to read this readme to get a understanding how StatiC# works.  
 
 StatiC# expects three folders to work with at the path given during the initialization of the WebsiteManager.  
   
