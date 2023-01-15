@@ -19,7 +19,8 @@
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageIcon>Icon.png</PackageIcon>
 		<Title>StatiC#</Title>
-		<PackageReleaseNotes></PackageReleaseNotes>
+		<PackageReleaseNotes>Added the ability to add custom parsers to the generating process. (Attention: Breaking the IWebsiteManager interface!)
+Using the default markdown parser (Markdig) can now be deactivated. So only custom parser are used.</PackageReleaseNotes>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
     </PropertyGroup>
 
