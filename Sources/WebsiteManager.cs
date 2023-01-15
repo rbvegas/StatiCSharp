@@ -11,6 +11,16 @@ namespace StatiCSharp;
 /// </summary>
 public partial class WebsiteManager : IWebsiteManager
 {
+    private HtmlBuilder _htmlBuilder = new HtmlBuilder(useDefaultMarkdownParser: true);
+    /// <inheritdoc/>
+    public bool UseDefaultMarkdownParser
+    {
+        get => _htmlBuilder.UseDefaultMarkdownParser;
+        set
+        {
+            _htmlBuilder.UseDefaultMarkdownParser = value;
+        }
+    }
     /// <inheritdoc/>
     public string SourceDir { get; set; }
 
@@ -24,7 +34,7 @@ public partial class WebsiteManager : IWebsiteManager
     public string Output { get; set; }
 
     /// <inheritdoc/>
-    public bool GitMode { get; set; }
+    public bool GitMode { get; set; } = false;
 
     /// <summary>
     /// List of all used paths while creating the sites.<br/>
@@ -52,7 +62,6 @@ public partial class WebsiteManager : IWebsiteManager
         Content         = Path.Combine(source, "Content");
         Resources       = Path.Combine(source, "Resources");
         Output          = Path.Combine(source, "Output");
-        GitMode         = false;
         PathDirectory   = new List<string>();
     }
 
@@ -69,8 +78,14 @@ public partial class WebsiteManager : IWebsiteManager
         Content         = Path.Combine(source, "Content");
         Resources       = Path.Combine(source, "Resources");
         Output          = Path.Combine(source, "Output");
-        GitMode         = false;
         PathDirectory   = new List<string>();
+    }
+
+    /// <inheritdoc/>
+    public WebsiteManager AddParser(IPipelineParser parser)
+    {
+        _htmlBuilder.AddToPipeline(parser);
+        return this;
     }
 
     /// <inheritdoc/>
