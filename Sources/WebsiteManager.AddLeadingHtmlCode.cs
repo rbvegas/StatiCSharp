@@ -27,6 +27,7 @@ public partial class WebsiteManager : IWebsiteManager
         siteBuilder.Append($"<meta name=\"keywords\" content=\"{string.Join(", ", context.Tags)}\">");
         siteBuilder.Append("<link rel=\"icon\" type=\"image/x-icon\" href=\"/favicon.png\">");
         siteBuilder.Append(head);
+        siteBuilder.Append(_htmlBuilder.AdditionalHeaderContent);
         siteBuilder.Append("</head>");
         siteBuilder.Append(body);
         siteBuilder.Append("</html>");
