@@ -61,5 +61,5 @@ public interface IWebsiteManager
     /// </summary>
     /// <param name="parser"></param>
     /// <returns></returns>
-    public WebsiteManager AddParser(IPipelineParser parser);
+    public IWebsiteManager AddParser(IPipelineParser parser);
 }

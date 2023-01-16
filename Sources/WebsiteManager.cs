@@ -82,7 +82,7 @@ public partial class WebsiteManager : IWebsiteManager
     }
 
     /// <inheritdoc/>
-    public WebsiteManager AddParser(IPipelineParser parser)
+    public IWebsiteManager AddParser(IPipelineParser parser)
     {
         _htmlBuilder.AddToPipeline(parser);
         return this;
