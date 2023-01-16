@@ -40,11 +40,11 @@ internal class HtmlBuilder : IHtmlBuilder
 
     public string ToHtml(string content)
     {
-        var currentHtml = string.Empty;
+        var currentHtml = content;
 
         foreach (var parser in _parsers)
         {
-            currentHtml = parser.Parse(content);
+            currentHtml = parser.Parse(currentHtml);
         }
 
         if (UseDefaultMarkdownParser)
