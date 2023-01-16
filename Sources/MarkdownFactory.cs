@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using static System.Console;
 
 namespace StatiCSharp;
 
 /// <summary>
-/// Privides usefull methods to work with markdown files and data.
+/// Provides usefull methods to work with markdown files and data.
 /// </summary>
 internal static class MarkdownFactory
 {
