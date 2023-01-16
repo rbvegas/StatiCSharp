@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using static System.Console;
 
 namespace StatiCSharp;
 
 /// <summary>
-/// Privides usefull methods to work with markdown files and data.
+/// Provides usefull methods to work with markdown files and data.
 /// </summary>
 internal static class MarkdownFactory
 {
@@ -36,7 +35,7 @@ internal static class MarkdownFactory
             }
             catch
             {
-                WriteLine($"No meta data found in {path}\nCheck out https://github.com/rolandbraun-dev/StatiCSharp/blob/master/Documentation/HowTo/content-template.md for a site template.");
+                // No action needed if no meta data is found.
             }
         }
         return metaData;

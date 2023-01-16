@@ -11,6 +11,16 @@ namespace StatiCSharp;
 /// </summary>
 public partial class WebsiteManager : IWebsiteManager
 {
+    private HtmlBuilder _htmlBuilder = new HtmlBuilder(useDefaultMarkdownParser: true);
+    /// <inheritdoc/>
+    public bool UseDefaultMarkdownParser
+    {
+        get => _htmlBuilder.UseDefaultMarkdownParser;
+        set
+        {
+            _htmlBuilder.UseDefaultMarkdownParser = value;
+        }
+    }
     /// <inheritdoc/>
     public string SourceDir { get; set; }
 
@@ -24,7 +34,7 @@ public partial class WebsiteManager : IWebsiteManager
     public string Output { get; set; }
 
     /// <inheritdoc/>
-    public bool GitMode { get; set; }
+    public bool GitMode { get; set; } = false;
 
     /// <summary>
     /// List of all used paths while creating the sites.<br/>
@@ -44,15 +54,23 @@ public partial class WebsiteManager : IWebsiteManager
     /// <param name="website">The website that contains the content.</param>
     /// <param name="htmlFactory">The theme for the website.</param>
     /// <param name="source">The absolute path to the directory that contains the folders `Content`, `Output` and `Resources`.</param>
-    public WebsiteManager(IWebsite website, IHtmlFactory htmlFactory, string source)
+    public WebsiteManager(IWebsite website, IHtmlFactory? htmlFactory, string source)
     {
-        Website         = website;
-        HtmlFactory     = htmlFactory;
+        Website = website;
+
+        if (htmlFactory is null)
+        {
+            HtmlFactory = new DefaultHtmlFactory(Website);
+        }
+        else
+        {
+            HtmlFactory = htmlFactory;
+        }
+
         SourceDir       = Path.Combine(source);
         Content         = Path.Combine(source, "Content");
         Resources       = Path.Combine(source, "Resources");
         Output          = Path.Combine(source, "Output");
-        GitMode         = false;
         PathDirectory   = new List<string>();
     }
 
@@ -61,16 +79,15 @@ public partial class WebsiteManager : IWebsiteManager
     /// </summary>
     /// <param name="website">The website that contains the content.</param>
     /// <param name="source">The absolute path to the directory that contains the folders `Content`, `Output` and `Resources`.</param>
-    public WebsiteManager(IWebsite website, string source)
+    public WebsiteManager(IWebsite website, string source) : this(website, null!, source)
     {
-        Website         = website;
-        HtmlFactory     = new DefaultHtmlFactory(Website);
-        SourceDir       = Path.Combine(source);
-        Content         = Path.Combine(source, "Content");
-        Resources       = Path.Combine(source, "Resources");
-        Output          = Path.Combine(source, "Output");
-        GitMode         = false;
-        PathDirectory   = new List<string>();
+    }
+
+    /// <inheritdoc/>
+    public IWebsiteManager AddParser(IPipelineParser parser)
+    {
+        _htmlBuilder.AddToPipeline(parser);
+        return this;
     }
 
     /// <inheritdoc/>

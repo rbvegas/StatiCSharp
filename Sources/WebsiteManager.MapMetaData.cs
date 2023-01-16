@@ -1,5 +1,4 @@
-﻿using Markdig;
-using StatiCSharp.Interfaces;
+﻿using StatiCSharp.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,12 +14,12 @@ public partial class WebsiteManager : IWebsiteManager
     /// <param name="site">The site where to add the meta data.</param>
     private void MapMetaData(Dictionary<string, string> metaData, ISite site)
     {
-        // Markdown.ToHtml adds <p>-marks at the beginning and end of each value. This is sliced manually every time for now. Trim() removes \n at the end of the string.
+        // HtmlBuilder uses Markdown.ToHtml as the default parser, which adds <p>-marks at the beginning and end of each value. This is sliced manually every time for now. Trim() removes \n at the end of the string.
         try
         {
             if (metaData["title"] is not null)
             {
-                site.Title = Markdown.ToHtml(metaData["title"]).Replace("<p>", "").Replace("</p>", "").Trim();
+                site.Title = _htmlBuilder.ToHtml(metaData["title"]).Replace("<p>", "").Replace("</p>", "").Trim();
             }
         }
         catch { }
@@ -29,7 +28,7 @@ public partial class WebsiteManager : IWebsiteManager
         {
             if (metaData["description"] is not null)
             {
-                site.Description = Markdown.ToHtml(metaData["description"]).Replace("<p>", "").Replace("</p>", "").Trim();
+                site.Description = _htmlBuilder.ToHtml(metaData["description"]).Replace("<p>", "").Replace("</p>", "").Trim();
             }
         }
         catch { }

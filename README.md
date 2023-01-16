@@ -10,13 +10,13 @@
         <img src="https://img.shields.io/badge/.NET-7.0-blueviolet?style=flat" />
     </a>
     <img src="https://img.shields.io/badge/Platforms-Win+Mac+Linux-green?style=flat" />
-    <img src="https://img.shields.io/badge/Version-0.3.1-green?style=flat" />
+    <img src="https://img.shields.io/badge/Version-0.4.0-green?style=flat" />
     <a href="https://www.nuget.org/packages/StatiCSharp">
         <img src="https://img.shields.io/nuget/v/StatiCSharp?color=orange" />
     </a>
 </p>
 
-Welcome to **StatiC#**, a static website generator written in C#. It enables entire websites to be built using C#. Custom themes can be used by editing the integrated default theme or importing a theme.
+Welcome to **StatiC#**, a static website generator for C# developers. It enables entire websites to be built using C#. Custom themes can be used by editing the integrated default theme or importing a theme.
 
 ---
 
@@ -64,7 +64,7 @@ After .NET has created the project files open `myWebsite.csproj` and add StatiC#
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="StatiCSharp" Version="0.3.1" />
+    <PackageReference Include="StatiCSharp" Version="0.4.0" />
   </ItemGroup>
 
 </Project>
@@ -79,7 +79,7 @@ using StatiCSharp;
 ## Quick start
 
 You can use StatiC#'s [project template](Documentation/ProjectTemplate) to quick start or follow the following steps to set up your project manually.  
-Nevertheless its recommended to read this readme to get a understanding how StatiC# works.  
+Nevertheless it's recommended to read this readme to get a understanding how StatiC# works.  
 
 StatiC# expects three folders to work with at the path given during the initialization of the WebsiteManager.  
   

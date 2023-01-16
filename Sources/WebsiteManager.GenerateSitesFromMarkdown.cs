@@ -1,8 +1,7 @@
-﻿using Markdig;
-using StatiCSharp.Interfaces;
+﻿using StatiCSharp.Interfaces;
+using System;
 using System.IO;
 using System.Threading.Tasks;
-using System;
 
 namespace StatiCSharp;
 
@@ -66,13 +65,9 @@ public partial class WebsiteManager : IWebsiteManager
 
     private void LoadSiteFromMarkdown<T>(string path)
     {
-        var pipeline = new MarkdownPipelineBuilder()
-           .UseAdvancedExtensions()
-           .Build();
-
         var metaData = MarkdownFactory.ParseMetaData(path);
         var content = MarkdownFactory.ParseContent(path);
-        var contentAsHtml = Markdown.ToHtml(content, pipeline);
+        var contentAsHtml = _htmlBuilder.ToHtml(content);
         var filename = Path.GetFileName(path);
 
         if (typeof(T) == typeof(IIndex))
@@ -127,7 +122,7 @@ public partial class WebsiteManager : IWebsiteManager
                     IItem currentItem = new Item();
                     var itemMetaData = MarkdownFactory.ParseMetaData(itemFile);
                     var itemContent = MarkdownFactory.ParseContent(itemFile);
-                    var itemContentAsHtml = Markdown.ToHtml(itemContent, pipeline);
+                    var itemContentAsHtml = _htmlBuilder.ToHtml(itemContent);
                     var itemLastModified = DateOnly.FromDateTime(Directory.GetLastWriteTime(itemFile));
 
                     if (itemMetaData.ContainsKey("date"))
