@@ -33,3 +33,9 @@ If you use the `WebsiteManager` implementation of `IWebsiteManager` you can deac
 ```C#
 manager.UseDefaultMarkdownParser = false;
 ```
+
+## Create your own parser
+
+You can code up your parser easily by implementing [`IPipelineParser`](https://github.com/RolandBraunDev/StatiCSharp/blob/master/Sources/Interfaces/IPipelineParser.cs).  
+The optional content of the `HeaderContent` property will be added to the &lt;head&gt;&lt;/head&gt; of every site. This may be some CSS or JavaScript that the output of your parser needs.  
+`Parse()` will be called each time StatiC# parses the users' input files. Its parameter is the parsed string. Your method should then return the result of your parsing process.
