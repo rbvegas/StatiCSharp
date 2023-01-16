@@ -54,10 +54,19 @@ public partial class WebsiteManager : IWebsiteManager
     /// <param name="website">The website that contains the content.</param>
     /// <param name="htmlFactory">The theme for the website.</param>
     /// <param name="source">The absolute path to the directory that contains the folders `Content`, `Output` and `Resources`.</param>
-    public WebsiteManager(IWebsite website, IHtmlFactory htmlFactory, string source)
+    public WebsiteManager(IWebsite website, IHtmlFactory? htmlFactory, string source)
     {
-        Website         = website;
-        HtmlFactory     = htmlFactory;
+        Website = website;
+
+        if (htmlFactory is null)
+        {
+            HtmlFactory = new DefaultHtmlFactory(Website);
+        }
+        else
+        {
+            HtmlFactory = htmlFactory;
+        }
+
         SourceDir       = Path.Combine(source);
         Content         = Path.Combine(source, "Content");
         Resources       = Path.Combine(source, "Resources");
@@ -70,15 +79,8 @@ public partial class WebsiteManager : IWebsiteManager
     /// </summary>
     /// <param name="website">The website that contains the content.</param>
     /// <param name="source">The absolute path to the directory that contains the folders `Content`, `Output` and `Resources`.</param>
-    public WebsiteManager(IWebsite website, string source)
+    public WebsiteManager(IWebsite website, string source) : this(website, null!, source)
     {
-        Website         = website;
-        HtmlFactory     = new DefaultHtmlFactory(Website);
-        SourceDir       = Path.Combine(source);
-        Content         = Path.Combine(source, "Content");
-        Resources       = Path.Combine(source, "Resources");
-        Output          = Path.Combine(source, "Output");
-        PathDirectory   = new List<string>();
     }
 
     /// <inheritdoc/>
