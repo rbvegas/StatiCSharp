@@ -36,7 +36,7 @@ internal static class MarkdownFactory
             }
             catch
             {
-                WriteLine($"No meta data found in {path}\nCheck out https://github.com/rolandbraun-dev/StatiCSharp/blob/master/Documentation/HowTo/content-template.md for a site template.");
+                // No action needed if no meta data is found.
             }
         }
         return metaData;
