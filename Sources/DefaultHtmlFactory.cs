@@ -11,6 +11,8 @@ namespace StatiCSharp;
 /// </summary>
 public class DefaultHtmlFactory: IHtmlFactory
 {
+    private int _numberOfArticlesOnHomepage = 10;
+
     /// <inheritdoc/>
     public string ResourcesPath
     {
@@ -49,6 +51,11 @@ public class DefaultHtmlFactory: IHtmlFactory
             {
                 section.Items.ForEach((item) => items.Add(item));
             }
+        int showArticles = (items.Count > _numberOfArticlesOnHomepage) ? _numberOfArticlesOnHomepage : items.Count;
+        items.Sort((i1, i2) => DateTime.Compare(i1.Date.ToDateTime(TimeOnly.Parse("6pm")), i2.Date.ToDateTime(TimeOnly.Parse("6pm"))));
+        items.Reverse();
+        items = items.GetRange(0, showArticles);
+
         return  new Body()  .Add(new SiteHeader(Website))
                             .Add(new Div()
                                 .Add(new Div(index.Content)
