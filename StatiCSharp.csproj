@@ -19,7 +19,7 @@
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageIcon>Icon.png</PackageIcon>
 		<Title>StatiC#</Title>
-		<PackageReleaseNotes>Bugfix: Sorting of articles on the homepage is now correct by date when using the default theme.</PackageReleaseNotes>
+		<PackageReleaseNotes>This release brings the upgrade to .NET 8.</PackageReleaseNotes>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
     </PropertyGroup>
 
