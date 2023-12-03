@@ -4,7 +4,7 @@
 
 <p align="center">
     <a href="https://docs.microsoft.com/en-us/dotnet/csharp/">
-        <img src="https://img.shields.io/badge/C%23-12.0-blue?style=flat" alt="C# 10.0" />
+        <img src="https://img.shields.io/badge/C%23-12.0-blue?style=flat" alt="C# 12.0" />
     </a>
     <a href="https://dotnet.microsoft.com">
         <img src="https://img.shields.io/badge/.NET-8.0-blueviolet?style=flat" />
