@@ -4,13 +4,13 @@
 
 <p align="center">
     <a href="https://docs.microsoft.com/en-us/dotnet/csharp/">
-        <img src="https://img.shields.io/badge/C%23-11.0-blue?style=flat" alt="C# 10.0" />
+        <img src="https://img.shields.io/badge/C%23-12.0-blue?style=flat" alt="C# 10.0" />
     </a>
     <a href="https://dotnet.microsoft.com">
-        <img src="https://img.shields.io/badge/.NET-7.0-blueviolet?style=flat" />
+        <img src="https://img.shields.io/badge/.NET-8.0-blueviolet?style=flat" />
     </a>
     <img src="https://img.shields.io/badge/Platforms-Win+Mac+Linux-green?style=flat" />
-    <img src="https://img.shields.io/badge/Version-0.4.1-green?style=flat" />
+    <img src="https://img.shields.io/badge/Version-0.5.0-green?style=flat" />
     <a href="https://www.nuget.org/packages/StatiCSharp">
         <img src="https://img.shields.io/nuget/v/StatiCSharp?color=orange" />
     </a>
@@ -58,13 +58,13 @@ After .NET has created the project files open `myWebsite.csproj` and add StatiC#
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="StatiCSharp" Version="0.4.1" />
+    <PackageReference Include="StatiCSharp" Version="0.5.0" />
   </ItemGroup>
 
 </Project>
