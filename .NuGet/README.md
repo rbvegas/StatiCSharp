@@ -47,7 +47,7 @@ After .NET has created the project files open `myWebsite.csproj` and add StatiC#
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="StatiCSharp" Version="0.4.1" />
+    <PackageReference Include="StatiCSharp" Version="0.5.0" />
   </ItemGroup>
 
 </Project>
