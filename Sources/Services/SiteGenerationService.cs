@@ -1,31 +1,27 @@
-﻿using StatiCSharp.Interfaces;
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using StatiCSharp.Interfaces;
 
-namespace StatiCSharp;
+namespace StatiCSharp.Services;
 
-public partial class WebsiteManager : IWebsiteManager
+internal class SiteGenerationService : ISiteGenerationService
 {
-    /// <summary>
-    /// Asynchronous generates index, pages, sections and items for the IWebsite object from the markdown files in the Content directory.
-    /// </summary>
-    /// <returns></returns>
-    private async Task GenerateSitesFromMarkdownAsync()
+    public async Task GenerateSitesFromMarkdown(StaticWebApplication staticWebApplication, HtmlBuilder htmlBuilder, IMetaDataService metaDataService)
     {
-        string[] directoriesOfContent = Directory.GetDirectories(Content);
+        string[] directoriesOfContent = Directory.GetDirectories(staticWebApplication.Content);
 
         // Index
-        string pathOfIndex = Path.Combine(Content, "index.md");
+        string pathOfIndex = Path.Combine(staticWebApplication.Content, "index.md");
         if (File.Exists(pathOfIndex))
-            LoadSiteFromMarkdown<IIndex>(pathOfIndex);
+            LoadSiteFromMarkdown<IIndex>(pathOfIndex, htmlBuilder, staticWebApplication, metaDataService);
 
 
         // Pages
         foreach (string directory in directoriesOfContent)
         {
             string nameOfCurrentDirectory = Path.GetFileName(directory);
-            if (!Website.MakeSectionsFor.Contains(nameOfCurrentDirectory))
+            if (!staticWebApplication.MakeSectionsFor.Contains(nameOfCurrentDirectory))
             {
                 await ProcessAllPagesInDirectory(directory);
             }
@@ -39,7 +35,7 @@ public partial class WebsiteManager : IWebsiteManager
             foreach (string file in files)
             {
                 if (file.EndsWith(".md"))
-                    LoadSiteFromMarkdown<IPage>(file);
+                    LoadSiteFromMarkdown<IPage>(file, htmlBuilder, staticWebApplication, metaDataService);
             }
 
             foreach (string directory in dirs)
@@ -53,29 +49,29 @@ public partial class WebsiteManager : IWebsiteManager
         foreach (string directory in directoriesOfContent)
         {
             string nameOfCurrentDirectory = Path.GetFileName(directory);
-            if (Website.MakeSectionsFor.Contains(nameOfCurrentDirectory))
+            if (staticWebApplication.MakeSectionsFor.Contains(nameOfCurrentDirectory))
             {
                 string pathOfSectionIndexFile = Path.Combine(directory, "index.md");
 
                 if (File.Exists(pathOfSectionIndexFile))
-                    LoadSiteFromMarkdown<ISection>(pathOfSectionIndexFile);
+                    LoadSiteFromMarkdown<ISection>(pathOfSectionIndexFile, htmlBuilder, staticWebApplication, metaDataService);
             }
         }
     }
 
-    private void LoadSiteFromMarkdown<T>(string path)
+    private void LoadSiteFromMarkdown<T>(string path, HtmlBuilder htmlBuilder, StaticWebApplication staticWebApplication, IMetaDataService metaDataService)
     {
         var metaData = MarkdownFactory.ParseMetaData(path);
         var content = MarkdownFactory.ParseContent(path);
-        var contentAsHtml = _htmlBuilder.ToHtml(content);
+        var contentAsHtml = htmlBuilder.ToHtml(content);
         var filename = Path.GetFileName(path);
 
         if (typeof(T) == typeof(IIndex))
         {
-            Website.Index.Content = contentAsHtml;
-            Website.Index.MarkdownFileName = filename;
-            Website.Index.MarkdownFilePath = path;
-            MapMetaData(metaData, Website.Index);
+            staticWebApplication.Index.Content = contentAsHtml;
+            staticWebApplication.Index.MarkdownFileName = filename;
+            staticWebApplication.Index.MarkdownFilePath = path;
+            metaDataService.Map(metaData, staticWebApplication.Index, htmlBuilder);
             return;
         }
 
@@ -85,9 +81,9 @@ public partial class WebsiteManager : IWebsiteManager
             currentPage.Content = contentAsHtml;
             currentPage.MarkdownFileName = filename;
             currentPage.MarkdownFilePath = path;
-            MapMetaData(metaData, currentPage);
+            metaDataService.Map(metaData, currentPage, htmlBuilder);
 
-            string hierarchy = path.Remove(0, Content.Length);
+            string hierarchy = path.Remove(0, staticWebApplication.Content.Length);
             if (hierarchy[0] == '/' || hierarchy[0] == '\\')
             {
                 hierarchy = hierarchy.Remove(0, 1);
@@ -97,7 +93,7 @@ public partial class WebsiteManager : IWebsiteManager
 
             currentPage.Hierarchy = hierarchy;
 
-            Website.Pages.Add(currentPage);
+            staticWebApplication.Pages.Add(currentPage);
             return;
         }
 
@@ -110,7 +106,7 @@ public partial class WebsiteManager : IWebsiteManager
             currentSection.Content = contentAsHtml;
             currentSection.MarkdownFileName = filename;
             currentSection.MarkdownFilePath = path;
-            MapMetaData(metaData, currentSection);
+            metaDataService.Map(metaData, currentSection, htmlBuilder);
 
             string sectionFolder = Path.GetDirectoryName(path)!;
             string[] itemFiles = Directory.GetFiles(sectionFolder);
@@ -122,7 +118,7 @@ public partial class WebsiteManager : IWebsiteManager
                     IItem currentItem = new Item();
                     var itemMetaData = MarkdownFactory.ParseMetaData(itemFile);
                     var itemContent = MarkdownFactory.ParseContent(itemFile);
-                    var itemContentAsHtml = _htmlBuilder.ToHtml(itemContent);
+                    var itemContentAsHtml = htmlBuilder.ToHtml(itemContent);
                     var itemLastModified = DateOnly.FromDateTime(Directory.GetLastWriteTime(itemFile));
 
                     if (itemMetaData.ContainsKey("date"))
@@ -142,16 +138,17 @@ public partial class WebsiteManager : IWebsiteManager
                     currentItem.MarkdownFilePath = itemFile;
                     currentItem.Section = currentSectionName;
                     currentItem.DateLastModified = itemLastModified;
-                    MapMetaData(itemMetaData, currentItem);
+                    metaDataService.Map(itemMetaData, currentItem, htmlBuilder);
 
                     currentSection.AddItem(currentItem);
                 }
             }
-            Website.Sections.Add(currentSection);
+            staticWebApplication.Sections.Add(currentSection);
             return;
         }
 
         throw new NotImplementedException(message:$"The given type-parameter {typeof(T)} is not supported by this method.");
 
     }
+
 }

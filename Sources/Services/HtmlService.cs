@@ -1,19 +1,11 @@
-﻿using StatiCSharp.Interfaces;
 using System.Text;
+using StatiCSharp.Interfaces;
 
-namespace StatiCSharp;
+namespace StatiCSharp.Services;
 
-public partial class WebsiteManager : IWebsiteManager
+internal class HtmlService : IHtmlService
 {
-    /// <summary>
-    /// Add the leading (and trailing) html code to a site.
-    /// </summary>
-    /// <param name="website">The website, containing information for the head.</param>
-    /// <param name="context">The site where the html-code should be added.</param>
-    /// <param name="body">The body for the the, rendered by a HtmlFactory.</param>
-    /// <param name="head">The additional content for the head of the site.</param>
-    /// <returns>The content for a html-file as a string.</returns>
-    private string AddLeadingHtmlCode(IWebsite website, ISite context, string head, string body)
+    public string AddLeadingHtmlCode(IWebsite website, ISite context, string head, string body, HtmlBuilder htmlBuilder)
     {
         StringBuilder siteBuilder = new StringBuilder();
         siteBuilder.Append("<!doctype html>");
@@ -27,7 +19,7 @@ public partial class WebsiteManager : IWebsiteManager
         siteBuilder.Append($"<meta name=\"keywords\" content=\"{string.Join(", ", context.Tags)}\">");
         siteBuilder.Append("<link rel=\"icon\" type=\"image/x-icon\" href=\"/favicon.png\">");
         siteBuilder.Append(head);
-        siteBuilder.Append(_htmlBuilder.AdditionalHeaderContent);
+        siteBuilder.Append(htmlBuilder.AdditionalHeaderContent);
         siteBuilder.Append("</head>");
         siteBuilder.Append(body);
         siteBuilder.Append("</html>");
